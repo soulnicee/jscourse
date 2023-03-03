@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 12</title>
+	</head>
+	<body>
+		<script>
+
+// ** 12 **
+// Отримуємо дані
+alert("Вітаємо. Це морський бій. Вам потрібно ввести висоту та ширину ігрового поля. За замовчуванням 10 * 10. На полі всього один однопалубний корабль. Ви маєте 10 пострілів. Щоб продовжити натисніть ОК");
+const fieldRowsNumber = parseInt(prompt("Введіть висоту ігрового поля", "10"));
+const fieldColumnsNumber = parseInt(prompt("Введіть ширину ігрового поля", "10"));
+const shipRowPlace = Math.floor(Math.random() * (fieldRowsNumber - 1 + 1)) + 1;
+const shipColumnPlace = Math.floor(Math.random() * (fieldColumnsNumber - 1 + 1)) + 1;
+const quantityOfShots = 10;
+let result = ``;
+
+for (let i = 1; i <= quantityOfShots; i++) {
+  let userShotRow = parseInt(prompt(`Постріл ${i}! Введіть координати корабля по осі Х, від 1 до ${fieldRowsNumber}`, ""));
+  let userShotColumn = parseInt(prompt(`Постріл ${i}! Введіть координати корабля по осі Y, від 1 до ${fieldColumnsNumber}`, ""));
+  if (shipRowPlace === userShotRow && shipColumnPlace === userShotColumn) {
+    result = `Вітаємо. Ви потопили корабель з ${i} спроби.`;
+    break;
+  }
+  if (i === 10) {
+    result = `Ви використали всі спроби. Корабель втік`;
+  }
+}
+
+document.write(`${result}`);
+</script>
+	</body>
+</html>

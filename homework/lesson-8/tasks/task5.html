@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 5</title>
+	</head>
+	<body>
+		<script>
+
+// ** 5 **
+////  Створити окремі функції, які переводять:
+//// 1)	Сантиметри у дюйми;
+//// 2)	Кілограми у фунти;
+//// 3)	Кілометри у милі.
+
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+// Отримуємо від користувача вхідні дані
+// Створюємо функції
+// Проводимо перетворення отриманих даних в потрібні
+// Виводимо результат
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+
+
+
+const userSantimeters = parseFloat(prompt('Скільки сантиметрів ви хочете перевести в дюйми?', ''))
+const userKilograms = parseFloat(prompt('Скільки кілограм ви хочете перевести в фунти?', ''))
+const userKilometers = parseFloat(prompt('Скільки кілометрів ви хочете перевести в милі?', ''))
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+function santimetersToInch(santimeters) {
+	const oneSantimInOneInch = 2.54
+	return santimeters / oneSantimInOneInch
+}
+function kilogramsToPounds(kilograms) {
+	const kilogramInPound = 2.205
+  return kilograms * kilogramInPound
+}
+function kilometersToMiles(kilometers) {
+	const kilometersInMile = 1.609
+  return kilometers / kilometersInMile
+}
+const santimetersInInch = santimetersToInch(userSantimeters)
+const kilogramsInPounds = kilogramsToPounds(userKilograms)
+const kilometersInMiles = kilometersToMiles(userKilometers)
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+
+document.write(`
+1. Ви ввели ${userSantimeters} сантиметрів - це ${santimetersInInch.toFixed(2)} дюймів
+2. Ви ввели ${userKilograms} кілограм - це ${kilogramsInPounds.toFixed(3)} фунтів
+3. Ви ввели ${userKilometers} кілометрів - це ${kilometersInMiles.toFixed(3)} миль
+`)
+</script>
+	</body>
+</html>

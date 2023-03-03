@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 3</title>
+	</head>
+	<body>
+		<script>
+
+// ** 3 **
+////Створити окремі функції, які для 4 чисел знаходять:
+//// 1)суму;
+//// 2)добуток;
+//// 3)середнє арифметичне;
+//// 4)мінімальне значення.
+
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+// Отримуємо від користувача 4 числа за допомогою циклу
+// Створюємо 4 функції
+// Записуємо обчислення кожної математичної дії
+// Повертаємо результат
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+let userNum1, userNum2, userNum3, userNum4
+for (let i = 1; i <= 4; i++) {
+  switch (i) {
+    case 1:
+      userNum1 = parseFloat(prompt(`Введіть число ${i}`, ""))
+      break
+    case 2:
+      userNum2 = parseFloat(prompt(`Введіть число ${i}`, ""))
+      break
+    case 3:
+      userNum3 = parseFloat(prompt(`Введіть число ${i}`, ""))
+      break
+    case 4:
+      userNum4 = parseFloat(prompt(`Введіть число ${i}`, ""))
+      break
+  }
+}
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+function getSum(a, b, c, d) {
+  return a + b + c + d
+}
+function getMultiple(a, b, c, d) {
+  return a * b * c * d
+}
+function getAvarageNum(a, b, c, d) {
+  return (a + b + c + d) / arguments.length
+}
+function getMinNumber(a, b, c, d) {
+  let minNum = arguments[0]
+  for (let i = 1; i < arguments.length; i++) {
+    if (minNum > arguments[i]) {
+      minNum = arguments[i]
+    }
+  }
+  return minNum
+}
+const sumNumbers = getSum(userNum1, userNum2, userNum3, userNum4)
+const multipleNumbers = getMultiple(userNum1, userNum2, userNum3, userNum4)
+const avarageNumber = getAvarageNum(userNum1, userNum2, userNum3, userNum4)
+const minNumber = getMinNumber(userNum1, userNum2, userNum3, userNum4)
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+confirm(`
+1)сума = ${sumNumbers}
+2)добуток = ${multipleNumbers}
+3)середнє арифметичне = ${avarageNumber.toFixed(2)}
+4)мінімальне значення = ${minNumber}
+`)
+
+</script>
+	</body>
+</html>

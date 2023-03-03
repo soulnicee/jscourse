@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 6</title>
+	</head>
+	<body>
+		<script>
+
+// ** 6 **
+//// Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців
+//// (таблиця заповнюється заданим фіксованим повідомленням).
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+// Створюємо функцію
+// створюємо цикли
+// Будуємо таблицю
+// показуємо результат
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+function tableCreate(rows, columns) {
+  document.write(`<table style="border: 3px solid #fff; padding: 1px;">`)
+  for (let i = 0; i < rows; i++) {
+    document.write(`<tr>`)
+    for (let j = 1; j <= columns; j++) {
+      document.write(`<td style="border: 2px solid #fff; padding: 15px;"></td>`)
+    }
+    document.write(`</tr>`)
+  }
+  document.write(`</table>`)
+}
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+tableCreate(80, 80)
+</script>
+	</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 1</title>
+	</head>
+	<body>
+		<script>
+
+// ** 1 **
+//// Створити функцію, яка за номером місяця повертає його назву.
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+// Отримуємо від користувача номер місяця
+// Створюємо функцію
+// Перевіряємо вказаний користувачем номер місяця і присвоюємо назву місяця змінній
+// Виводимо користувачу назву місяця
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+const userMonthNumber = parseInt(prompt("Введіть номер місяця", ""))
+
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+function getMonthName(monthNumber) {
+  let monthName = ""
+  switch (monthNumber) {
+    case 1:
+      monthName = "January"
+      break
+    case 2:
+      monthName = "February"
+      break
+    case 3:
+      monthName = "March"
+      break
+    case 4:
+      monthName = "April"
+      break
+    case 5:
+      monthName = "May"
+      break
+    case 6:
+      monthName = "June"
+      break
+    case 7:
+      monthName = "July"
+      break
+    case 8:
+      monthName = "August"
+      break
+    case 9:
+      monthName = "September"
+      break
+    case 10:
+      monthName = "October"
+      break
+    case 11:
+      monthName = "November"
+      break
+    case 12:
+      monthName = "December"
+      break
+    default:
+      monthName = "You wrote incorrect month number"
+      break
+  }
+  return monthName
+}
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+let userMonthNameShow = getMonthName(userMonthNumber)
+confirm(`${userMonthNameShow} now`)
+// document.write(`It's ${userMonthNameShow} now`)
+</script>
+	</body>
+</html>

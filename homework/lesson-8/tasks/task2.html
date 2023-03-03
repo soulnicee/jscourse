@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 2</title>
+	</head>
+	<body>
+		<script>
+
+// ** 2 **
+//// Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день робочим.
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+// отримуємо від користувача номер дня
+// створюємо функцію
+// перевіряємо введений користувачем день
+// виводимо результат
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+const userDayNumber = parseInt(prompt("Введіть номер дня", ""))
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+function getDayName(dayNumber) {
+  let dayName = ""
+  switch (dayNumber) {
+    case 1:
+      dayName = "Sunday. It's a day off"
+      break
+    case 2:
+      dayName = "Monday. It's a working day"
+      break
+    case 3:
+      dayName = "Tuesday. It's a working day"
+      break
+    case 4:
+      dayName = "Wednesday. It's a working day"
+      break
+    case 5:
+      dayName = "Thursday. It's a working day"
+      break
+    case 6:
+      dayName = "Friday. It's a working day"
+      break
+    case 7:
+      dayName = "Saturday. It's a day off"
+      break
+    default:
+		dayName = "You wrote incorrect day number. Please, try again"
+      break
+  }
+  return dayName
+}
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+let userDayNameShow = getDayName(userDayNumber)
+confirm(`${userDayNameShow}`)
+
+</script>
+	</body>
+</html>
