@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Task 4</title>
+	</head>
+	<body>
+		<script>
+		// ** 4 **
+// Отримуємо дані
+
+const userDrivingLicenseCategory = prompt('Яку категорію у водійському посвідченні ви маєте?(якщо декілька, вводьте по одній за раз)', ''),
+DrivingCategoryMotorcycle = 'A',
+DrivingCategoryCar = 'B',
+DrivingCategoryTruck = 'C';
+
+if (userDrivingLicenseCategory.toUpperCase() === DrivingCategoryMotorcycle) {
+	document.write(
+		`
+		<p>
+			Ви можете керувати мотоциклом!
+		</p>
+	`
+	)
+} else if (userDrivingLicenseCategory.toUpperCase() === DrivingCategoryCar) {
+	document.write(
+		`
+		<p>
+			Ви можете керувати легковим автомобілем!
+		</p>
+	`
+	)
+} else if (userDrivingLicenseCategory.toUpperCase() === DrivingCategoryTruck) {
+	document.write(
+		`
+		<p>
+			Ви можете керувати вантажним автомобілем!
+		</p>
+	`
+	)
+} else {
+	document.write(
+		`
+		<p>
+			Введені дані не коректні. Введіть категрію латинськими літерами. 
+		</p>
+	`
+	)
+}
+
+	</script>
+	</body>
+</html>

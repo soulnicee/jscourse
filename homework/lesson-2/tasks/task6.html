@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Task 6</title>
+	</head>
+	<body>
+		<script>
+		// Введення даних.
+const firstProductPrice = parseFloat(prompt('Введіть вартість товару №1 (гривні і копійки розділяйте крапкою) ', '')),
+	firstProductQuantity = parseInt(prompt('Введіть кількість одиниць товару №1', '')),
+	secondProductPrice = parseFloat(prompt('Введіть вартість товару №2 (гривні і копійки розділяйте крапкою)', '')),
+	secondProductQuantity = parseInt(prompt('Введіть кількість одиниць товару №2', '')),
+	thirdProductPrice = parseFloat(prompt('Введіть вартість товару №3 (гривні і копійки розділяйте крапкою)', '')),
+	thirdProductQuantity = parseInt(prompt('Введіть кількість одиниць товару №3', ''));
+
+	//  Виконання операцій
+let	firstProductSummaryPrice = firstProductPrice * firstProductQuantity,
+	secondProductSummaryPrice = secondProductPrice * secondProductQuantity,
+	thirdProductSummaryPrice = thirdProductPrice * thirdProductQuantity,
+	summaryPrice = firstProductSummaryPrice + secondProductSummaryPrice + thirdProductSummaryPrice,
+	summaryQuantity = firstProductQuantity + secondProductQuantity + thirdProductQuantity;
+
+
+// Виводимо результат
+document.write(
+	`
+	<h1>Товарний чек</h1>	
+	<div style="display: flex; justify-content: space-between; max-width: 750px;">
+	   <div>
+			<ol>
+				<li>
+					Товар №1
+				</li>
+				<li>
+					Товар №2
+				</li>
+				<li>
+					Товар №3
+				</li>
+			</ol>
+		</div>
+      <div>
+			<ol>
+				<li>
+					Кількість товару №1 - ${firstProductQuantity}
+				</li>
+				<li>
+					Кількість товару №2 - ${secondProductQuantity}
+				</li>
+				<li>
+					Кількість товару №3 - ${thirdProductQuantity}
+				</li>
+			</ol>
+		</div>
+      <div>
+			<ol>
+				<li>
+					Сумарна ціна за товар №1 - ${firstProductSummaryPrice.toFixed(2)}
+				</li>
+				<li>
+					Сумарна ціна за товар №2 - ${secondProductSummaryPrice.toFixed(2)}
+				</li>
+				<li>
+				Сумарна ціна за товар №3 - ${thirdProductSummaryPrice.toFixed(2)}
+				</li>
+			</ol>
+		</div>
+	</div>
+<h2>Сумарна ціна за ${summaryQuantity} куплених товарів становить ${summaryPrice.toFixed(2)}</h2>
+
+	`
+) 
+	</script>
+	</body>
+</html>

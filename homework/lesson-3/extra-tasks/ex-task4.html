@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 4</title>
+	</head>
+	<body>
+		<script>
+		// ** 5 **
+// Отримуємо дані
+const minQuantity = 1,
+  maxQuantity = 2;
+let harePositionRow = Math.floor(Math.random() * (maxQuantity - minQuantity + 1)) + minQuantity,
+  harePositionColumn = Math.floor(Math.random() * (maxQuantity - minQuantity + 1)) + minQuantity,
+  userAnswerRow = parseInt(prompt("Злови зайця. Ігрове поле - 2 х 2. Маєте дві спроби. Введіть номер рядка", "")),
+  userAnswerColumn = parseInt(prompt("Злови зайця. Ігрове поле - 2 х 2. Маєте дві спроби. Введіть номер колонки", "")),
+  userPoints = 0,
+  textForUser = "";
+if (harePositionRow === userAnswerRow && harePositionColumn === userAnswerColumn) {
+  userPoints = 100;
+  textForUser = "Вітаємо! Заєць потрапив у пастку з першої спроби!";
+} else {
+  userAnswerRow = parseInt(prompt("Злови зайця. Ігрове поле - 2 х 2. Спроба 2. Введіть номер рядка", ""));
+  userAnswerColumn = parseInt(prompt("Злови зайця. Ігрове поле - 2 х 2. Спроба 2. Введіть номер колонки", ""));
+  if (harePositionRow === userAnswerRow && harePositionColumn === userAnswerColumn) {
+    userPoints = 50;
+    textForUser = "Вітаємо! Заєць потрапив у пастку з другої спроби!";
+  } else {
+    userPoints = 0;
+    textForUser = "Співчуваємо! Заєць не потрапив у пастку!";
+  }
+}
+
+document.write(
+  `
+		<p>
+			${textForUser} Ви маєте ${userPoints} очків.
+		</p>
+	`
+);
+	</script>
+	</body>
+</html>

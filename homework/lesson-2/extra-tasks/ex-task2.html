@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 2</title>
+	</head>
+	<body>
+		<script>
+		// ** 3 **
+// Введення даних.
+const firstProductQuantity = parseInt(prompt('Введіть кількість першого товару', '')),
+	firstProductPrice = parseFloat(prompt('Введіть вартість за одиницю першого товару', '')),
+	secondProductQuantity = parseInt(prompt('Введіть кількість другого товару', '')),
+	secondProductPrice = parseFloat(prompt('Введіть вартість за одиницю другого товару', ''));
+
+//  Виконання операцій
+
+const firstSummaryProductPrice = firstProductQuantity * firstProductPrice,
+	secondSummaryProductPrice = secondProductQuantity * secondProductPrice,
+	summaryPrice = firstSummaryProductPrice + secondSummaryProductPrice;
+
+// Виводимо результат
+document.write(
+	`
+		<p>
+			Першого товару куплено на ${firstSummaryProductPrice}, другого товару куплено на ${secondSummaryProductPrice}, сумарно сплачено ${summaryPrice}
+		</p>
+	`
+)
+	</script>
+	</body>
+</html>

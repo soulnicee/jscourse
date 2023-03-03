@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 0</title>
+	</head>
+	<body>
+		<script>
+		// ** 12 **
+// Введення даних.
+const userMonets = parseInt(prompt('Введіть кількість монет', ''));
+// Проводимо обчислення
+grivnaInTwoPenny = Math.trunc(userMonets * 2 / 100)
+pennyInTwo = (userMonets * 2) % 100
+
+grivnaInFivePenny = Math.trunc(userMonets * 5 / 100)
+pennyInFive = (userMonets * 5) % 100
+
+grivnaInTwentyFivePenny = Math.trunc(userMonets * 25 / 100)
+pennyInTwentyFive = (userMonets * 25) % 100
+
+grivnaInFifteenPenny = Math.trunc(userMonets * 50 / 100)
+pennyInFifteen = (userMonets * 50) % 100
+
+document.write(
+	`
+		<p>
+			Якщо у вас монети номіналом 2 копійки - ви маєте ${grivnaInTwoPenny} грн. і ${pennyInTwo} коп.
+		</p>
+		<p>
+			Якщо у вас монети номіналом 5 копійок - ви маєте ${grivnaInFivePenny} грн. і ${pennyInFive} коп.
+		</p>
+		<p>
+			Якщо у вас монети номіналом 25 копійок - ви маєте ${grivnaInTwentyFivePenny} грн. і ${pennyInTwentyFive} коп.
+		</p>
+		<p>
+			Якщо у вас монети номіналом 50 копійок - ви маєте ${grivnaInFifteenPenny} грн. і ${pennyInFifteen} коп.
+		</p>
+	`
+)
+	</script>
+	</body>
+</html>

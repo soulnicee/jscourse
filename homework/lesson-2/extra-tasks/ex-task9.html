@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 9</title>
+	</head>
+	<body>
+		<script>
+		// ** 10 **
+// Введення даних.
+const userPenny = parseInt(prompt('Скільки монет номіналом "1 копійка" ви маєте?', ''))
+grivna = Math.trunc(userPenny / 100)
+penny = userPenny % 100
+document.write(
+	`
+		<p>
+			Ви маєте ${grivna} грн. і ${penny} коп.
+		</p>
+	`
+)
+	</script>
+	</body>
+</html>

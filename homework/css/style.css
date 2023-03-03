@@ -1,0 +1,66 @@
+body {
+  background-color: #000;
+  color: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.lessons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+.lessons__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.lessons__item {
+}
+.lessons__link {
+  transition: all 0.3s ease 0s;
+}
+.lessons__link:hover {
+  color: greenyellow;
+}
+/* --------------------------------------------------------------------------------------------------------------------- */
+
+.task {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  flex-direction: column;
+  row-gap: 15px;
+  margin-bottom: 25px;
+}
+.task__title {
+}
+.task__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.task__item {
+	border: 2px solid #fff;
+	padding: 10px;
+}
+.task__link {
+  transition: all 0.3s ease 0s;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.task__link:hover {
+  color: greenyellow;
+}
+.task__description {
+	font-size: 18px;
+	max-width: 500px;
+}
+.button {
+	width: 100px;
+	height: 30px;
+	text-align: center;
+	border: 2px solid #fff;
+}

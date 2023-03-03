@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Task 4</title>
+	</head>
+	<body>
+		<script>
+		// Введення даних. Отримуємо аргументи від користувача
+const lengthSomethingСentimeters = parseInt(prompt('Введіть довжину в сантиметрах', '')),
+centimetersInMeters = 100,
+centimetersInKilometers = 100000;
+	// Проміжкові величини,  Виконання операцій
+let	lengthSomethingMeters = lengthSomethingСentimeters / centimetersInMeters,
+	lengthSomethingKilometers = lengthSomethingСentimeters / centimetersInKilometers;
+
+
+// Виводимо результат
+document.write(
+	`
+		<p>
+			${lengthSomethingСentimeters} сантиметрів становить ${lengthSomethingMeters} метрів або ${lengthSomethingKilometers} кілометрів :)
+		</p>
+	`
+)
+	</script>
+	</body>
+</html>

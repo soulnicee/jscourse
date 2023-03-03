@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 3</title>
+	</head>
+	<body>
+		<script>
+		// ** 4 **
+// Введення даних.
+const childAge = parseInt(prompt('Скільки повних років вашій дитині?', '')),
+	startStudyInKindergarten = 2,
+	startStudyInSchool = 6,
+	finishStudyInSchool = 18,
+	startStudyInUniversity = 18,
+	finishStudyInUniversity = 22;
+
+// Проміжкові величини
+
+
+//  Виконання операцій
+const beginingStudyInKindergarten = startStudyInKindergarten - childAge,
+	beginingStudyInSchool = startStudyInSchool - childAge,
+	finishingStudyInSchool = finishStudyInSchool - childAge,
+	beginingStudyInUniversity = startStudyInUniversity - childAge,
+	finishingStudyInUniversity = finishStudyInUniversity - childAge;
+
+// Похід в садочок
+let kingergartenPassed = `Ваша дитина піде до садочку через ${beginingStudyInKindergarten} років`;
+beginingStudyInKindergarten < 0
+	? kingergartenPassed = `Ваша дитина закінчила садочок ${Math.abs(beginingStudyInKindergarten)} років тому`
+	: null
+beginingStudyInKindergarten === 0
+	? kingergartenPassed = `Ваша дитина піде до садочку в цьому році`
+	: null
+
+
+// Похід до школи
+let schoolPassed = `Ваша дитина піде до школи через ${beginingStudyInSchool} років та закінчить школу через ${finishingStudyInSchool} років`;
+
+beginingStudyInSchool < 0
+	? schoolPassed = `Ваша дитина пішла до школи ${Math.abs(beginingStudyInSchool)} років тому та буде ще вчитися в школі ${(finishStudyInSchool - startStudyInSchool) - Math.abs(beginingStudyInSchool)} років`
+	: null
+finishingStudyInSchool === 0
+	? schoolPassed = `Ваша дитина пішла до школи ${Math.abs(beginingStudyInSchool)} років тому та закінчить школу в цьому році`
+	: null
+finishingStudyInSchool < 0
+	? schoolPassed = `Ваша дитина пішла до школи ${Math.abs(beginingStudyInSchool)} років тому та закінчила школу ${Math.abs(beginingStudyInUniversity)} років тому`
+	: null
+
+// Похід до університету
+let universityPassed = `Ваша дитина вступить до університету через ${beginingStudyInUniversity} років та випуститься з університету через ${finishingStudyInUniversity} років`;
+beginingStudyInUniversity < 0
+	? universityPassed = `Ваша дитина вступила до університету ${Math.abs(beginingStudyInUniversity)} років тому та буде ще вчитися в університеті ${(finishingStudyInUniversity - beginingStudyInUniversity) - Math.abs(beginingStudyInUniversity)} років`
+	: null
+
+finishingStudyInUniversity === 0
+	? universityPassed = `Ваша дитина вступила до університету ${Math.abs(beginingStudyInUniversity)} років тому та випуститься з університету в цьому році`
+	: null
+
+finishingStudyInUniversity < 0
+	? universityPassed = `Ваша дитина вступила до університету ${Math.abs(beginingStudyInUniversity)} років тому та випустилась ${childAge - finishStudyInUniversity} років тому`
+	: null
+
+// Виводимо результат
+document.write(
+	`
+		<p>
+			Вашій дитині ${childAge} років
+		</p>
+		<p>
+			${kingergartenPassed}
+		</p>
+		<p>
+			${schoolPassed}
+		</p>
+		<p>
+			${universityPassed}
+		</p>
+	`
+)
+	</script>
+	</body>
+</html>

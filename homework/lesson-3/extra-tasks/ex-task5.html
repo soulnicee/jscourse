@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 5</title>
+	</head>
+	<body>
+		<script>
+	// ** 6 **
+// Отримуємо дані
+const userGreetings = prompt('Вітаємо! Це гра кості. Якщо випадає парне число - ваші бали збільшуються на це число. Якщо не парне - відповідно зменшуються на це число. Ви маєте дві спроби. Чи робити другу спробу - вирішувати вам. Щоб розпочати - натисніть "OK"', '')
+const minNumber = 1,
+	maxNumber = 6;
+
+let userTry = '',
+	userPoints = 0,
+	randomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+
+console.log(userGreetings);
+
+if ((randomNumber % 2)) {
+	userPoints -= randomNumber;
+	userTry = prompt(`Випало число ${randomNumber}. Кількість ваших балів ${userPoints}. Щоб продовжити, натисніть ОК. Щоб закінчити гру - натисніть ВІДМІНА`, '')
+	randomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+	if (!userTry) {
+		if ((randomNumber % 2)) {
+			userPoints -= randomNumber;
+		} else {
+			userPoints += randomNumber;
+		}
+		userTry = prompt(`Випало число ${randomNumber}. Кількість ваших балів ${userPoints}.`, '')
+		if (userPoints < 0) {
+			document.write(
+				`
+		<p>
+			Кількість ваших балів ${userPoints}. Ви програли
+		</p>
+	`
+			)
+		} else if (userPoints > 0) {
+			document.write(
+				`
+		<p>
+			Кількість ваших балів ${userPoints}. Ви виграли
+		</p>
+	`
+			)
+		} else {
+			document.write(
+				`
+		<p>
+			Кількість ваших балів ${userPoints}. Нічия
+		</p>
+	`
+			)
+		}
+	} else {
+		if (userPoints < 0) {
+			document.write(
+				`
+		<p>
+			Кількість ваших балів ${userPoints}. Ви програли
+		</p>
+	`
+			)
+		} else if (userPoints > 0) {
+			document.write(
+				`
+		<p>
+			Кількість ваших балів ${userPoints}. Ви виграли
+		</p>
+	`
+			)
+		} else {
+			document.write(
+				`
+		<p>
+			Кількість ваших балів ${userPoints}. Нічия
+		</p>
+	`
+			)
+		}
+	}
+} else {
+	userPoints += randomNumber;
+	userTry = prompt(`Випало число ${randomNumber}. Кількість ваших балів ${userPoints}. Щоб продовжити, натисніть ОК. Щоб закінчити гру - натисніть ВІДМІНА`, '')
+	randomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+	if (!userTry) {
+		if ((randomNumber % 2)) {
+			userPoints -= randomNumber;
+		} else {
+			userPoints += randomNumber;
+		}
+		userTry = prompt(`Випало число ${randomNumber}. Кількість ваших балів ${userPoints}.`, '')
+		if (userPoints < 0) {
+			document.write(
+				`
+		<p>
+			Кількість ваших балів ${userPoints}. Ви програли
+		</p>
+	`
+			)
+		} else if (userPoints > 0) {
+			document.write(
+				`
+		<p>
+			Кількість ваших балів ${userPoints}. Ви виграли
+		</p>
+	`
+			)
+		} else {
+			document.write(
+				`
+		<p>
+			Кількість ваших балів ${userPoints}. Нічия
+		</p>
+	`
+			)
+		}
+	} else {
+		if (userPoints < 0) {
+			document.write(
+				`
+		<p>
+			Кількість ваших балів ${userPoints}. Ви програли
+		</p>
+	`
+			)
+		} else if (userPoints > 0) {
+			document.write(
+				`
+		<p>
+			Кількість ваших балів ${userPoints}. Ви виграли
+		</p>
+	`
+			)
+		} else {
+			document.write(
+				`
+		<p>
+			Кількість ваших балів ${userPoints}. Нічия
+		</p>
+	`
+			)
+		}
+	}
+}
+	</script>
+	</body>
+</html>

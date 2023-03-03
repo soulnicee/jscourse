@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Task 3</title>
+	</head>
+	<body>
+		<script>
+// Введення даних. Отримуємо аргументи від користувача
+const productPrice = parseFloat(prompt('Введіть ціну товару (гривні і копійки розділяйте крапкою)', '')),
+	productQuantity = parseInt(prompt('Введіть кількість товару', '')),
+	currentTax = parseInt(prompt('Введіть податкову ставку', '5')),
+	// Проміжкові величини
+	taxInPercent = currentTax / 100;
+// Виконання операцій
+let summaryPrice = productPrice * productQuantity,
+	taxFromSummaryPrice = summaryPrice * taxInPercent;
+
+// Виводимо результат
+document.write(
+	`
+		<p>
+			Загальна вартість становить ${summaryPrice.toFixed(2)} гривень, з них ${taxFromSummaryPrice.toFixed(2)} гривень ПДВ
+		</p>
+	`
+)
+	</script>
+	</body>
+</html>

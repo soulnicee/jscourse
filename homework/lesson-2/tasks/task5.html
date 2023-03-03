@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Task 5</title>
+	</head>
+	<body>
+		<script>
+		// Введення даних. Отримуємо аргументи від користувача
+// Отримуємо поточну дату та час
+const nowDay = new Date(),
+	// Проміжкові величини,  Виконання операцій
+	// За умовами задачі, нам дано кількість секунд з початку поточної доби, тому отримуємо ці дані
+   secondsFromDayBegining = nowDay.getHours() * 3600 + nowDay.getMinutes() * 60 + nowDay.getSeconds(),
+	hoursFromDayBegining = Math.floor(secondsFromDayBegining / 3600),
+	minutesFromDayBegining = Math.floor(secondsFromDayBegining / 60),
+	minutesFromHours = minutesFromDayBegining % 60;
+
+// Виводимо результат
+document.write(
+	`
+		<p>
+			Нове випробування разпочалось ${secondsFromDayBegining} секунд тому, або ${hoursFromDayBegining} годин і ${minutesFromHours} хвилин тому назад :)
+		</p>
+	`
+)
+	</script>
+	</body>
+</html>

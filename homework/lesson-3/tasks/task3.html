@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Task 3</title>
+	</head>
+	<body>
+		<script>
+// ** 3 **
+// Отримуємо дані
+const userAge = parseInt(prompt('Скільки вам повних років?', '')),
+	kindergartenAge = 2,
+	schoolAge = 6,
+	studentAge = 18,
+	employeeAge = 22,
+	pensionerAge = 65;
+
+if (userAge < kindergartenAge) {
+	document.write(
+		`
+		<p>
+			Ви немовля!
+		</p>
+	`
+	)
+} else if (userAge < schoolAge) {
+	document.write(
+		`
+		<p>
+			Ви дитинa у садочку!
+		</p>
+	`
+	)
+} else if (userAge < studentAge) {
+	document.write(
+		`
+		<p>
+			Ви школяр!
+		</p>
+	`
+	)
+} else if (userAge < employeeAge) {
+	document.write(
+		`
+		<p>
+			Ви студент!
+		</p>
+	`
+	)
+} else if (userAge < pensionerAge) {
+	document.write(
+		`
+		<p>
+			Ви працівник!
+		</p>
+	`
+	)
+} else {
+	document.write(
+		`
+		<p>
+			Ви пенсіонер!
+		</p>
+	`
+	)
+}
+	</script>
+	</body>
+</html>

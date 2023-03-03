@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Task 1</title>
+	</head>
+	<body>
+		<script>
+		// ** 1 **
+// Отримуємо дані
+const userProductPrice = parseFloat(prompt('Введіть ціну товару', '')),
+	userMoney = parseFloat(prompt('Скільки грошей ви маєте?', '')),
+	lotteryPrice = 4;
+
+
+if (userProductPrice > userMoney) {
+	document.write(
+		`
+		<p>
+			На превеликий жаль ваших грошей не достатньо для купівлі цього товару. Будь-ласка, роздобудьте більше грошей і повертайтесь.
+		</p>
+	`
+	)
+} else if ((userMoney - userProductPrice) >= lotteryPrice) {
+	document.write(
+		`
+		<p>
+			Ви успішно купили товар. Бачу, що ви азартна людина. У мене є для вас лотерея всього за ${lotteryPrice} гривні. Ви обовз'зково виграєте!
+		</p>
+	`
+	)
+} else {
+	document.write(
+		`
+		<p>
+			Ви успішно купили товар.
+		</p>
+	`
+	)
+}
+
+	</script>
+	</body>
+</html>

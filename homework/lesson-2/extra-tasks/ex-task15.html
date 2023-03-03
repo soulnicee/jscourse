@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 15</title>
+	</head>
+	<body>
+		<script>
+		// ** 16 **
+// Введення даних.
+
+const userMonth = parseInt(prompt('Вкажіть номер місяця, від 1 до 12', '')),
+	userNumber = parseInt(prompt('Який місяць буде через... (введіть через скільки місяців)', ''));
+
+let monthInYear = ((userMonth + userNumber) % 12)
+monthInYear === 0 ? 12 : monthInYear;
+
+document.write(
+	`
+		<p>
+			Через ${userNumber} місяців буде ${monthInYear} місяць
+		</p>
+	`
+)
+	</script>
+	</body>
+</html>

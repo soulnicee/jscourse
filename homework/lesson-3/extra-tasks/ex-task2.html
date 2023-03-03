@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 2</title>
+	</head>
+	<body>
+		<script>
+		// ** 2 **
+// Отримуємо дані
+const minNumber = 1,
+	maxNumber = 10,
+	randomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber,
+	userOneNumber = parseInt(prompt('Гравець 1: Введіть число від 1 до 10', '')),
+	userTwoNumber = parseInt(prompt('Гравець 2: Введіть число від 1 до 10', '')),
+	userOneDistance = Math.abs(randomNumber - userOneNumber),
+	userTwoDistance = Math.abs(randomNumber - userTwoNumber);
+
+
+if (userOneDistance < userTwoDistance) {
+	document.write(
+		`
+		<p>
+			Виграв перший гравець!
+		</p>
+	`
+	)
+} else if (userTwoDistance < userOneDistance) {
+	document.write(
+		`
+		<p>
+			Виграв другий гравець!
+		</p>
+	`
+	)
+} else {
+	document.write(
+		`
+		<p>
+			Нічия!
+		</p>
+	`
+	)
+}
+	</script>
+	</body>
+</html>

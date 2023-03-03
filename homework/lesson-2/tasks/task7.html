@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Task 7</title>
+	</head>
+	<body>
+		<script>
+		// Введення даних.
+const monthMinAmount = 1,
+	monthMaxAmount = 12,
+	dayMinAmount = 1,
+	dayMaxAmount = 7;
+
+
+//  Виконання операцій
+let randomMonthAmount = Math.floor(Math.random() * (monthMaxAmount - monthMinAmount + 1)) + monthMinAmount,
+ randomDayAmount = Math.floor(Math.random() * (dayMaxAmount - dayMinAmount + 1)) + dayMinAmount,
+ sumRandomDayAndRandomMonth = randomMonthAmount + randomDayAmount;
+
+
+
+
+
+
+// Виводимо результат
+document.write(
+	`
+		<p>
+			Номер випадкового місяця - ${randomMonthAmount}
+		</p>
+		<p>
+			Номер випадкового дня - ${randomDayAmount}
+		</p>
+		<p>
+			Сума номерів випадкового місяці і дня - ${sumRandomDayAndRandomMonth}
+		</p>
+	`
+)
+	</script>
+	</body>
+</html>

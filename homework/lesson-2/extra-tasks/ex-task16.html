@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 0</title>
+	</head>
+	<body>
+		<script>
+		// Введення даних.
+const userChar = prompt('Введіть літеру латинскього алфавіту у верхньому регістрі', '').toUpperCase(),
+	userOffset = parseInt(prompt('Введіть на скільки символів зробити зміщення, від 3 до 12', '')),
+	alphabetLatin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+	indexOfChar = alphabetLatin.indexOf(userChar),
+	newIndexOfChar = (indexOfChar + userOffset) % 26;
+let result = '';
+indexOfChar === -1 ? result = userChar : result = alphabetLatin[newIndexOfChar]
+
+document.write(
+	`
+		<p>
+			Введена вами буква була зміщена. Тепер це ${result}
+		</p>
+	`
+)
+	</script>
+	</body>
+</html>

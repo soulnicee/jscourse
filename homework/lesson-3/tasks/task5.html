@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Task 5</title>
+	</head>
+	<body>
+		<script>
+// ** 5 **
+// Отримуємо дані
+const userDayNumber = parseInt(prompt('Введіть номер дня тижня', ''));
+let dayName = "";
+
+switch (userDayNumber) {
+	case 1:
+		dayName = 'понеділок';
+		break;
+	case 2:
+		dayName = 'вівторок';
+		break;
+	case 3:
+		dayName = 'середа';
+		break;
+	case 4:
+		dayName = 'четвер';
+		break;
+	case 5:
+		dayName = "п'ятниця";
+		break;
+	case 6:
+		dayName = 'субота';
+		break;
+	case 7:
+		dayName = 'неділя';
+		break;
+
+	default:
+		dayName = 'такий день, якого не існує! Введіть коректні дані';
+		break;
+}
+
+document.write(
+	`
+		<p>
+			Сьогодні ${dayName}!
+		</p>
+	`
+)
+	</script>
+	</body>
+</html>

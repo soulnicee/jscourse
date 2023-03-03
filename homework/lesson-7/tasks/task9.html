@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 9</title>
+	</head>
+	<body>
+		<script>
+
+// ** 9 **
+//// Дано покази температур (довільна кількість).
+//// Розробити функцію, яка дозволить підрахувати кількість від’ємних показів температури.
+
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+// Отримуємо від користувача температури, використовуємо цикл
+// Створюємо функцію, яка приймає ці показники
+// Рахуємо відємні
+// виводимо відємні
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+const quantityOfTemparatures = parseInt(prompt("Скільки показників температури хочете ввести?", ""))
+
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+function getQuantityNegativeTemperatures(temperAmount) {
+  let negativeCounter = 0
+  for (let i = 1; i <= temperAmount; i++) {
+    let userTemperature = parseInt(prompt(`Введіть ${i} показник температури`, ""))
+    if (userTemperature < 0) {
+      negativeCounter += 1
+    }
+  }
+  return negativeCounter
+}
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+const userNegativeTempShow = getQuantityNegativeTemperatures(quantityOfTemparatures)
+confirm(`Температура менше нуля була ${userNegativeTempShow} разів!брррр`)
+</script>
+	</body>
+</html>

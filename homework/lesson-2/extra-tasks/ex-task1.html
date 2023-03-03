@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 1</title>
+	</head>
+	<body>
+		<script>
+		// ** 2 **
+// Введення даних.
+
+const userSalary = parseInt(prompt('Введіть вашу заробітню плату без копійок', '')),
+	costOfLiving = parseInt(prompt('Введіть розмір прожиткового мінімуму', ''))
+
+//  Виконання операцій
+socialSupport = costOfLiving - userSalary
+// Виводимо результат
+socialSupport <= 0
+	? document.write(
+		`
+		<p>
+			Соціальна допомога вам не передбачена
+		</p>
+	`
+	) : document.write(
+		`
+		<p>
+			Ваша соціальна допомога становить ${socialSupport} гривень
+		</p>
+	`
+	)
+	</script>
+	</body>
+</html>

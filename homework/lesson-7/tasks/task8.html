@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 8</title>
+	</head>
+	<body>
+		<script>
+// ** 8 **
+//// Створити функцію, яка виводить банер (у функцію передаються: зображення, 
+//// заголовок та посилання, куди переходимо при кліку на зображення (тег img 
+//// повине знаходитись у середині тега a: <a> <img src=”шлях”> </a>
+
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+// створюємо функцію з потрібними аргументами
+// створюємо розмітку для відображення банера
+// заповнюємо розмітку аргументами з функції
+// виводими банер
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+function showBanner(img, title, link) {
+	let banner = document.write(`
+	
+	<div style="display: flex; align-items: center; justify-content: center; row-gap: 15px; flex-direction: column;">
+<a href="${link}" target="_blank">
+	<img style="max-width: 700px; max-height: 700px;" src="${img}" alt="banner">
+</a>
+<h1 style="font-size: 22px; color: #fff;">${title}</h1>
+</div>
+	`)
+	return banner
+}
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+const userBanner = showBanner('../img/1.png','Its your banner','https://www.google.com')
+
+</script>
+
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 10</title>
+	</head>
+	<body>
+		<script>
+		// ** 11 **
+// Введення даних.
+const nowDay = new Date(),
+	userSeconds = parseInt(prompt('Введіть кількість секунд', '')),
+	userMinutes = parseInt(prompt('Введіть кількість хвилин', '')),
+
+	totalSeconds = (nowDay.getHours() * 3600) + (nowDay.getMinutes() * 60) + nowDay.getSeconds() + (userMinutes * 60) + userSeconds,
+	newHours = Math.floor(totalSeconds / 3600) % 24,
+	newMinutes = Math.floor(totalSeconds / 60) % 60,
+	newSeconds = totalSeconds % 60;
+
+document.write(
+	`
+		<p>
+			Через ${newMinutes} хв. і ${newSeconds} сек. буде ${newHours}:${newMinutes}:${newSeconds}
+		</p>
+	`
+)
+	</script>
+	</body>
+</html>

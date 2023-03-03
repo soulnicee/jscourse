@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 9</title>
+	</head>
+	<body>
+		<script>
+
+// ** 9 **
+// Отримуємо дані
+let userNumberOne = parseInt(prompt("Введіть перше число", "")),
+  userNumberTwo = parseInt(prompt("Введіть друге число", "")),
+  result = 0;
+if (userNumberOne > userNumberTwo) {
+  let userNumberCache = userNumberOne;
+  userNumberOne = userNumberTwo;
+  userNumberTwo = userNumberCache;
+}
+
+for (let i = userNumberOne + 1; i < userNumberTwo; i++) {
+  if (i % 2) {
+    result += i;
+  }
+}
+
+document.write(`
+Сума всіх непарних чисел в заданому діапазоні дорівнює ${result}
+Результат обчислення не включає введені числа. 
+`);
+
+</script>
+	</body>
+</html>

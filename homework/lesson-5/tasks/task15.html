@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 15</title>
+	</head>
+	<body>
+		<script>
+
+// ** 15 **
+// Отримуємо дані
+const userWeeksQuantity = parseInt(prompt("Введіть кількість тижнів", ""));
+let summaryUserProfit = 0;
+let summaryProfitPerWeek = 0;
+
+for (let i = 1; i <= userWeeksQuantity; i++) {
+  for (let j = 1; j <= 7; j++) {
+    let userProfitPerDay = parseFloat(prompt(`Введіть скільки коштів ви заробили за ${i} тиждень ${j} день`, ""));
+    summaryProfitPerWeek += userProfitPerDay;
+  }
+  document.write(`Сумарно заробили за ${i} тиждень ${summaryProfitPerWeek} гривень </br>`);
+  summaryUserProfit += summaryProfitPerWeek;
+  summaryProfitPerWeek -= summaryProfitPerWeek;
+}
+document.write(`Сумарно заробили ${summaryUserProfit} гривень за ${userWeeksQuantity} тижнів або за ${userWeeksQuantity * 7} днів`);
+
+</script>
+	</body>
+</html>

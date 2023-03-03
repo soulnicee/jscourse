@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 8</title>
+	</head>
+	<body>
+		<script>
+
+// ** 8 **
+// Отримуємо дані
+const userNumber = parseInt(prompt("Загадайте число від 1 до 10", ""));
+const minNumber = 1,
+  maxNumber = 10;
+let computerNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+let userAnswer = window.confirm(`Ви загадали число ${computerNumber}?`);
+while (!userAnswer) {
+  computerNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+  userAnswer = window.confirm(`Ви загадали число ${computerNumber}?`);
+  if (userAnswer) {
+    document.write("Я вгадав!");
+  }
+}
+</script>
+	</body>
+</html>

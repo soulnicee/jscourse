@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 13</title>
+	</head>
+	<body>
+		<script>
+		// ** 14 **
+// Введення даних.
+
+const userDayOfWeek = parseInt(prompt('Введіть день тижня(від 1 до 7)', '')),
+	userDayInFuture = parseInt(prompt('Який день буде через... (введіть через скільки днів)', ''));
+
+let dayInWeek = ((userDayOfWeek + userDayInFuture)  % 7)
+dayInWeek === 0 ? 7 : dayInWeek;
+
+document.write(
+	`
+		<p>
+			Через ${userDayInFuture} днів буде ${dayInWeek} день тижня
+		</p>
+	`
+)
+	</script>
+	</body>
+</html>

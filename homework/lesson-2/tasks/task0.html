@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Task 0</title>
+	</head>
+	<body>
+		<script>
+
+// Введення даних. Отримуємо аргументи від користувача
+const a = parseFloat(prompt('Введіть значення a', '')),
+	b = parseFloat(prompt('Введіть значення b', '')),
+	c = parseFloat(prompt('Введіть значення c', ''));
+
+
+// Виконання операцій
+let s1 = a + 12 + b,
+ s2 = Math.sqrt((a + b) / (2 * a)),
+ s3 = Math.cbrt((a + b) * c),
+ s4 = Math.sin(a / -b);
+
+// Виводимо результат
+document.write(
+	`
+	<ol>
+		<li>
+			${Math.round(s1)}
+		</li>
+		<li>
+			${s2.toFixed(2)}
+		</li>
+		<li>
+			${s3.toFixed(2)}
+		</li>
+		<li>
+			${s4.toFixed(2)}
+		</li>
+	</ol>
+	`
+)
+
+</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 13</title>
+	</head>
+	<body>
+		<script>
+
+// ** 13 **
+// Отримуємо дані
+const productPrice = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+let userPay, result;
+alert(`Вам потрібно сплатити ${productPrice}$`);
+let userAnswer = 0
+userPay = userAnswer;
+while (userPay < productPrice) {
+  let moneyNeed = productPrice - userPay;
+  userAnswer = parseInt(prompt(`Скільки можете оплатити? Ще залишилось до сплати ${moneyNeed}`, ""));
+  userPay += userAnswer;
+}
+if (userPay > productPrice) {
+  let moneyBack = userPay - productPrice;
+  result = `Покупка оплачена. Здача - ${moneyBack}`;
+} else result = `Покупка оплачена.`;
+document.write(`${result}`);
+
+</script>
+	</body>
+</html>

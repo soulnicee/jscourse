@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 7</title>
+	</head>
+	<body>
+		<script>
+// ** 8 **
+// Отримуємо дані
+const userFileFormatLetter = prompt('Введіть першу літеру розширення файлу («html», «doc», «jpeg», «mp3», «xls»)', '');
+let	programForOpen = '';
+switch (userFileFormatLetter.charAt(0).toLowerCase()) {
+	case 'h':
+		programForOpen = 'Блокнот, WordPad, Браузер, Редактор коду'
+		break;
+	case 'd':
+		programForOpen = 'Microsoft Word, Libra Office, etc'
+		break;
+	case 'j':
+		programForOpen = 'Paint'
+		break;
+	case 'm':
+		programForOpen = 'Aimp'
+		break;
+	case 'x':
+		programForOpen = 'Microsoft Excel'
+		break;
+	default:
+		programForOpen = 'Ввели некоректну літеру, спробуйте ще'
+		break;
+}
+
+document.write(
+	`
+		<p>
+			${programForOpen}
+		</p>
+	`
+)
+	</script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Task 0</title>
+	</head>
+	<body>
+		<script>
+
+// ** 0 **
+// Отримуємо дані
+const firstUserName = prompt("Введіть ім'я першої дитини", ''),
+	firstUserCandiesQuantity = parseInt(prompt('Скільки цукерок має перша дитина?', '')),
+	secondUserName = prompt("Введіть ім'я другої дитини", ''),
+	secondUserCandiesQuantity = parseInt(prompt("Скільки цукерок має друга дитина?", ''));
+
+// Проміжкові дії
+
+
+if (firstUserCandiesQuantity > secondUserCandiesQuantity) {
+	//Виведення результату
+	document.write(
+		`
+		<p>
+			У ${firstUserName} цукерок більше.
+		</p>
+	`
+	)
+} else if (secondUserCandiesQuantity > firstUserCandiesQuantity) {
+	//Виведення результату
+	document.write(
+		`
+		<p>
+			У ${secondUserName} цукерок більше.
+		</p>
+	`
+	)
+} else {
+	//Виведення результату
+	document.write(
+		`
+		<p>
+			${firstUserName} і ${secondUserName} мають однакову кількість цукерок.
+		</p>
+	`
+	)
+}
+
+</script>
+	</body>
+</html>

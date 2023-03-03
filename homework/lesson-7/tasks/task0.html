@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 0</title>
+	</head>
+	<body>
+		<script>
+
+// ** 0 **
+//// Створити функцію, яка за номером місяця повертає пору року, до якої відноситься цей місяць.
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+// Задаємо користувачу питання і отримуємо номер місяця
+// Створюємо функцію 
+// Порівнюємо отриману відповідь з номерами місяців
+// Виводимо користувачу відповідну пору року
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+const userMonthNumber = parseInt(prompt('Введіть номер місяця',''))
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+function getSeasonName(monthNumber) {
+  let seasonName = ""
+  if (monthNumber <= 2 || monthNumber === 12) {
+    seasonName = "Winter"
+  } else if (monthNumber <= 5) {
+    seasonName = "Spring"
+  } else if (monthNumber <= 8) {
+    seasonName = "Summer"
+  } else {
+    seasonName = "Autumn"
+  }
+  return seasonName
+}
+let userSeasonNameShow = getSeasonName(userMonthNumber)
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+confirm(`It's ${userSeasonNameShow} now`)
+// document.write(`It's ${userSeasonName} now`)
+
+</script>
+	</body>
+</html>

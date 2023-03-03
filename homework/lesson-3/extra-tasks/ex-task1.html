@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 1</title>
+	</head>
+	<body>
+		<script>
+// ** 1 **
+// Отримуємо дані
+const minNumber = 1,
+	maxNumber = 100,
+	numberOffset = 10,
+	firstRandomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber,
+	secondRandomNumber = Math.floor(Math.random() * (maxNumber - firstRandomNumber + 1)) + firstRandomNumber,
+	rangeStart = Math.min(firstRandomNumber, secondRandomNumber) - 10 < 1 ? 1 : Math.min(firstRandomNumber, secondRandomNumber) - 10,
+	rangeEnd = Math.max(firstRandomNumber, secondRandomNumber) + 10 > 100 ? 100 : Math.max(firstRandomNumber, secondRandomNumber) + 10,
+	userNumber = parseInt(prompt('Назвіть число від 1 до 100', ''));
+console.log(rangeStart);
+console.log(rangeEnd);
+console.log(userNumber);
+if (userNumber >= rangeStart && userNumber <= rangeEnd) {
+	document.write(
+		`
+		<p>
+			Вітаю, ви виграли!
+		</p>
+	`
+	)
+} else {
+	document.write(
+		`
+		<p>
+			Нажаль, ви програли!
+		</p>
+	`
+	)
+}
+	</script>
+	</body>
+</html>

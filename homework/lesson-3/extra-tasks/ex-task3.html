@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 3</title>
+	</head>
+	<body>
+		<script>
+		// ** 3 - 4 **
+let userNumbersOfSquare = parseInt(
+  prompt(
+    "Морський бій.Введіть кількість квадратів, на яких може бути розміщений ворожий корабель",
+    ""
+  )
+);
+if (userNumbersOfSquare < 1) {
+  userNumbersOfSquare = 1;
+}
+
+let minNumberOfSquare = 1,
+  enemiesWarshipSquare =
+    Math.floor(Math.random() * (userNumbersOfSquare - minNumberOfSquare + 1)) +
+    minNumberOfSquare;
+let userAnswer = parseInt(
+  prompt(
+    `Корабель може бути на 1 із ${userNumbersOfSquare} квдратів. Введіть номер квадрату, по якому хочете зробити постріл`,
+    ""
+  )
+);
+
+if (enemiesWarshipSquare - 1 === userAnswer || enemiesWarshipSquare + 1 === userAnswer) {
+  enemiesWarshipSquare = Math.floor(Math.random() * (userNumbersOfSquare - minNumberOfSquare + 1)) + minNumberOfSquare;
+  userAnswer = parseInt(prompt(`Вітаємо! Корабель ранений! Введіть номер квадрату, по якому хочете зробити постріл. Майте на увазі, корабель міг переміститися в іншу клітинку. Це остання спроба!`,""));
+  if (userAnswer === enemiesWarshipSquare) {
+    document.write(
+      `
+		<p>
+			Вітаємо! Корабель вбитий!
+		</p>
+	`
+    );
+  } else {
+    document.write(
+      `
+		<p>
+			Ви програли!
+		</p>
+	`
+    );
+  }
+} 
+
+else if (!(enemiesWarshipSquare - 1 === userAnswer || enemiesWarshipSquare + 1 === userAnswer) &&!(userAnswer === enemiesWarshipSquare)) {
+  enemiesWarshipSquare =
+    Math.floor(Math.random() * (userNumbersOfSquare - minNumberOfSquare + 1)) +
+    minNumberOfSquare;
+  userAnswer = parseInt(
+    prompt(
+      `Введіть номер квадрату, по якому хочете зробити постріл. Майте на увазі, корабель міг переміститися в іншу клітинку. Це остання спроба!`,
+      ""
+    )
+  );
+  if (userAnswer === enemiesWarshipSquare) {
+    document.write(
+      `
+		<p>
+			Вітаємо! Корабель вбитий!
+		</p>
+	`
+    );
+  } else {
+    document.write(
+      `
+		<p>
+			Ви програли!
+		</p>
+	`
+    );
+  }
+} 
+
+
+else {
+  document.write(
+    `
+		<p>
+			Вітаємо! Корабель вбитий!
+		</p>
+	`
+  );
+}
+	</script>
+	</body>
+</html>

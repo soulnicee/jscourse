@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Task 2</title>
+	</head>
+	<body>
+		<script>
+let userAnswer = parseInt(prompt('Вгадайте число від 1 до 5. У вас є 2 спроби. Спроба перша. Введіть число', ''));
+const minNumber = 1,
+	maxNumber = 5,
+	randomNumber = Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+
+if (userAnswer < minNumber || userAnswer > maxNumber) {
+	document.write(
+		`
+		<p>
+			Введене число виходить за допустимий діапазон чисел. Спробуйте спочатку.
+		</p>
+	`
+	)
+} else if (userAnswer === randomNumber) {
+	document.write(
+		`
+		<p>
+			Вітаємо, сьогодні фортуна на вашій стороні! Ви вгадали число з першого разу! Купіть лотерею з попередньої задачі, вам точно пощастить!
+		</p>
+	`
+	)
+} else {
+	userAnswer = parseInt(prompt('Вгадайте число від 1 до 5. У вас є 2 спроби. Спроба перша. Введіть число', ''))
+	if (userAnswer === randomNumber) {
+		document.write(
+			`
+		<p>
+			Ви вгадали число з другого разу!
+		</p>
+	`
+		)
+	} else {
+		document.write(
+			`
+		<p>
+			Ви не вгадали число!
+		</p>
+	`
+		)
+	}
+}
+	</script>
+	</body>
+</html>

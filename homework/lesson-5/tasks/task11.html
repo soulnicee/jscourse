@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 11</title>
+	</head>
+	<body style="display: flex; flex-direction: column; row-gap: 30px; align-items: center;">
+		<script>
+
+// ** 11 **
+// Отримуємо дані
+const minSlotColumn = 1,
+  maxSlotColumn = 4,
+  firstSlotNumber = Math.floor(Math.random() * (maxSlotColumn - minSlotColumn + 1)) + minSlotColumn,
+  secondSlotNumber = Math.floor(Math.random() * (maxSlotColumn - minSlotColumn + 1)) + minSlotColumn,
+  thirdSlotNumber = Math.floor(Math.random() * (maxSlotColumn - minSlotColumn + 1)) + minSlotColumn;
+let userWin = 0,
+  imagesToShow = ``;
+for (let i = 0; i < 3; i++) {
+  let imageNumber;
+  switch (i) {
+    case 0:
+      imageNumber = firstSlotNumber;
+      break;
+    case 1:
+      imageNumber = secondSlotNumber;
+      break;
+    case 2:
+      imageNumber = thirdSlotNumber;
+      break;
+  }
+  imagesToShow += `<div style="flex: 0 0 33.333% min-height: 300px; max-height:300px;"><img src="../img/${imageNumber}.png" style="object-fit: contain; width: 100%; height: 100%;" alt="slot image"></div>`;
+}
+
+if (firstSlotNumber === secondSlotNumber && firstSlotNumber === thirdSlotNumber) {
+  switch (firstSlotNumber) {
+    case 1:
+      userWin = "Ви виграли 100 гривень";
+      break;
+    case 2:
+      userWin = "Ви виграли 200 гривень";
+      break;
+    case 3:
+      userWin = "Ви виграли 500 гривень";
+      break;
+    case 4:
+      userWin = "Ви виграли 1000 гривень";
+      break;
+  }
+} else {
+	userWin = 'Ви не виграли нічого!'
+}
+document.write(`
+    <div style="display: flex; column-gap: 20px; width: 800px; margin: 0px auto; margin-bottom: 20px;">${imagesToShow}</div>
+	 <div style="color: red; text-align: center; font-size: 32px;">${userWin}</div>
+ <button type="button" class="button">Грати ще</button>
+  `);
+document.querySelector('.button').addEventListener('click', function() {
+  location.reload();
+});
+</script>
+	</body>
+</html>

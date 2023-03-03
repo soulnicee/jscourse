@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 0</title>
+	</head>
+	<body>
+		<script>
+		// ** 1 **
+// Введення даних.
+const userWindowWidth = window.innerWidth,
+	quantityElementsInRow = parseInt(prompt(`Ширина вашого екрану ${userWindowWidth} пікселя. Скільки елементів хочете відобразити в рядку?`, ''))
+
+// Проміжкові величини //  Виконання операцій
+widthElementsInRow = userWindowWidth / quantityElementsInRow
+
+// Виводимо результат
+document.write(
+	`
+		<p>
+			Враховуючи ширину екрану ${userWindowWidth} пікселя,  ширина кожного з ${quantityElementsInRow} елементів буде становити ${widthElementsInRow.toFixed(2)} пікселя.
+		</p>
+	`
+)
+	</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Extra task 8</title>
+	</head>
+	<body>
+		<script>
+		// ** 9 **
+// Введення даних.
+const nowDay = new Date(),
+	// Проміжкові величини,  Виконання операцій
+	secondsFromDayBegining = nowDay.getHours() * 3600 + nowDay.getMinutes() * 60 + nowDay.getSeconds(),
+	hoursFromDayBegining = Math.floor(secondsFromDayBegining / 3600),
+	minutesFromDayBegining = Math.floor(secondsFromDayBegining / 60),
+	minutesFromHours = minutesFromDayBegining - hoursFromDayBegining * 60;
+
+// Виводимо результат
+document.write(
+	`
+		<p>
+			Нове випробування разпочалось ${secondsFromDayBegining} секунд тому, а саме ${hoursFromDayBegining} годин і ${minutesFromHours} хвилин
+		</p>
+	`
+)
+	</script>
+	</body>
+</html>
