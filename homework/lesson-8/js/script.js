@@ -645,10 +645,7 @@ function getUserAmountOfWin(arr) {
   do {
     userAnswer = parseInt(prompt(`Є 50 квадратів з призами. Який обираєте? Ваш баланс ${sumWin}`))
     if (!isNaN(userAnswer)) {
-      console.log(arr[userAnswer])
       sumWin += arr[userAnswer]
-
-      console.log(sumWin)
     }
   } while (!isNaN(userAnswer))
   
