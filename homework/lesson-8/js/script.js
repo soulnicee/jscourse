@@ -456,7 +456,7 @@ alert(`Маючи ${userMoneyHas} ви можете купити: ${userCanBuyIt
 */
 
 //========================================================================================================================================================
-
+/*
 // ** 6 **
 ////  Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
 //// 1)	за весь рік;
@@ -476,14 +476,14 @@ function getRandomNumber(minNumber, maxNumber) {
   return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
 }
 // функція для генерації платіжок помісячно
-function getMonthlyPayment() {
+function getMonthlyPayment(monthQuantity) {
   let monthPay = []
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < monthQuantity; i++) {
     monthPay.push(getRandomNumber(50, 150))
   }
   return monthPay
 }
-const yearsPayment = getMonthlyPayment()
+const yearsPayment = getMonthlyPayment(12)
 
 // ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
 // функція для підрахунку сумарного річного платежу
@@ -569,24 +569,81 @@ function getFirstFromQuarterPayment(payments) {
 const firstFromQuarterPayment = getFirstFromQuarterPayment(yearsPayment)
 
 
+// простіший варіант (№2) цей варіант кращий і швидший
+// функція для підрахунку суми
+function getSummYearsPayments(payments, startMonth, finishMonth) {
+	let sumForEverything = 0
+	for (let i = startMonth; i <= finishMonth; i++) {
+    sumForEverything += payments[i - 1]
+  }
+  return sumForEverything
+}
 
+const summaryPaymentPerYearsV2 = getSummYearsPayments(yearsPayment, 1, 12)
+const firstHalfPaymentV2 = getSummYearsPayments(yearsPayment, 1, 6)
+const secondHalfPaymentV2 = getSummYearsPayments(yearsPayment, 7, 12)
+const summerPaymentsV2 = getSummYearsPayments(yearsPayment, 6, 8)
+const secondQuaterPaymentV2 = getSummYearsPayments(yearsPayment, 4, 6)
+function getEvenMonthNum(payments, startMonth, finishMonth) {
+	let evenMonth = []
+	for (let i = startMonth - 1; i <= finishMonth; i++) {
+    if ((i + 1) % 2 === 0) {
+      evenMonth.push(payments[i])
+    }
+  }
+  return evenMonth
+}
+const evenMonthPayed = getEvenMonthNum(yearsPayment, 1, 12)
+const evenMonthPaymentV2 = getSummYearsPayments(evenMonthPayed, 1, 6)
 
-// function getSummYearsPayments(payments, startMonth, finishMonth, monthQuantity) {
-// 	let sumForEverything = 0
-// 	for (let i = 0; i < payments.length; i++) {
-//     sumForEverything += payments[i]
-//   }
-//   return sumForEverything
-// }
 
 // ##4 ** Display the result ** Виведення результату ** Вывод результата **
-// alert(`
-// 1. Ви сплатили за весь рік ${summaryPaymentPerYears}
-// 2. Ви сплатили у першій половині року ${firstHalfPayment}
-// 3. Ви сплатили у другій половині року ${secondHalfPayment}
-// 4. Ви сплатили за літо ${summerPayments}
-// 5. Ви сплатили за ІІ квартал ${secondQuaterPayment}
-// 6. Ви сплатили за парні місяці (з парними номерами) ${evenMonthPayment}
-// 7. Ви сплатили за місяці, які є початковими у сезоні (весна, літо, осінь, зима) ${firstFromQuarterPayment}
+alert(`
+1. Ви сплатили за весь рік ${summaryPaymentPerYears}
+2. Ви сплатили у першій половині року ${firstHalfPayment}
+3. Ви сплатили у другій половині року ${secondHalfPayment}
+4. Ви сплатили за літо ${summerPayments}
+5. Ви сплатили за ІІ квартал ${secondQuaterPayment}
+6. Ви сплатили за парні місяці (з парними номерами) ${evenMonthPayment}
+7. Ви сплатили за місяці, які є початковими у сезоні (весна, літо, осінь, зима) ${firstFromQuarterPayment}
+`)
+*/
 
-// `)
+// ** 7 **
+//// Дано одновимірний масив, у якому зберігається певна виграшна сума
+//// (елементи заповнюються випадковим чином значеннями від -500 до 500).
+//// Надаючи користувачу можливість вибирати номери елементів
+//// (поки він не відмовиться). Знаходити сумарний виграш.
+
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+// створюємо масив з виграшами, генеруючи випадкові числа.
+// 
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+function getRandomNumber(minNumber, maxNumber) {
+  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
+}
+
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+//генерує рандомні числа і наповнює ними масив
+function getRandomGain(winningNumbers) {
+  const winNum = []
+  for (let i = 0; i < winningNumbers; i++) {
+    winNum.push(getRandomNumber(-500, 500))
+  }
+  return winNum
+}
+const luckyNumbers = getRandomGain(50)
+
+function playWithUser(numbers) {
+	
+}
+
+const userAnswer = parseInt(prompt(`
+Оберіть число від 1 до ${luckyNumbers.length} 
+Щоб закінчити гру - натісніть 'відміна'
+Ваш виграш становить ${} баксів
+`, ""))
+const win = playWithUser(luckyNumbers)
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
