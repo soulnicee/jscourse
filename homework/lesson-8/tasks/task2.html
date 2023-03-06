@@ -9,52 +9,41 @@
 	</head>
 	<body>
 		<script>
-
 // ** 2 **
-//// Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день робочим.
+//// Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».
+
 // ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
-// отримуємо від користувача номер дня
-// створюємо функцію
-// перевіряємо введений користувачем день
+// Створюємо масив, наповнюємо його іменами.
+// створюємо функцію яка буде знаходити задане імя в масиві
+// лічильник буде збільшуватися при кожному успішному входженні
 // виводимо результат
 // ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
 
 // ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
-const userDayNumber = parseInt(prompt("Введіть номер дня", ""))
-// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
-function getDayName(dayNumber) {
-  let dayName = ""
-  switch (dayNumber) {
-    case 1:
-      dayName = "Sunday. It's a day off"
-      break
-    case 2:
-      dayName = "Monday. It's a working day"
-      break
-    case 3:
-      dayName = "Tuesday. It's a working day"
-      break
-    case 4:
-      dayName = "Wednesday. It's a working day"
-      break
-    case 5:
-      dayName = "Thursday. It's a working day"
-      break
-    case 6:
-      dayName = "Friday. It's a working day"
-      break
-    case 7:
-      dayName = "Saturday. It's a day off"
-      break
-    default:
-		dayName = "You wrote incorrect day number. Please, try again"
-      break
+const quantityOfUserNames = parseInt(prompt("Скільки імен хочете ввести?", ""))
+const needName = "Іван"
+function getUserNames(quantity) {
+  const names = []
+  for (let i = 0; i < quantity; i++) {
+    names.push(prompt("Введіть імена українською мовобю з великої літери", ""))
   }
-  return dayName
+  return names
 }
+const userNames = getUserNames(quantityOfUserNames)
+
+function getSomeNameQuantity(names, name) {
+  let nameQuantity = 0
+  for (let i = 0; i < names.length; i++) {
+    if (name === names[i]) {
+      nameQuantity += 1
+    }
+  }
+  return nameQuantity
+}
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+const quantityOfNeedName = getSomeNameQuantity(userNames, needName)
 // ##4 ** Display the result ** Виведення результату ** Вывод результата **
-let userDayNameShow = getDayName(userDayNumber)
-confirm(`${userDayNameShow}`)
+alert(`Вказане імя зустрічається ${quantityOfNeedName} разів`)
 
 </script>
 	</body>

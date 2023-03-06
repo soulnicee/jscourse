@@ -9,70 +9,109 @@
 	</head>
 	<body>
 		<script>
-
 // ** 3 **
-////Створити окремі функції, які для 4 чисел знаходять:
-//// 1)суму;
-//// 2)добуток;
-//// 3)середнє арифметичне;
-//// 4)мінімальне значення.
+//// Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+//// •	починаються на букву «А»;
+//// •	перша і остання літери співпадають;
+//// •	складаються з більше ніш 5 символів;
 
 // ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
-// Отримуємо від користувача 4 числа за допомогою циклу
-// Створюємо 4 функції
-// Записуємо обчислення кожної математичної дії
-// Повертаємо результат
+// Створення вхідних даних
+// створюємо функцію для знаходження і підрахунку номерів які починаються з букви А
+// створюємо функцію для знаходження і підрахунку номерів в яких перша і остання літери співпадають
+// створюємо функцію для знаходження і підрахунку номерів які складаються більше ніж з 5 символів
 // ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
-
+const possibleSeriesNumbers = ["АК", "КК", "ТК", "МК", "АА", "КА", "ТТ", "ТА", "АВ", "КВ", "ММ", "ОК", "АС", "КС", "СМ", "ТС", "АЕ", "КЕ", "РР", "МІ", "АН", "КН", "ТН", "МН", "АІ", "КІ", "ТІ", "МЕ", "АМ", "КМ", "ТМ", "МВ", "АО", "КО", "МТ", "МО", "АР", "КР", "ТР", "МР", "АТ", "КТ", "ТО", "ХС", "ВА", "НА", "ХА", "ЕА", "ВВ", "НВ", "ЕЕ", "ЕВ", "ВС", "НС", "СС", "ЕС", "ВЕ", "НЕ", "ХЕ", "ХН", "ВН", "НН", "ОО", "ЕН", "ВІ", "НІ", "ХІ", "ЕІ", "ВК", "НК", "ХК", "ЕК", "ВМ", "НМ", "ХМ", "ЕМ", "ВО", "НО", "ХО", "ЕО", "АХ", "КХ", "ХХ", "ЕХ", "ВТ", "НТ", "ХТ", "ЕТ", "ВХ", "НХ", "ОХ", "РХ", "СА", "ІА", "ОА", "РА", "СВ", "ІВ", "ОВ", "РВ", "СЕ", "ІЕ", "ОЕ", "РЕ", "СН", "ІН", "ОН", "РН"]
+const ukraineAlphabet = ["А", "Б", "В", "Г", "Д", "Е", "З", "І", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ю", "Я"]
 // ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
-let userNum1, userNum2, userNum3, userNum4
-for (let i = 1; i <= 4; i++) {
-  switch (i) {
-    case 1:
-      userNum1 = parseFloat(prompt(`Введіть число ${i}`, ""))
-      break
-    case 2:
-      userNum2 = parseFloat(prompt(`Введіть число ${i}`, ""))
-      break
-    case 3:
-      userNum3 = parseFloat(prompt(`Введіть число ${i}`, ""))
-      break
-    case 4:
-      userNum4 = parseFloat(prompt(`Введіть число ${i}`, ""))
-      break
+const userNumbersQuantity = parseInt(prompt("Скільки автомобільних номерів хочете згенерувати?", "1000"))
+function getRandomNumber(minNumber, maxNumber) {
+  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
+}
+// функція для отримання випадкових серій номерів в кількості вказаній користувачем
+function getRandomSeriesNumber(quantity, seriesNumbers) {
+  serNum = []
+  for (let i = 0; i < quantity; i++) {
+    let randomNumSer = getRandomNumber(1, seriesNumbers.length - 1)
+    serNum.push(seriesNumbers[randomNumSer])
   }
+  return serNum
 }
+// функція для отримання цифр в номері
+function getRandomMiddleNumber(quantity) {
+  let numbers = []
+  for (let i = 0; i < quantity; i++) {
+    let randNum = getRandomNumber(1, 9999)
+    numbers.push(randNum)
+  }
+  return numbers
+}
+// функція для отримання додаткових 2 літер в кінці номера
+function getLastTwoLetter(quantity, lastSymbols) {
+  
+  lastLetter = []
+  for (let i = 0; i < quantity; i++) {
+    let randomLett1 = getRandomNumber(1, lastSymbols.length - 1)
+    let randomLett2 = getRandomNumber(1, lastSymbols.length - 1)
+    lastLetter.push(lastSymbols[randomLett1] + lastSymbols[randomLett2])
+  }
+  return lastLetter
+}
+//Функція для отримання рандомних номерів автомобілів
+function getVehicleNumbers(quantity) {
+  const randomSeriesNumbers = getRandomSeriesNumber(quantity, possibleSeriesNumbers)
+  const randomMiddleNumbers = getRandomMiddleNumber(quantity)
+  const randomLastTwoLetters = getLastTwoLetter(quantity, ukraineAlphabet)
+  let result = []
+  for (let i = 0; i < quantity; i++) {
+    result.push(randomSeriesNumbers[i] + randomMiddleNumbers[i] + randomLastTwoLetters[i])
+  }
+  return result
+}
+const vehicleNumbers = getVehicleNumbers(userNumbersQuantity)
+
 // ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
-function getSum(a, b, c, d) {
-  return a + b + c + d
-}
-function getMultiple(a, b, c, d) {
-  return a * b * c * d
-}
-function getAvarageNum(a, b, c, d) {
-  return (a + b + c + d) / arguments.length
-}
-function getMinNumber(a, b, c, d) {
-  let minNum = arguments[0]
-  for (let i = 1; i < arguments.length; i++) {
-    if (minNum > arguments[i]) {
-      minNum = arguments[i]
+// функція для зноходження номерів автомобілів з першою літерою А
+function getVehicleNumbersBeginLatterA(numbers) {
+  let vehWithACounter = 0
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i][0] === "А") {
+      vehWithACounter += 1
     }
   }
-  return minNum
+  return vehWithACounter
 }
-const sumNumbers = getSum(userNum1, userNum2, userNum3, userNum4)
-const multipleNumbers = getMultiple(userNum1, userNum2, userNum3, userNum4)
-const avarageNumber = getAvarageNum(userNum1, userNum2, userNum3, userNum4)
-const minNumber = getMinNumber(userNum1, userNum2, userNum3, userNum4)
-// ##4 ** Display the result ** Виведення результату ** Вывод результата **
-confirm(`
-1)сума = ${sumNumbers}
-2)добуток = ${multipleNumbers}
-3)середнє арифметичне = ${avarageNumber.toFixed(2)}
-4)мінімальне значення = ${minNumber}
-`)
+const vehicleNumbersBeginLatterAQuantity = getVehicleNumbersBeginLatterA(vehicleNumbers)
 
+// функція для зноходження номерів автомобілів в яких перша і остання літери співпадають
+function getVehicleNumbersWithSameLetters(numbers) {
+  let sameLetter = 0
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i][0] === numbers[i][numbers[i].length - 1]) {
+      sameLetter += 1
+    }
+  }
+  return sameLetter
+}
+const vehicleNumbersWithSameLetters = getVehicleNumbersWithSameLetters(vehicleNumbers)
+
+// функція для знаходження і підрахунку номерів які складаються більше ніж з 5 символів
+function getVehicleNumbersLengthMoreFive(numbers) {
+	let moreFive = 0
+	for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i].length > 5) {
+		moreFive += 1
+    }
+  }
+  return moreFive
+}
+const vehicleNumbersLengthMoreFive = getVehicleNumbersLengthMoreFive(vehicleNumbers)
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+alert(`
+1. Кількість номерів, які починаються на літеру 'A' = ${vehicleNumbersBeginLatterAQuantity}
+1. Кількість номерів, в яких перша і остання літера однакові = ${vehicleNumbersWithSameLetters}
+1. Кількість номерів, в яких символів більше за 5 = ${vehicleNumbersLengthMoreFive}
+`)
 </script>
 	</body>
 </html>

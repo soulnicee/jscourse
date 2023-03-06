@@ -9,69 +9,114 @@
 	</head>
 	<body>
 		<script>
-
 // ** 1 **
-//// Створити функцію, яка за номером місяця повертає його назву.
+//// Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести на екран:
+//// номери днів, протягом яких кількість відвідувачів була меншою за 20;
+//// номери днів, коли кількість відвідувачів була мінімальною;
+//// номери днів, коли кількість відвідувачів була максимальною;
+//// загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних.
+
 // ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
-// Отримуємо від користувача номер місяця
-// Створюємо функцію
-// Перевіряємо вказаний користувачем номер місяця і присвоюємо назву місяця змінній
-// Виводимо користувачу назву місяця
+// створюємо масив з кількістю відвідувачів за тиждень
+// створюємо функцію для для отримання днів, коли клієнтів було менше 20
+// створюємо функції для отримання дня з мінімальними і максимальними клієнтами
+// створюємо функцію для підрахунку клієнтів в робочі і вихідні
+
 // ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
 
 // ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
-const userMonthNumber = parseInt(prompt("Введіть номер місяця", ""))
-
-// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
-function getMonthName(monthNumber) {
-  let monthName = ""
-  switch (monthNumber) {
-    case 1:
-      monthName = "January"
-      break
-    case 2:
-      monthName = "February"
-      break
-    case 3:
-      monthName = "March"
-      break
-    case 4:
-      monthName = "April"
-      break
-    case 5:
-      monthName = "May"
-      break
-    case 6:
-      monthName = "June"
-      break
-    case 7:
-      monthName = "July"
-      break
-    case 8:
-      monthName = "August"
-      break
-    case 9:
-      monthName = "September"
-      break
-    case 10:
-      monthName = "October"
-      break
-    case 11:
-      monthName = "November"
-      break
-    case 12:
-      monthName = "December"
-      break
-    default:
-      monthName = "You wrote incorrect month number"
-      break
-  }
-  return monthName
+function getRandomNumber(minNumber, maxNumber) {
+  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
 }
+const visitorsWeekList = []
+for (let i = 0; i < 7; i++) {
+  visitorsWeekList.push(getRandomNumber(1, 40))
+}
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+// Функція для знаходження кількості днів, коли клієнтів було менше 20
+function getDayWhenVisitorsLessTwenty(visitorsList) {
+  let lessVisitors = []
+  for (let i = 0; i < visitorsList.length; i++) {
+    if (visitorsList[i] < 20) {
+      lessVisitors.push(i + 1)
+    }
+  }
+  return lessVisitors
+}
+// Функція для знаходження дня, коли клієнтів було найменше
+function getMinVisitorsDay(visitorsList) {
+  let minCounter = Infinity
+  for (let i = 0; i < visitorsList.length; i++) {
+    if (minCounter > visitorsList[i]) {
+      minCounter = visitorsList[i]
+    }
+  }
+  return minCounter
+}
+const minOneDay = getMinVisitorsDay(visitorsWeekList)
+// Функція для знаходження кількості днів, коли клієнтів було найменше
+function getMinVisitorsDaysAll(visitorsList, minUserDay) {
+  let minDay = []
+  for (let i = 0; i < visitorsList.length; i++) {
+    if (minUserDay === visitorsList[i]) {
+      minDay.push(i + 1)
+    }
+  }
+  return minDay
+}
+// Функція для знаходження дня, коли клієнтів було найбільше
+function getMaxVisitorsDay(visitorsList) {
+  let maxCounter = -Infinity
+  for (let i = 0; i < visitorsList.length; i++) {
+    if (maxCounter < visitorsList[i]) {
+      maxCounter = visitorsList[i]
+    }
+  }
+  return maxCounter
+}
+
+const maxOneDay = getMaxVisitorsDay(visitorsWeekList)
+// Функція для знаходження кількості днів, коли клієнтів було ннайбільше
+function getMinVisitorsDaysAll(visitorsList, maxUserDay) {
+  let maxDay = []
+  for (let i = 0; i < visitorsList.length; i++) {
+    if (maxUserDay === visitorsList[i]) {
+      maxDay.push(i + 1)
+    }
+  }
+  return maxDay
+}
+
+// Функція для знаходження сумарної кількості клієнтів в робочі дня
+function getSumaryVisitorsWorkDay(visitorsList) {
+  getSum = 0
+  for (let i = 0; i < 5; i++) {
+    getSum += visitorsList[i]
+  }
+  return getSum
+}
+// Функція для знаходження сумарної кількості клієнтів в вихідні дня
+function getSumaryVisitorsOffDay(visitorsList) {
+  getSum = 0
+  for (let i = 5; i < 7; i++) {
+    getSum += visitorsList[i]
+  }
+  return getSum
+}
+
 // ##4 ** Display the result ** Виведення результату ** Вывод результата **
-let userMonthNameShow = getMonthName(userMonthNumber)
-confirm(`${userMonthNameShow} now`)
-// document.write(`It's ${userMonthNameShow} now`)
+const dayWhenVisitorsLessTwenty = getDayWhenVisitorsLessTwenty(visitorsWeekList)
+const minimumVisitorsDay = getMinVisitorsDaysAll(visitorsWeekList, minOneDay)
+const maximumVisitorsDay = getMinVisitorsDaysAll(visitorsWeekList, maxOneDay)
+const workDayVisitorsSummary = getSumaryVisitorsWorkDay(visitorsWeekList)
+const offDayVisitorsSummary = getSumaryVisitorsOffDay(visitorsWeekList)
+alert(`
+1. Кількість клієнтів була меншою за 20 в такі дні: ${dayWhenVisitorsLessTwenty}
+2. Мінімальна кількість клієнтів була в такий день: ${minimumVisitorsDay}
+3. Максимальна кількість клієнтів була в такий день: ${maximumVisitorsDay}
+4. Загальна кількість клієнтів у робочі дні: ${workDayVisitorsSummary}
+5. Загальна кількість клієнтів у вихідні дні: ${offDayVisitorsSummary}
+`)
 </script>
 	</body>
 </html>

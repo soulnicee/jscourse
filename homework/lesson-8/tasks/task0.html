@@ -9,37 +9,78 @@
 	</head>
 	<body>
 		<script>
-
 // ** 0 **
-//// Створити функцію, яка за номером місяця повертає пору року, до якої відноситься цей місяць.
+//// Дано масив, який містить оцінки з К предметів.
+//// Знайти середній бал і з’ясувати до якої категорії він відноситься
+//// (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно),
+//// трійочник(є хоча би одна трійка)).
+
 // ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
-// Задаємо користувачу питання і отримуємо номер місяця
-// Створюємо функцію 
-// Порівнюємо отриману відповідь з номерами місяців
-// Виводимо користувачу відповідну пору року
+// Дано масив - створюємо масив з необхідними даними.
+// Кількість предметів = К, може бути різною
+// створюємо функцію з циклом в середені для знаходження середнього балу,функція буде приймати масив з оцінками
+// створюємо функцію, яка буде перевіряти, до якої категорії успішності відносить студент, також приймає масив за оцінками
+// виводимо результат
 // ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
 
 // ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
-const userMonthNumber = parseInt(prompt('Введіть номер місяця',''))
-// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
-function getSeasonName(monthNumber) {
-  let seasonName = ""
-  if (monthNumber <= 2 || monthNumber === 12) {
-    seasonName = "Winter"
-  } else if (monthNumber <= 5) {
-    seasonName = "Spring"
-  } else if (monthNumber <= 8) {
-    seasonName = "Summer"
-  } else {
-    seasonName = "Autumn"
-  }
-  return seasonName
-}
-let userSeasonNameShow = getSeasonName(userMonthNumber)
-// ##4 ** Display the result ** Виведення результату ** Вывод результата **
-confirm(`It's ${userSeasonNameShow} now`)
-// document.write(`It's ${userSeasonName} now`)
 
+function getRandomNumber(minNumber, maxNumber) {
+  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
+}
+const studentMarks = []
+for (let i = 0; i < 20; i++) {
+  studentMarks.push(getRandomNumber(1, 12))
+}
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+function getAvarageMarksRate(marks) {
+  let avarageRate = 0
+  for (let i = 0; i < marks.length; i++) {
+    avarageRate += marks[i]
+  }
+  return avarageRate / marks.length
+}
+// Я в чаті запитував ,ви сказали що такие варіант працювати не буде, але все ж таки він працює)))
+//результат однаковий, якби я масив не змінював. Згіден, що ваш варіант більш практичний підхід має))))
+// function getStudentPerformance(marks) {
+//   let studentSuccess = ""
+//   for (let i = 0; i < marks.length; i++) {
+//     if (marks[i] >= 10) {
+//       studentSuccess = "Відмінник"
+//     } else if (marks[i] >= 7) {
+//       studentSuccess = "Хорошист"
+//     } else if (marks[i] >= 4) {
+//       studentSuccess = "Трійочник"
+//     } else {
+//       studentSuccess = "Двійочник"
+//     }
+//   }
+//   return studentSuccess
+// }
+function getStudentPerformance(marks) {
+  let minMark = marks[0]
+  for (let i = 1; i < marks.length; i++) {
+    if (minMark > marks[i]) {
+      minMark = marks[i]
+    }
+  }
+  return minMark
+}
+let minimalLevel = getStudentPerformance(studentMarks)
+console.log(minimalLevel)
+let studentSuccess = ""
+if (minimalLevel < 4) {
+  studentSuccess = "Двійочник"
+} else if (minimalLevel < 7) {
+  studentSuccess = "Трійочник"
+} else if (minimalLevel < 10) {
+  studentSuccess = "Хорошист"
+} else {
+  studentSuccess = "Відмінник"
+}
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+const studentAvarageMarkRate = getAvarageMarksRate(studentMarks)
+alert(`Ваше середній бал ${studentAvarageMarkRate.toFixed(1)} і ви ${studentSuccess}`)
 </script>
 	</body>
 </html>
