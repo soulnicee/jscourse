@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 2</title>
+	</head>
+	<body>
+		<script>
+// ** 2 **
+//// Користувач вводить кількість елементів. Створити масив,
+//// у якому перші 5 елементів заповнені 1-цями, а інші до кінця масиву заповнені 7-ками.
+
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+// Отримуємо вхідні дані від користувача, для цього створюємо функцію
+// створюємо масив та заповнюємо одиницями перші 5 елементів, . заповнюємо
+// масив до кінця 7
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+function getUserElementsQuantity() {
+  return parseInt(prompt("Введіть кількість елементів", ""))
+}
+const userElementQuantity = getUserElementsQuantity()
+//
+function getUserSeparator() {
+  return parseInt(prompt("Скільки елементів заповнити першим числом, має бути цілим числом", ""))
+}
+const userSeparator = getUserSeparator()
+//
+function getUserFirstElement() {
+  return parseInt(prompt(`Введіть значення для перших ${userSeparator} елементів масиву, має бути цілим числом`, ""))
+}
+const userFirstElement = getUserFirstElement()
+//
+function getUserSecondElement() {
+  return parseInt(prompt("Введіть значення для всіх інших елементів масиву, має бути цілим числом", ""))
+}
+const userSecondElement = getUserSecondElement()
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+// Пробую використати інший підхід до створення та заповнення масиву. 
+function getArrayWithFilledElements(numQuantity, separator, elementOne, elementTwo) {
+  const array = Array.from({ length: numQuantity }, () => elementOne)
+  return array.fill(elementTwo, separator)
+}
+const userFilledArray = getArrayWithFilledElements(userElementQuantity, userSeparator, userFirstElement, userSecondElement)
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+document.write(`Ось ваш масив ${userFilledArray}`)
+</script>
+	</body>
+</html>

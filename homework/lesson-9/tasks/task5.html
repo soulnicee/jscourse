@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 5</title>
+	</head>
+	<body>
+		<script>
+// ** 5 **
+//// Дано послідовність цін товарів та назв (у окремих масивах).
+//// Вивести на екран ті, які може собі дозволити користувач (кількість грошей задається).
+//// Приклад збереження даних
+//// let productsPrices = [1000, 20, 31]
+//// let productsTitles = [‘cheese’, ‘juice’, ‘bread’]
+
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+// создаєм масиви з товарами
+// дізнаємося скільки грошиків має користувач
+// створюєму функцію для порівняння коштів користувачів із цінами товарів
+// виводимо ті, які може купити
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+const popularProducts = ["iPhone 13", "Samsung Galaxy S21", "PlayStation 5", "Nintendo Switch", "AirPods Pro", "Bose QuietComfort 35 II", "Fitbit Charge 5", "Instant Pot Duo Crisp", "Roomba i7+", "TCL 6-Series 4K TV", "Anker PowerCore 10000", "Kindle Paperwhite", "Lululemon Align Leggings", "Le Creuset Dutch Oven", "Yeti Rambler Tumbler", "Hydro Flask Water Bottle", "Nespresso Vertuo Coffee Maker", "Casper Original Mattress", "Allbirds Wool Runners", "Patagonia Better Sweater", "Ugg Classic II Boots", "Calvin Klein Underwear", "Ray-Ban Classic Aviator Sunglasses", "Dr. Martens 1460 Boots", "S'well Stainless Steel Water Bottle", "Apple Watch Series 7", "Fitbit Sense", "Dyson V11 Absolute", "Philips Sonicare DiamondClean Toothbrush", "Fjallraven Kanken Backpack"]
+const productPrices = [999, 799, 499, 299, 249, 299, 179, 149, 799, 699, 19.99, 129.99, 98, 375, 34.99, 29.95, 199, 1095, 95, 149, 170, 40, 154, 150, 399, 299, 699, 199, 90]
+const userMoneyHas = parseFloat(prompt('Скільки доларів маєте?', ''))
+
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+function getProductsCanUserBuy(products, prices, money) {
+  let canBuy = []
+  for (let i = 0; i < prices.length; i++) {
+    if (money >= prices[i]) {
+      canBuy.push(products[i])
+    }
+  }
+  return canBuy
+}
+const userCanBuyIt = getProductsCanUserBuy(popularProducts, productPrices, userMoneyHas)
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+alert(`Маючи ${userMoneyHas} ви можете купити: ${userCanBuyIt}`)
+</script>
+	</body>
+</html>

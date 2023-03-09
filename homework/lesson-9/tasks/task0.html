@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 0</title>
+	</head>
+	<body>
+		<script>
+// ** 0 **
+//// Користувач вводить кількість елементів. Створити масив,
+//// що складається з вказаної кількості елементів заповнених нулями.
+
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+// Отримуємо вхідні дані від користувача, для цього створюємо функцію
+// створюємо масив та заповнюємо нулями, також використовуючи функцію
+// Виводимо результат
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+// Отримуємо кількість елементів
+function getUserElementsQuantity() {
+  return parseInt(prompt("Введіть кількість елементів", ""))
+}
+const userElementQuantity = getUserElementsQuantity()
+// Отримуємо сам елемент, має бути число
+//в умові вказано, що число 0 - зробив так, так буде універсальніше, 0 можна ввести з клавіатури
+function getUserElement() {
+  return parseInt(prompt("Введіть елемент, має бути цілим числом", ""))
+}
+const userElement = getUserElement()
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+// Створюємо новий масив, заповнюємо його елементами і ретурнимо
+function getArrayWithFilledElements(numQuantity, element) {
+  return new Array(numQuantity).fill(element)
+}
+const userFilledArray = getArrayWithFilledElements(userElementQuantity, userElement)
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+// виводимо результат
+document.write(`Ось ваш масив ${userFilledArray} з ${userElementQuantity} елементів та заповнений ${userElement}`)
+</script>
+	</body>
+</html>

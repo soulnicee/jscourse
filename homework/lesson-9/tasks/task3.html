@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 3</title>
+	</head>
+	<body>
+		<script>
+
+// ** 3 **
+//// Дано масив елементів. Вивести на
+//// екран елементи, що більші за 100
+
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+// створюємо масив з елементами
+// за дпопомогою циклу відбираємо потрібні елементи
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+function getRandomNumber(minNumber, maxNumber) {
+  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
+}
+// всі дані можна отримати від користувача, можна ввести вручну
+function getArrayWithNumbers(minNum, maxNum, quantityNum) {
+  let array = []
+  for (let i = 0; i < quantityNum; i++) {
+    array.push(getRandomNumber(minNum, maxNum))
+  }
+  return array
+}
+const arrayWithRandomNumbers = getArrayWithNumbers(1, 200, 50) // ввів дані вручну, щоб не писати промти
+console.log(arrayWithRandomNumbers)
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+function getNumbersMore(arrayNumbers, numberMore) {
+  let newArr = []
+  for (const element of arrayNumbers) {
+    if (element > numberMore) {
+      newArr.push(element)
+    }
+  }
+  return newArr
+}
+const userMoreNumbers = getNumbersMore(arrayWithRandomNumbers, 100)
+
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+document.write(`${userMoreNumbers}`)
+
+</script>
+	</body>
+</html>

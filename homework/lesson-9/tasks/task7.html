@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 7</title>
+	</head>
+	<body>
+		<script>
+
+// ** 7 **
+//// Дано одновимірний масив, у якому зберігається певна виграшна сума
+//// (елементи заповнюються випадковим чином значеннями від -500 до 500).
+//// Надаючи користувачу можливість вибирати номери елементів
+//// (поки він не відмовиться). Знаходити сумарний виграш.
+
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+// створюємо масив з виграшами, генеруючи випадкові числа.
+// створюємо функцію для підрахунку сумарного виграшу
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+function getRandomNumber(minNumber, maxNumber) {
+  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
+}
+
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+//генерує рандомні числа і наповнює ними масив
+function getRandomGain(winningNumbers) {
+  const winNum = []
+  for (let i = 0; i < winningNumbers; i++) {
+    winNum.push(getRandomNumber(-500, 500))
+  }
+  return winNum
+}
+const luckyNumbers = getRandomGain(50)
+
+
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+
+function getUserAmountOfWin(arr) {
+  let userAnswer
+  let sumWin = 0
+  do {
+    userAnswer = parseInt(prompt(`Є 50 квадратів з призами. Який обираєте? Ваш баланс ${sumWin}`))
+    if (!isNaN(userAnswer)) {
+      sumWin += arr[userAnswer]
+    }
+  } while (!isNaN(userAnswer))
+  
+  return sumWin
+}
+const lotteryGame = getUserAmountOfWin(luckyNumbers)
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+alert(`Результат вашого азарту ${lotteryGame}`)
+</script>
+	</body>
+</html>
