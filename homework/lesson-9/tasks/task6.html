@@ -10,155 +10,42 @@
 	<body>
 		<script>
 // ** 6 **
-////  Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
-//// 1)	за весь рік;
-//// 2)	у першій половині року;
-//// 3)	у другій половині року;
-//// 4)	за літо;
-//// 5)	за ІІ квартал;
-//// 6)	за парні місяці (з парними номерами);
-//// 7)	за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+//// Дано масив цін. Змінити цей масив так,
+//// що на ціни товарів, які більші за 1000 грн. дати 30% знижки.
 
 // ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
-// створюємо функцію для генерації платіжок помісячно
+// створюємо масив з цінами
+// записуємо по якій формулі буде рахуватися знижка
+// створюємо функцію для зміни цін з урахуванням дисконту
+// виводимо результат
 // ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
-
-// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
 function getRandomNumber(minNumber, maxNumber) {
   return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
 }
-// функція для генерації платіжок помісячно
-function getMonthlyPayment(monthQuantity) {
-  let monthPay = []
-  for (let i = 0; i < monthQuantity; i++) {
-    monthPay.push(getRandomNumber(50, 150))
+
+function getArrayWithNumbers(minNum, maxNum, quantityNum) {
+  let array = []
+  for (let i = 0; i < quantityNum; i++) {
+    array.push(getRandomNumber(minNum, maxNum))
   }
-  return monthPay
+  return array
 }
-const yearsPayment = getMonthlyPayment(12)
+const arrayWithRandomNumbers = getArrayWithNumbers(800, 1500, 30)
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
 
 // ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
-// функція для підрахунку сумарного річного платежу
-// також річний платіж можна було знайти додавши платежі за 1 и 2 півріччя
-function getSummaryPaymentPerYears(payments) {
-  let sumPay = 0
-  for (let i = 0; i < payments.length; i++) {
-    sumPay += payments[i]
-  }
-  return sumPay
-}
-const summaryPaymentPerYears = getSummaryPaymentPerYears(yearsPayment)
-// функція для підрахунку платежу у першій половині року
-function getFirstHalfPayment(payments) {
-  let halfCounter = 0
-  for (let i = 0; i < 6; i++) {
-    halfCounter += payments[i]
-  }
-  return halfCounter
-}
-const firstHalfPayment = getFirstHalfPayment(yearsPayment)
-// функція для підрахунку платежу у другій половині року
-function getSecondHalfPayment(payments) {
-  let halfCounter = 0
-  for (let i = 6; i > 5 && i < payments.length; i++) {
-    halfCounter += payments[i]
-  }
-  return halfCounter
-}
-const secondHalfPayment = getSecondHalfPayment(yearsPayment)
-
-// функція для підрахунку платежу за літо
-function getSummerPayments(payments) {
-  let summerCounter = 0
-  for (let i = 5; i < 8; i++) {
-    summerCounter += payments[i]
-  }
-  return summerCounter
-}
-const summerPayments = getSummerPayments(yearsPayment)
-// функція для підрахунку платежу за ІІ квартал
-function getSecondQuaterPayment(payments) {
-  let queterCounter = 0
-  for (let i = 3; i < 6; i++) {
-    queterCounter += payments[i]
-  }
-  return queterCounter
-}
-const secondQuaterPayment = getSecondQuaterPayment(yearsPayment)
-
-// функція для підрахунку платежу за парні місяці (з парними номерами)
-function getEvenMonthPayment(payments) {
-  let evenCounter = 0
-  for (let i = 1; i <= payments.length; i++) {
-    if (i % 2 === 0) {
-      evenCounter += payments[i - 1]
+function getPriceWithDiscount(prices) {
+  const discountRate = 30 / 100
+  prices.forEach((element, index, baseArr) => {
+    if (element > 1000) {
+      baseArr[index] -= Math.floor(baseArr[index] * discountRate)
     }
-  }
-  return evenCounter
+  })
+  return prices
 }
-const evenMonthPayment = getEvenMonthPayment(yearsPayment)
-// функція для підрахунку платежу місяці які є початковими у сезоні (весна, літо, осінь, зима)
-function getFirstFromQuarterPayment(payments) {
-  let firstQuarterCounter = 0
-  for (let i = 0; i < payments.length; i++) {
-    switch (i) {
-      case 2:
-        firstQuarterCounter += payments[i]
-        break
-      case 5:
-        firstQuarterCounter += payments[i]
-        break
-      case 8:
-        firstQuarterCounter += payments[i]
-        break
-      case 11:
-        firstQuarterCounter += payments[i]
-        break
-    }
-  }
-  return firstQuarterCounter
-}
-const firstFromQuarterPayment = getFirstFromQuarterPayment(yearsPayment)
-
-
-// простіший варіант (№2) цей варіант кращий і швидший
-// функція для підрахунку суми
-function getSummYearsPayments(payments, startMonth, finishMonth) {
-	let sumForEverything = 0
-	for (let i = startMonth; i <= finishMonth; i++) {
-    sumForEverything += payments[i - 1]
-  }
-  return sumForEverything
-}
-
-const summaryPaymentPerYearsV2 = getSummYearsPayments(yearsPayment, 1, 12)
-const firstHalfPaymentV2 = getSummYearsPayments(yearsPayment, 1, 6)
-const secondHalfPaymentV2 = getSummYearsPayments(yearsPayment, 7, 12)
-const summerPaymentsV2 = getSummYearsPayments(yearsPayment, 6, 8)
-const secondQuaterPaymentV2 = getSummYearsPayments(yearsPayment, 4, 6)
-function getEvenMonthNum(payments, startMonth, finishMonth) {
-	let evenMonth = []
-	for (let i = startMonth - 1; i <= finishMonth; i++) {
-    if ((i + 1) % 2 === 0) {
-      evenMonth.push(payments[i])
-    }
-  }
-  return evenMonth
-}
-const evenMonthPayed = getEvenMonthNum(yearsPayment, 1, 12)
-const evenMonthPaymentV2 = getSummYearsPayments(evenMonthPayed, 1, 6)
-
-
+const discountedProducrsPrice = getPriceWithDiscount(arrayWithRandomNumbers)
 // ##4 ** Display the result ** Виведення результату ** Вывод результата **
-alert(`
-1. Ви сплатили за весь рік ${summaryPaymentPerYears}
-2. Ви сплатили у першій половині року ${firstHalfPayment}
-3. Ви сплатили у другій половині року ${secondHalfPayment}
-4. Ви сплатили за літо ${summerPayments}
-5. Ви сплатили за ІІ квартал ${secondQuaterPayment}
-6. Ви сплатили за парні місяці (з парними номерами) ${evenMonthPayment}
-7. Ви сплатили за місяці, які є початковими у сезоні (весна, літо, осінь, зима) ${firstFromQuarterPayment}
-`)
+document.write(`${discountedProducrsPrice}`)
 </script>
 	</body>
 </html>

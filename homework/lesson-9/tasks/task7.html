@@ -10,49 +10,65 @@
 	<body>
 		<script>
 
-// ** 7 **
-//// Дано одновимірний масив, у якому зберігається певна виграшна сума
-//// (елементи заповнюються випадковим чином значеннями від -500 до 500).
-//// Надаючи користувачу можливість вибирати номери елементів
-//// (поки він не відмовиться). Знаходити сумарний виграш.
+//// Дано масив номерів авто. 
+//// Сформувати новий масив тих, які починаються на «А»
 
 // ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
-// створюємо масив з виграшами, генеруючи випадкові числа.
-// створюємо функцію для підрахунку сумарного виграшу
+
 // ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+const possibleSeriesNumbers = ["АК", "КК", "ТК", "МК", "АА", "КА", "ТТ", "ТА", "АВ", "КВ", "ММ", "ОК", "АС", "КС", "СМ", "ТС", "АЕ", "КЕ", "РР", "МІ", "АН", "КН", "ТН", "МН", "АІ", "КІ", "ТІ", "МЕ", "АМ", "КМ", "ТМ", "МВ", "АО", "КО", "МТ", "МО", "АР", "КР", "ТР", "МР", "АТ", "КТ", "ТО", "ХС", "ВА", "НА", "ХА", "ЕА", "ВВ", "НВ", "ЕЕ", "ЕВ", "ВС", "НС", "СС", "ЕС", "ВЕ", "НЕ", "ХЕ", "ХН", "ВН", "НН", "ОО", "ЕН", "ВІ", "НІ", "ХІ", "ЕІ", "ВК", "НК", "ХК", "ЕК", "ВМ", "НМ", "ХМ", "ЕМ", "ВО", "НО", "ХО", "ЕО", "АХ", "КХ", "ХХ", "ЕХ", "ВТ", "НТ", "ХТ", "ЕТ", "ВХ", "НХ", "ОХ", "РХ", "СА", "ІА", "ОА", "РА", "СВ", "ІВ", "ОВ", "РВ", "СЕ", "ІЕ", "ОЕ", "РЕ", "СН", "ІН", "ОН", "РН"]
+const ukraineAlphabet = ["А", "Б", "В", "Г", "Д", "Е", "З", "І", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ю", "Я"]
+const userNumbersQuantity = parseInt(prompt("Скільки автомобільних номерів хочете згенерувати?", "1000"))
 function getRandomNumber(minNumber, maxNumber) {
   return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
 }
-
-// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
-//генерує рандомні числа і наповнює ними масив
-function getRandomGain(winningNumbers) {
-  const winNum = []
-  for (let i = 0; i < winningNumbers; i++) {
-    winNum.push(getRandomNumber(-500, 500))
+// функція для отримання випадкових серій номерів в кількості вказаній користувачем
+function getRandomSeriesNumber(quantity, seriesNumbers) {
+  serNum = []
+  for (let i = 0; i < quantity; i++) {
+    let randomNumSer = getRandomNumber(1, seriesNumbers.length - 1)
+    serNum.push(seriesNumbers[randomNumSer])
   }
-  return winNum
+  return serNum
 }
-const luckyNumbers = getRandomGain(50)
-
+// функція для отримання цифр в номері
+function getRandomMiddleNumber(quantity) {
+  let numbers = []
+  for (let i = 0; i < quantity; i++) {
+    let randNum = getRandomNumber(1, 9999)
+    numbers.push(randNum)
+  }
+  return numbers
+}
+// функція для отримання додаткових 2 літер в кінці номера
+function getLastTwoLetter(quantity, lastSymbols) {
+  lastLetter = []
+  for (let i = 0; i < quantity; i++) {
+    let randomLett1 = getRandomNumber(1, lastSymbols.length - 1)
+    let randomLett2 = getRandomNumber(1, lastSymbols.length - 1)
+    lastLetter.push(lastSymbols[randomLett1] + lastSymbols[randomLett2])
+  }
+  return lastLetter
+}
+//Функція для отримання рандомних номерів автомобілів
+function getVehicleNumbers(quantity) {
+  const randomSeriesNumbers = getRandomSeriesNumber(quantity, possibleSeriesNumbers)
+  const randomMiddleNumbers = getRandomMiddleNumber(quantity)
+  const randomLastTwoLetters = getLastTwoLetter(quantity, ukraineAlphabet)
+  let result = []
+  for (let i = 0; i < quantity; i++) {
+    result.push(randomSeriesNumbers[i] + randomMiddleNumbers[i] + randomLastTwoLetters[i])
+  }
+  return result
+}
+const vehicleNumbers = getVehicleNumbers(userNumbersQuantity)
+console.log(vehicleNumbers)
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
 
 // ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
-
-function getUserAmountOfWin(arr) {
-  let userAnswer
-  let sumWin = 0
-  do {
-    userAnswer = parseInt(prompt(`Є 50 квадратів з призами. Який обираєте? Ваш баланс ${sumWin}`))
-    if (!isNaN(userAnswer)) {
-      sumWin += arr[userAnswer]
-    }
-  } while (!isNaN(userAnswer))
-  
-  return sumWin
-}
-const lotteryGame = getUserAmountOfWin(luckyNumbers)
+const vehicleNumbersWithFirstLetterA = vehicleNumbers.filter((element) => element[0] === "А")
 // ##4 ** Display the result ** Виведення результату ** Вывод результата **
-alert(`Результат вашого азарту ${lotteryGame}`)
+document.write(`Номера автомобілів, які починаються на букву "А" - ${vehicleNumbersWithFirstLetterA}`)
 </script>
 	</body>
 </html>

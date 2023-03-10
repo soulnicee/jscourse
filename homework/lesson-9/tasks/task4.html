@@ -10,90 +10,41 @@
 	<body>
 		<script>
 // ** 4 **
-//// Дано послідовність оцінок учня. Підрахувати кількість:
-//// 1)	двійок
-//// 2)	кількість хороших оцінок (добре, відмінно);
-//// 3)	кількість оцінок, які нижче середнього.
+//// Дано масив елементів.
+//// Знайти добуток додатних елементів
 
 // ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
-// створюємо массив з оцінками учня
-// створюємо функцію для обчислення середньої оцінки
-// створюємо функцію для знаходження кількості оцінок нижче середнього
-// створюємо функцію для знаходження кількості двійок
-// створюємо функцію для знаходження кількості хороших оцінок (добре, відмінно)
-// виводимо результат
+// створюємо масив з елементами
+// за допомогую циклу відбираємо підходящі елементи і сумуємо їх
 // ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
-
-// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
-const userMarksQuantity = parseInt(prompt("Скільки учень має оцінок?", "30"))
-// генератор рандомних чисел в функції
 function getRandomNumber(minNumber, maxNumber) {
   return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
 }
-// отримання масиву з оцінками
-function getStudentMarks(marksQuantity) {
-  let marks = []
-  for (let i = 0; i < marksQuantity; i++) {
-    marks.push(getRandomNumber(1, 12))
+
+function getArrayWithNumbers(minNum, maxNum, quantityNum) {
+  let array = []
+  for (let i = 0; i < quantityNum; i++) {
+    array.push(getRandomNumber(minNum, maxNum))
   }
-  return marks
+  return array
 }
-const studentMarks = getStudentMarks(userMarksQuantity)
-console.log(studentMarks)
+const arrayWithRandomNumbers = getArrayWithNumbers(1, 200, 50)
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+
 // ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
-// функція для обчислення середньої оцінки
-function getAvarageMark(marks) {
-  let avarageMark = 0
-  for (let i = 0; i < marks.length; i++) {
-    avarageMark += marks[i]
-  }
-  return Math.round(avarageMark / marks.length)
-}
-const studentAvarageMark = getAvarageMark(studentMarks)
-
-//функція для знаходження кількості оцінок нижче середнього
-function getMarksLessAvarage(avrgMark, marks) {
-  let marksLessCounter = 0
-  for (let i = 0; i < marks.length; i++) {
-    if (marks[i] < avrgMark) {
-      marksLessCounter += 1
+function getEvenNumbersSum(arrayNumbers) {
+  let evenNumSum = 0
+  for (const element of arrayNumbers) {
+    if (!(element % 2)) {
+      evenNumSum += element
+      console.log(element)
     }
   }
-  return marksLessCounter
+  return evenNumSum
 }
-const quantityMarksLessAvarage = getMarksLessAvarage(studentAvarageMark, studentMarks)
-
-//функція для знаходження кількості двійок
-function getBadMarks(marks) {
-  let badMarksCounter = 0
-  for (let i = 0; i < marks.length; i++) {
-    if (marks[i] < 4) {
-      badMarksCounter += 1
-    }
-  }
-  return badMarksCounter
-}
-const badMarksQuantity = getBadMarks(studentMarks)
-
-//функція для знаходження кількості хороших оцінок (добре, відмінно)
-function getGoodMarks(marks) {
-  let goodMarksCounter = 0
-  for (let i = 0; i < marks.length; i++) {
-    if (marks[i] > 6) {
-      goodMarksCounter += 1
-    }
-  }
-  return goodMarksCounter
-}
-const goodMarksQuantity = getGoodMarks(studentMarks)
-
+const evenNumbersSum = getEvenNumbersSum(arrayWithRandomNumbers)
 // ##4 ** Display the result ** Виведення результату ** Вывод результата **
-alert(`
-1. Кількість двійок ${badMarksQuantity}
-2. Кількість хороших оцінок (добре і відмінно) ${goodMarksQuantity}
-3. Ваша середня оцінка ${studentAvarageMark}
-4. Кількість оцінок нижче середного ${quantityMarksLessAvarage}
-`)
+document.write(`${evenNumbersSum}`)
 </script>
 	</body>
 </html>

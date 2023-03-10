@@ -266,27 +266,116 @@ const discountedProducrsPrice = getPriceWithDiscount(arrayWithRandomNumbers)
 // ##4 ** Display the result ** Виведення результату ** Вывод результата **
 document.write(`${discountedProducrsPrice}`)
 */
-
+/*
 // ** 7 **
 
-// function rowSumOddNumbers(n) {
-//   // TODO
-//   let num = 1
-//   let sum = 0
-//   for (let i = 0; i < n; i++) {
-//     num += 2
-//     sum = 
-//   }
-// }
+//// Дано масив номерів авто. 
+//// Сформувати новий масив тих, які починаються на «А»
 
-// function rowSumOddNumbers(n) {
-//   let firstNum = n * (n - 1) + 1; // calculate the first number in the row
-//   let sum = 0;
-//   for (let i = 0; i < n; i++) {
-//     sum += firstNum + 2 * i; // add each odd number in the row to the sum
-//   }
-//   return sum;
-// }
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
 
-// const odd = rowSumOddNumbers(5)
-// console.log(odd)
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+const possibleSeriesNumbers = ["АК", "КК", "ТК", "МК", "АА", "КА", "ТТ", "ТА", "АВ", "КВ", "ММ", "ОК", "АС", "КС", "СМ", "ТС", "АЕ", "КЕ", "РР", "МІ", "АН", "КН", "ТН", "МН", "АІ", "КІ", "ТІ", "МЕ", "АМ", "КМ", "ТМ", "МВ", "АО", "КО", "МТ", "МО", "АР", "КР", "ТР", "МР", "АТ", "КТ", "ТО", "ХС", "ВА", "НА", "ХА", "ЕА", "ВВ", "НВ", "ЕЕ", "ЕВ", "ВС", "НС", "СС", "ЕС", "ВЕ", "НЕ", "ХЕ", "ХН", "ВН", "НН", "ОО", "ЕН", "ВІ", "НІ", "ХІ", "ЕІ", "ВК", "НК", "ХК", "ЕК", "ВМ", "НМ", "ХМ", "ЕМ", "ВО", "НО", "ХО", "ЕО", "АХ", "КХ", "ХХ", "ЕХ", "ВТ", "НТ", "ХТ", "ЕТ", "ВХ", "НХ", "ОХ", "РХ", "СА", "ІА", "ОА", "РА", "СВ", "ІВ", "ОВ", "РВ", "СЕ", "ІЕ", "ОЕ", "РЕ", "СН", "ІН", "ОН", "РН"]
+const ukraineAlphabet = ["А", "Б", "В", "Г", "Д", "Е", "З", "І", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ю", "Я"]
+const userNumbersQuantity = parseInt(prompt("Скільки автомобільних номерів хочете згенерувати?", "1000"))
+function getRandomNumber(minNumber, maxNumber) {
+  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
+}
+// функція для отримання випадкових серій номерів в кількості вказаній користувачем
+function getRandomSeriesNumber(quantity, seriesNumbers) {
+  serNum = []
+  for (let i = 0; i < quantity; i++) {
+    let randomNumSer = getRandomNumber(1, seriesNumbers.length - 1)
+    serNum.push(seriesNumbers[randomNumSer])
+  }
+  return serNum
+}
+// функція для отримання цифр в номері
+function getRandomMiddleNumber(quantity) {
+  let numbers = []
+  for (let i = 0; i < quantity; i++) {
+    let randNum = getRandomNumber(1, 9999)
+    numbers.push(randNum)
+  }
+  return numbers
+}
+// функція для отримання додаткових 2 літер в кінці номера
+function getLastTwoLetter(quantity, lastSymbols) {
+  lastLetter = []
+  for (let i = 0; i < quantity; i++) {
+    let randomLett1 = getRandomNumber(1, lastSymbols.length - 1)
+    let randomLett2 = getRandomNumber(1, lastSymbols.length - 1)
+    lastLetter.push(lastSymbols[randomLett1] + lastSymbols[randomLett2])
+  }
+  return lastLetter
+}
+//Функція для отримання рандомних номерів автомобілів
+function getVehicleNumbers(quantity) {
+  const randomSeriesNumbers = getRandomSeriesNumber(quantity, possibleSeriesNumbers)
+  const randomMiddleNumbers = getRandomMiddleNumber(quantity)
+  const randomLastTwoLetters = getLastTwoLetter(quantity, ukraineAlphabet)
+  let result = []
+  for (let i = 0; i < quantity; i++) {
+    result.push(randomSeriesNumbers[i] + randomMiddleNumbers[i] + randomLastTwoLetters[i])
+  }
+  return result
+}
+const vehicleNumbers = getVehicleNumbers(userNumbersQuantity)
+console.log(vehicleNumbers)
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+const vehicleNumbersWithFirstLetterA = vehicleNumbers.filter((element) => element[0] === "А")
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+document.write(`Номера автомобілів, які починаються на букву "А" - ${vehicleNumbersWithFirstLetterA}`)
+
+*/
+/*
+// ** 8 **
+//// Дано масив імен.
+//// Сформувати масив з перших літер цих імен.
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+// Беремо масив з іменами
+// формуємо масив за допомогою мар новий масив з першими літерами імен
+// виводимо результат
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+const userNames = ["Adam", "Bob", "Charlie", "David", "Emily", "Frank", "Gina", "Henry", "Isabelle", "Jack", "Katie", "Liam", "Mia", "Nancy", "Oliver", "Penny", "Quincy", "Rachel", "Samantha", "Thomas", "Uma", "Victoria", "Wyatt", "Xavier", "Yara", "Zoe"]
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+const firstLatterOfNames = userNames.map((element) => element[0])
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+document.write(`Перші букві імен - ${firstLatterOfNames}`)
+*/
+/*
+// ** 9 **
+//// Дано масив цін у грн. Податок складає 20%.
+//// Сформувати масив, який буде містити величину сплаченого податку у грн.
+
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+// створюємо масив цін
+// створюємо константу яка містить рейт податку
+// створюємо масив з сумарним податком і за допомогою редьюсу обчислюємо сумарну кількість сплаченого податку
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+function getRandomNumber(minNumber, maxNumber) {
+  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
+}
+function getArrayWithPrices(quantity, minNum, maxNum) {
+  const prices = []
+  for (let i = 0; i < quantity; i++) {
+    prices.push(getRandomNumber(minNum, maxNum))
+  }
+  return prices
+}
+
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+const productPrices = getArrayWithPrices(25, 100, 500)
+const currentTax = 0.2
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+const summaryTax = productPrices.reduce((prevVal, element) => {
+  prevVal += element * currentTax
+  return Math.floor(prevVal)
+}, 0)
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+document.write(`Сумарно сплачено податку ${summaryTax} гривень`)
+*/

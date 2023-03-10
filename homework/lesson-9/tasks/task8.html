@@ -10,86 +10,20 @@
 	<body>
 		<script>
 // ** 8 **
-//// Морський бій. Користувач вводить кількість клітинок одновимірного масиву
-//// та кількість одиночних кораблів. Комп’ютер довільно розміщує ці одиночні
-//// кораблі у масиві по один у клітинці (якщо у клітинці 0, то клітинка пуста,
-//// якщо 1 – то це означає, що там є корабель. Користувач вводить номер клітинки,
-//// куди стріляє. Гра продовжується до тих пір, поки не будуть потоплені усі кораблі.
-
+//// Дано масив імен.
+//// Сформувати масив з перших літер цих імен.
 // ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
-// створюємо функцію для отримання даних від користувача
-// створюємо масив та заповнюємо 0
-// генеруємо позиції корабликів в масиві та замінюмо позиціє в масиві з 0 на позициї кораблів
-// створюємо функцію для отримання координати пострілу користувача
-// створюємо функцію для самої гри
+// Беремо масив з іменами
+// формуємо масив за допомогою мар новий масив з першими літерами імен
+// виводимо результат
 // ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
-
+const userNames = ["Adam", "Bob", "Charlie", "David", "Emily", "Frank", "Gina", "Henry", "Isabelle", "Jack", "Katie", "Liam", "Mia", "Nancy", "Oliver", "Penny", "Quincy", "Rachel", "Samantha", "Thomas", "Uma", "Victoria", "Wyatt", "Xavier", "Yara", "Zoe"]
 // ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
-function getRandomNumber(minNumber, maxNumber) {
-  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
-}
-// Отримуємо довжину ігрового поля
-function getGameDeskSize() {
-  return parseInt(prompt("Введіть довжину ігрового рядка", ""))
-}
-const userDeskSize = getGameDeskSize()
-// отримуємо кількість кораблів
-function getShipsQuantity() {
-  return parseInt(prompt("Скільки однопалубних кораблів хочете розмістити?", ""))
-}
-const userShipsQuantity = getShipsQuantity()
-// створюємо масив та заповнюємо його 0
-function getDeskWithoutShips(deskLength) {
-  let shipsPos = []
-  for (let i = 0; i < deskLength; i++) {
-    shipsPos.push(0)
-  }
-  return shipsPos
-}
-const emptyPlayDesk = getDeskWithoutShips(userDeskSize)
-
-//генеруємо позиції кораблів в масиві
-function getShipsPosition(deskLength, shipsQuant) {
-  for (let i = 0; i < shipsQuant; i++) {
-    let randNum = getRandomNumber(0, userDeskSize - 1)
-    if (deskLength[randNum] === 1) {
-      i--
-      continue
-    } else {
-      deskLength[randNum] = 1
-    }
-  }
-  return deskLength
-}
-const gameDeskWithShips = getShipsPosition(emptyPlayDesk, userShipsQuantity)
 
 // ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
-
-function userShootTarget() {
-  answer = parseInt(prompt(`Зробіть постріл по кораблю! Ваше ігрове поле від 1 до ${userDeskSize}`, ""))
-  return answer
-}
-
-function navalBattle(playDesk, shipsQuant) {
-  let liveShips = shipsQuant
-  while (liveShips > 0) {
-    let shoot = userShootTarget()
-    if (playDesk[shoot - 1] === 1) {
-      playDesk[shoot - 1] = 0
-      liveShips--
-      alert(`Вбили корабля! Залишилось ${liveShips} живих кораблів!`)
-    } else {
-      alert(`Дуже прикро, ви промазали!`)
-    }
-  }
-  if (liveShips === 0) {
-    alert("Ви перемогли! Вітаю!")
-  }
-  return "game over"
-}
-
+const firstLatterOfNames = userNames.map((element) => element[0])
 // ##4 ** Display the result ** Виведення результату ** Вывод результата **
-const startNavalGame = navalBattle(gameDeskWithShips, userShipsQuantity)
+document.write(`Перші букві імен - ${firstLatterOfNames}`)
 
 </script>
 
