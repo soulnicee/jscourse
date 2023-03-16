@@ -62,9 +62,9 @@ const userSecondElement = getUserSecondElement()
 // ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
 // Створюємо новий масив, заповнюємо його елементами №1, потім половину масиву змінюємо на елемент 2 і ретурнимо новий масив
 function getArrayWithFilledElements(numQuantity, elementOne, elementTwo) {
-  const array =  new Array(numQuantity).fill(elementOne)
+  const array = new Array(numQuantity)
   const arrayHalf = Math.floor(array.length / 2)
-  array.fill(elementTwo, arrayHalf)
+  array.fill(elementOne, 0, arrayHalf).fill(elementTwo, arrayHalf)
   return array
 }
 const userFilledArray = getArrayWithFilledElements(userElementQuantity, userFirstElement, userSecondElement)
@@ -106,8 +106,8 @@ const userSecondElement = getUserSecondElement()
 // ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
 // Пробую використати інший підхід до створення та заповнення масиву. 
 function getArrayWithFilledElements(numQuantity, separator, elementOne, elementTwo) {
-  const array = Array.from({ length: numQuantity }, () => elementOne)
-  return array.fill(elementTwo, separator)
+  const array = new Array(numQuantity).fill(elementOne, 0, separator).fill(elementTwo, separator)
+  return array
 }
 const userFilledArray = getArrayWithFilledElements(userElementQuantity, userSeparator, userFirstElement, userSecondElement)
 // ##4 ** Display the result ** Виведення результату ** Вывод результата **
@@ -171,21 +171,18 @@ function getArrayWithNumbers(minNum, maxNum, quantityNum) {
   }
   return array
 }
-const arrayWithRandomNumbers = getArrayWithNumbers(1, 200, 50)
+const arrayWithRandomNumbers = getArrayWithNumbers(-5, 5, 50)
 // ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
-
+const positiveNumbers = arrayWithRandomNumbers.filter((element) => element > 0)
 // ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
-function getEvenNumbersSum(arrayNumbers) {
-  let evenNumSum = 0
+function getNumbersMult(arrayNumbers) {
+  let mult = 1
   for (const element of arrayNumbers) {
-    if (!(element % 2)) {
-      evenNumSum += element
-      console.log(element)
-    }
+    mult *= element
   }
-  return evenNumSum
+  return mult
 }
-const evenNumbersSum = getEvenNumbersSum(arrayWithRandomNumbers)
+const evenNumbersSum = getNumbersMult(positiveNumbers)
 // ##4 ** Display the result ** Виведення результату ** Вывод результата **
 document.write(`${evenNumbersSum}`)
 */

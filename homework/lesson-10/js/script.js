@@ -1,3 +1,4 @@
+/*
 // ** 0 **
 //// Задача. Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)
 ////       1)Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
@@ -107,3 +108,153 @@ const indexLastPriceGreater1000 = securitiesPrices.findLastIndex((price) => pric
 document.write(`(11) ${indexLastPriceGreater1000} <br>`)
 
 // ##4 ** Display the result ** Виведення результату ** Вывод результата **
+*/
+
+// EXTRA TASKS **** ---- ****
+function getRandomNumber(minNumber, maxNumber) {
+  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
+}
+function getArray(arrayLength) {
+  return new Array(arrayLength)
+}
+/*
+// ** 0 **
+// 1.	Заполнить массив нулями, кроме первого и последнего элементов, которые должны быть равны единице.
+const arrayWithZeroAndTwoOne = new Array(20).fill(1, 0, 1).fill(0,1)
+arrayWithZeroAndTwoOne[arrayWithZeroAndTwoOne.length-1] = 1
+console.log(arrayWithZeroAndTwoOne)
+*/
+/*
+// ** 1 **
+// 2.	Заполнить массив нулями и единицами, при этом данные значения чередуются, начиная с нуля.
+const arrayZeroAndOne = getArray(20)
+for (let i = 0; i < arrayZeroAndOne.length; i++) {
+  arrayZeroAndOne[i] = i % 2
+}
+console.log(arrayZeroAndOne)
+*/
+/*
+// ** 2 **
+function getOddNumbers(arrayLength) {
+  const array = getArray(arrayLength)
+  let oddNum = 1
+  for (let i = 0; i < array.length; i++) {
+    array[i] = oddNum
+    oddNum += 2
+  }
+  return array
+}
+const oddArray = getOddNumbers(20)
+console.log(oddArray)
+*/
+/*
+// ** 3 **
+// 4.	Сформировать массив из элементов арифметической прогрессии с заданным первым элементом x и разностью d.
+function getArithmeticProgression(firstElement, diff, quantityNumbers) {
+  let arr = []
+  let nextItem = firstElement
+  for (let i = 0; i < quantityNumbers; i++) {
+    arr.push(nextItem)
+	 nextItem += diff
+  }
+  return arr
+}
+const arithmeticProgression = getArithmeticProgression(1, 4, 10)
+console.log(arithmeticProgression)
+*/
+/*
+// ** 4 **
+// 5.	Сформировать возрастающий массив из четных чисел.
+function getEvenNumbers(quantity) {
+  let evenNum = 2
+  let arr = []
+  for (let i = 0; i < quantity; i++) {
+    arr[i] = evenNum
+    evenNum += 2
+  }
+  return arr
+}
+const evenNumbers = getEvenNumbers(20)
+console.log(evenNumbers)
+
+const evenNumbersV2 = new Array(20).fill(0)
+const newEvenNumbersV2 = evenNumbersV2.map((element, index) => element + index * 2)
+console.log(newEvenNumbersV2)
+*/
+/*
+// ** 5 **
+const oldArray = new Array(50)
+for (let i = 0; i < 50; i++) {
+  oldArray[i] = getRandomNumber(3, 100)
+}
+const arrayDiff3 = oldArray.map((element) => {
+  if (!(element % 3)) {
+    return element
+  }
+}).filter(Boolean).sort().reverse()
+console.log(arrayDiff3)
+*/
+/*
+// ** 6 **
+// 7.	Создать массив из n первых чисел Фибоначчи.
+const arrayFib = Array.from({length: 20}).reduce((acc, _, index) => {
+  acc = [...acc, index < 2 ? index : acc[index - 1] + acc[index - 2]]
+  return acc
+}, [])
+console.log(arrayFib)
+*/
+/*
+// ** 7 **
+// 8.	Заполнить массив заданной длины различными простыми числами.
+// Натуральное число, большее единицы, называется простым, если оно делится только на себя и на единицу.
+function isSimple(numQuantity) {
+  for (let i = 2; i < Math.sqrt(numQuantity); i++) {
+    if (numQuantity % i === 0) return false
+
+    return true
+  }
+}
+
+const simpleNumbers = Array.from({ length: 200 }).reduce((acc, element, index) => (isSimple(index) ? [...acc, index] : acc), [])
+console.log(simpleNumbers)
+*/
+/*
+// ** 8 **
+// 9.	Создать массив, каждый элемент которого равен квадрату своего номера.
+const powArray = Array.from({ length: 20 }).map((element, index) => (element = Math.pow(index, 2)))
+console.log(powArray)
+*/
+/*
+// ** 9 **
+// 10.Создать массив, на четных местах в котором стоят единицы, а на нечетных местах - числа,
+// равные остатку от деления своего номера на 5.
+const someArray = Array.from({ length: 20 }).map((element, index) => {
+  if (!(index % 2)) {
+    return (element = 1)
+  } else {
+    return index % 5
+  }
+})
+console.log(someArray)
+*/
+/*
+// ** 10 **
+
+//11.	Создать массив, состоящий из троек подряд идущих одинаковых элементов.
+const someArray = Array.from({ length: 20 }).reduce((acc, element, index) => {
+  for (let i = 0; i < 3; i++) {
+    acc = [...acc, index]
+  }
+  return acc
+}, [])
+console.log(someArray)
+*/
+/*
+// ** 11 **
+// 12.	Создать массив, который одинаково читается как слева направо, так и справа налево.
+const arrayLeft = Array.from({ length: 10 }).map((element, index) => (element = index + 1))
+const arrayRight = Array.from(arrayLeft).reverse()
+const someArray = arrayLeft.concat(arrayRight)
+*/
+
+
