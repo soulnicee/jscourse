@@ -1,7 +1,3 @@
-function getRandomNumber(minNumber, maxNumber) {
-  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
-}
-
 function generateRandomArray(arrLength, minNumber, maxNumber) {
   const arr = []
   for (let i = 0; i < arrLength; i++) {
@@ -19,6 +15,10 @@ function generateRandomTable(rowsQuantity, columnsQuantity, minNumber, maxNumber
   }
   return randTable
 }
+function getRandomNumber(minNumber, maxNumber) {
+  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
+}
+
 /*
 // ** 0 **
 // Знайти суми елементів у вказаній області
@@ -99,7 +99,7 @@ function getSumSomething(array) {
 }
 const sumSomething = getSumSomething(someArray4)
 */
-
+/*
 // ** 1 **
 //Дано інформацію про прибуток К магазинів протягом тижня. Знайти :
 const shopsQuantity = getRandomNumber(1, 5)
@@ -241,3 +241,54 @@ function getSortedRowsSumArray(array) {
 }
 const sortedRowsSumArray = getSortedRowsSumArray(shopsProfit)
 console.log(sortedRowsSumArray)
+*/
+/*
+// ** 2 **
+
+function getGameField(rowsQuantity, columnsQuantity, shipsQuantity) {
+  const randTable = Array.from({ length: rowsQuantity }, () => new Array(columnsQuantity).fill(0))
+  let shipsPlaced = 0
+  while (shipsPlaced < shipsQuantity) {
+    let randRow = getRandomNumber(0, rowsQuantity - 1)
+    let randColumn = getRandomNumber(0, columnsQuantity - 1)
+    if (randTable[randRow][randColumn] === 0) {
+      randTable[randRow][randColumn] = 1
+      shipsPlaced++
+    }
+  }
+  return randTable
+}
+const gameField = getGameField(6, 6, 5)
+console.log(gameField)
+
+function navalBattleCreate(field) {
+  let shoot = 10
+  let liveShips = 5
+  let emotion = ""
+  alert("Вітаю! Це гра морський бій! Ігрове поле 6*6. На полі 5 однопалубних кораблів. Для продовження натисніть ОК")
+  do {
+    const positionX = parseInt(prompt("Вкажіть координати корабля по осі X", "")) - 1
+    const positionY = parseInt(prompt("Вкажіть координати корабля по осі Y", "")) - 1
+    shoot--
+    if (field[positionX][positionY] === 1) {
+      field[positionX][positionY] = 0
+      liveShips--
+      alert(`Корабель вбитий! Залишилось ${liveShips} кораблів! У вас ${shoot} пострілів!`)
+    } else {
+      alert(`Не попали! Залишилось ${liveShips} кораблів! У вас ${shoot} пострілів!`)
+    }
+    if (shoot === 0 && liveShips > 0) {
+      alert("Гру закінчено! Ви програли!")
+      emotion = "Sad"
+    }
+    if (shoot >= 0 && liveShips === 0) {
+      alert("Гру закінчено! Ви виграли!")
+      emotion = "Smile"
+    }
+  } while (shoot > 0 && liveShips > 0)
+  return emotion
+}
+
+const navalBattle = navalBattleCreate(gameField)
+console.log(navalBattle)
+*/

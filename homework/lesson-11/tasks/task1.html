@@ -9,6 +9,29 @@
 	</head>
 	<body>
 		<script>
+
+
+function getRandomNumber(minNumber, maxNumber) {
+  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
+}
+
+function generateRandomArray(arrLength, minNumber, maxNumber) {
+  const arr = []
+  for (let i = 0; i < arrLength; i++) {
+    let randNum = getRandomNumber(minNumber, maxNumber)
+    arr.push(randNum)
+  }
+  return arr
+}
+
+function generateRandomTable(rowsQuantity, columnsQuantity, minNumber, maxNumber) {
+  const randTable = []
+  for (let i = 0; i < rowsQuantity; i++) {
+    const randRow = generateRandomArray(columnsQuantity, minNumber, maxNumber)
+    randTable.push(randRow)
+  }
+  return randTable
+}
 // ** 1 **
 //Дано інформацію про прибуток К магазинів протягом тижня. Знайти :
 const shopsQuantity = getRandomNumber(1, 5)
