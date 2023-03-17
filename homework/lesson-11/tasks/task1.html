@@ -1,105 +1,14 @@
-function getRandomNumber(minNumber, maxNumber) {
-  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
-}
-
-function generateRandomArray(arrLength, minNumber, maxNumber) {
-  const arr = []
-  for (let i = 0; i < arrLength; i++) {
-    let randNum = getRandomNumber(minNumber, maxNumber)
-    arr.push(randNum)
-  }
-  return arr
-}
-
-function generateRandomTable(rowsQuantity, columnsQuantity, minNumber, maxNumber) {
-  const randTable = []
-  for (let i = 0; i < rowsQuantity; i++) {
-    const randRow = generateRandomArray(columnsQuantity, minNumber, maxNumber)
-    randTable.push(randRow)
-  }
-  return randTable
-}
-/*
-// ** 0 **
-// Знайти суми елементів у вказаній області
-
-const someArray = generateRandomTable(4, 4, 1, 20)
-function getRowSum(array, startR, startC) {
-  let sum = 0
-  const startRow = startR - 1
-  const startColumn = startC - 1
-  const endRow = startRow + 2
-  const endColumn = startColumn + 2
-  for (let i = startRow; i < endRow; i++) {
-    for (let j = startColumn; j < endColumn; j++) {
-      sum += array[i][j]
-    }
-  }
-  return sum
-}
-const firstPartSum = getRowSum(someArray, 1, 1)
-const secondPartSum = getRowSum(someArray, 1, 3)
-const thirdPartSum = getRowSum(someArray, 3, 1)
-const fourthPartSum = getRowSum(someArray, 3, 3)
-
-// 5) Суму парних рядків
-const someArray2 = generateRandomTable(4, 7, 1, 2)
-function getSumEvenRows(array) {
-  let sum = 0
-  for (let i = 1; i <= array.length; i++) {
-    if (i % 2 === 0) {
-      for (let j = 0; j < array[i - 1].length; j++) {
-        sum += array[i - 1][j]
-      }
-    }
-  }
-  return sum
-}
-const sumEvenRows = getSumEvenRows(someArray2)
-
-// 6) Суму непарних стовпців
-const someArray3 = generateRandomTable(4, 7, 1, 2)
-function getSumOddColumns(array) {
-  let sum = 0
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 1; j <= array[i].length; j++) {
-      if (j % 2 === 1) {
-        sum += array[i][j - 1]
-      }
-    }
-  }
-  return sum
-}
-const sumOddColumns = getSumOddColumns(someArray3)
-
-// У парних рядках – непарні стовпці, у непарних – парні.
-const someArray4 = generateRandomTable(4, 7, 1, 2)
-function getSumSomething(array) {
-  let sumEvenRowOddColumns = 0
-  let sumOddRowsEvenColumns = 0
-  for (let i = 1; i <= array.length; i++) {
-    if (i % 2 === 0) {
-      for (let j = 1; j <= array[i - 1].length; j++) {
-        if (j % 2 === 1) {
-          sumEvenRowOddColumns += array[i - 1][j - 1]
-        }
-      }
-    }
-  }
-  for (let i = 1; i <= array.length; i++) {
-    if (i % 2 === 1) {
-      for (let j = 1; j <= array[i - 1].length; j++) {
-        if (j % 2 === 0) {
-          sumOddRowsEvenColumns += array[i - 1][j - 1]
-        }
-      }
-    }
-  }
-  return sumEvenRowOddColumns + sumOddRowsEvenColumns
-}
-const sumSomething = getSumSomething(someArray4)
-*/
-
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 0</title>
+	</head>
+	<body>
+		<script>
 // ** 1 **
 //Дано інформацію про прибуток К магазинів протягом тижня. Знайти :
 const shopsQuantity = getRandomNumber(1, 5)
@@ -241,3 +150,6 @@ function getSortedRowsSumArray(array) {
 }
 const sortedRowsSumArray = getSortedRowsSumArray(shopsProfit)
 console.log(sortedRowsSumArray)
+      </script>
+	</body>
+</html>
