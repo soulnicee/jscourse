@@ -232,7 +232,7 @@ const newUserGame = mathSumGame(1, 100, 3)
 
 // ##4 ** Display the result ** Виведення результату ** Вывод результата **
 */
-
+/*
 // ** 5 **
 // Через 20 секунд перейти на сайт ukr.net. Для цього через
 // 20 секунд після відкриття треба виконати команду
@@ -245,5 +245,5 @@ const someRedirect1 = userRedirect(redirectURL, 20000)
 // const someRedirect = setTimeout(() => {
 //   window.location.href = "https://www.ukr.net/"
 // }, 2000)
-
+*/
 
