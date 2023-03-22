@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 2</title>
+	</head>
+	<body>
+		<script>
+			function generateRandomArray(arrLength, minNumber, maxNumber) {
+  const arr = []
+  for (let i = 0; i < arrLength; i++) {
+    let randNum = getRandomNumber(minNumber, maxNumber)
+    arr.push(randNum)
+  }
+  return arr
+}
+const arrayWithRandomNumbers = generateRandomArray(30, 1, 50)
+const arrayWithRandomNumbers2 = Array.from(arrayWithRandomNumbers)
+const arrayWithRandomNumbers3 = Array.from(arrayWithRandomNumbers)
+
+function generateRandomTable(rowsQuantity, columnsQuantity, minNumber, maxNumber) {
+  const randTable = []
+  for (let i = 0; i < rowsQuantity; i++) {
+    const randRow = generateRandomArray(columnsQuantity, minNumber, maxNumber)
+    randTable.push(randRow)
+  }
+  return randTable
+}
+function getRandomNumber(minNumber, maxNumber) {
+  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
+}
+
+// ** 2 **
+//  Дано масив 30 випадкових цілих чисел.
+// Підрахувати скільки було обмінів під час сортування включеннями.
+
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+// Алгоритм сортування включенням
+function insertionSort(array) {
+  let key, i
+  let count = 0
+  for (let k = 1; k < array.length; k++) {
+    key = array[k]
+    i = k - 1
+    while (i >= 0 && array[i] > key) {
+      array[i + 1] = array[i]
+      i = i - 1
+      count++
+      // console.log(array)
+    }
+    array[i + 1] = key
+  }
+  return count
+}
+const changesInsertionSort = insertionSort(arrayWithRandomNumbers3)
+console.log(changesInsertionSort)
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
+</script>
+	</body>
+</html>
