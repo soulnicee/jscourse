@@ -44,7 +44,8 @@ function getRandomNumber(minNumber, maxNumber) {
 function insertionSort(array) {
   let key, i
   let count = 0
-  for (let k = 1; k < array.length; k++) {
+  const length = array.length
+  for (let k = 1; k < length; k++) {
     key = array[k]
     i = k - 1
     while (i >= 0 && array[i] > key) {

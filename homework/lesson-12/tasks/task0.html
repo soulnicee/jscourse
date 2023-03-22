@@ -35,11 +35,12 @@ const arrayWithRandomNumbers3 = Array.from(arrayWithRandomNumbers)
 function bubbleSort(array) {
   let changed
   let count = 0
+  const length = array.length
   do {
     changed = false
-    for (let i = 1; i < array.length; i++) {
+    for (let i = 1; i < length; i++) {
       if (array[i - 1] > array[i]) {
-        ;[array[i - 1], array[i]] = [array[i], array[i - 1]]
+        [array[i - 1], array[i]] = [array[i], array[i - 1]]
         //   console.log(array)
         changed = true
         count++

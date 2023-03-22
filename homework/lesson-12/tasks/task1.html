@@ -36,14 +36,13 @@ const arrayWithRandomNumbers3 = Array.from(arrayWithRandomNumbers)
 function coctailSort(array) {
   let leftIndex = 0
   let rightIndex = array.length - 1
-  let countLeft = 0
-  let countRight = 0
+  let count = 0
   while (leftIndex < rightIndex) {
     for (let i = leftIndex; i < rightIndex; i++) {
       if (array[i] > array[i + 1]) {
-        ;[array[i], array[i + 1]] = [array[i + 1], array[i]]
+        [array[i], array[i + 1]] = [array[i + 1], array[i]]
         //   console.log(array)
-        countLeft++
+        count++
       }
     }
 
@@ -51,14 +50,14 @@ function coctailSort(array) {
 
     for (let i = rightIndex; i > leftIndex; i--) {
       if (array[i] < array[i - 1]) {
-        ;[array[i], array[i - 1]] = [array[i - 1], array[i]]
+        [array[i], array[i - 1]] = [array[i - 1], array[i]]
         //   console.log('reverse', array)
-        countRight++
+        count++
       }
     }
     leftIndex++
   }
-  return countLeft + countRight
+  return count
 }
 const changesCoctailQuantity = coctailSort(arrayWithRandomNumbers2)
 console.log(changesCoctailQuantity)
