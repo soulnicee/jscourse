@@ -9,52 +9,51 @@
 	</head>
 	<body>
 		<script>
-function generateRandomArray(arrLength, minNumber, maxNumber) {
-  const arr = []
-  for (let i = 0; i < arrLength; i++) {
-    let randNum = getRandomNumber(minNumber, maxNumber)
-    arr.push(randNum)
-  }
-  return arr
-}
-function getRandomNumber(minNumber, maxNumber) {
-  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
-}
-
 // ** 0 **
-// Дано масив 30 випадкових цілих чисел.
-// Підрахувати скільки було обмінів під час сортування бульбашкою
+// Нехай x_0=1,x_i=x_(i-1)+2i, де i=1,2,.... Визначити x_10. 
+// Розв’язати з використанням рекурсивних і нерекурсивних алгоритмів
 
 // ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
-// створюємо масив з випадковими числами
+// Спочатку вивожу формулу, за якою буду обчислювати X_i = X_i-1 + 2i
+// Х_0 рівне 1
+// i нам приходить в функцію від користувача ( за умовою задачі це 10)
+// Послідовність починається від 1 до i з кроком +1 на кожній ітерації(або -1)
 // ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
-// Алгоритм сортування бульбашкою
-const arrayWithRandomNumbers = generateRandomArray(30, 1, 50)
-const arrayWithRandomNumbers2 = Array.from(arrayWithRandomNumbers)
-const arrayWithRandomNumbers3 = Array.from(arrayWithRandomNumbers)
-function bubbleSort(array) {
-  let changed
-  let count = 0
-  do {
-    changed = false
-    for (let i = 1; i < array.length; i++) {
-      if (array[i - 1] > array[i]) {
-        ;[array[i - 1], array[i]] = [array[i], array[i - 1]]
-        //   console.log(array)
-        changed = true
-        count++
-      }
-    }
-  } while (changed)
-  return count
-}
-// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
-const changesBubbleQuantity = bubbleSort(arrayWithRandomNumbers)
 
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+const userNumber = 10
+function something(i) {
+  if (i === 0) return 1
+  else return something(i - 1) + 2 * i
+}
+let recursionVariant = something(userNumber)
+console.log(recursionVariant)
+
+function something2(i) {
+  let res = 1
+  for (let k = 1; k <= i; k++) {
+    res += 2 * k
+  }
+  return res
+}
+let loopVariant = something2(userNumber)
+console.log(loopVariant)
+
+function something3(i) {
+  let X = 0
+  let X_0 = 1
+  for (let k = 1; k <= i; k++) {
+    X = X_0 + 2 * k
+    X_0 = X
+  }
+  return X
+}
+let loopVariant2 = something3(userNumber)
+console.log(loopVariant2)
 // ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
 
 // ##4 ** Display the result ** Виведення результату ** Вывод результата **
-console.log(changesBubbleQuantity)
+
 </script>
 	</body>
 </html>

@@ -9,58 +9,43 @@
 	</head>
 	<body>
 		<script>
-			function generateRandomArray(arrLength, minNumber, maxNumber) {
-  const arr = []
-  for (let i = 0; i < arrLength; i++) {
-    let randNum = getRandomNumber(minNumber, maxNumber)
-    arr.push(randNum)
-  }
-  return arr
-}
-const arrayWithRandomNumbers = generateRandomArray(30, 1, 50)
-const arrayWithRandomNumbers2 = Array.from(arrayWithRandomNumbers)
-const arrayWithRandomNumbers3 = Array.from(arrayWithRandomNumbers)
-
-function generateRandomTable(rowsQuantity, columnsQuantity, minNumber, maxNumber) {
-  const randTable = []
-  for (let i = 0; i < rowsQuantity; i++) {
-    const randRow = generateRandomArray(columnsQuantity, minNumber, maxNumber)
-    randTable.push(randRow)
-  }
-  return randTable
-}
-function getRandomNumber(minNumber, maxNumber) {
-  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
-}
-
-// ** 2 **
-//  Дано масив 30 випадкових цілих чисел.
-// Підрахувати скільки було обмінів під час сортування включеннями.
+			// ** 2 **
+// З використанням замикань розробити ітератор,
+// тобто функцію, що буде поступово за окремими викликами видавати по одне значення
+// від заданого мінімального до заданого максимального. Якщо значення досягне максимального,
+// то наступним буде мінімальне значення. З використанням цієї функції реалізувати перебір номерів місяців.
 
 // ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
 
 // ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
-// Алгоритм сортування включенням
-function insertionSort(array) {
-  let key, i
-  let count = 0
-  for (let k = 1; k < array.length; k++) {
-    key = array[k]
-    i = k - 1
-    while (i >= 0 && array[i] > key) {
-      array[i + 1] = array[i]
-      i = i - 1
-      count++
-      // console.log(array)
-    }
-    array[i + 1] = key
-  }
-  return count
-}
-const changesInsertionSort = insertionSort(arrayWithRandomNumbers3)
-console.log(changesInsertionSort)
-// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
 
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+function monthLoop(minNum, maxNum) {
+  let startCountMonth = 0
+  let minMonthNum = minNum - 1
+  function month() {
+    if (startCountMonth === maxNum) {
+      startCountMonth = minMonthNum
+    }
+    startCountMonth++
+    return startCountMonth
+  }
+  return month
+}
+const monthIterator = monthLoop(1, 12)
+// console.log(monthIterator())
+for (let i = 0; i < 12; i++) {
+  console.log(monthIterator())
+}
+function findNum(numQuantity) {
+  let arr = []
+  for (let i = 0; i < numQuantity; i++) {
+    arr.push(monthIterator())
+  }
+  return arr
+}
+const numnerFinded = findNum(12)
+console.log(numnerFinded)
 // ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
 
 // ##4 ** Display the result ** Виведення результату ** Вывод результата **

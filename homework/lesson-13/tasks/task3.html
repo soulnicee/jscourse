@@ -10,7 +10,67 @@
 	<body>
 		<script>
 // ** 3 **
-// Дана задача виконана в кожному алгоритмі сортування(задача 0, 1, 2), закоментований консоль лог
+
+/// З використанням замикань розробити ітератор, тобто функцію, що буде поступово за окремими
+/// викликами видавати по одну букву наперед заданого слова. З використанням нього розробити
+/// гру «Прекладач». Виводимо для користувача опис цього слова і по одну букву користувач вводить
+/// переклад цього слова. Підрахувати кількість вгаданих букв.
+
+// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
+
+// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
+
+// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+function wordsGame(word) {
+  let letter
+  let letterCounter = 0
+  const wordEnd = word.length
+  function getLetter() {
+    if (wordEnd === letterCounter) {
+      return "Game Over"
+    }
+    letter = word[letterCounter]
+    letterCounter++
+    return letter
+  }
+  return getLetter
+}
+const startGame = wordsGame("Hello")
+console.log(startGame())
+console.log(startGame())
+console.log(startGame())
+console.log(startGame())
+console.log(startGame())
+
+function playWithUser(word) {
+  let letter
+  let letterCounter = 0
+  let userLetter
+  let userAnswerCount = 0
+  const wordEnd = word.length
+  function getLetter() {
+    if (wordEnd === letterCounter) {
+      return "Game Over"
+    }
+    userLetter = prompt("Вгадайте слово. Це овоч зеленого кольору, 6 букв. Вводьте по одній літері, починаючи з великої.")
+    letter = word[letterCounter]
+    letterCounter++
+    if (userLetter === letter) {
+      userAnswerCount++
+    }
+    return userAnswerCount
+  }
+  return getLetter
+}
+const word1 = "Огірок"
+const userPlay = playWithUser(word1)
+for (let i = 0; i < word1.length; i++) {
+  console.log(userPlay())
+}
+
+// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
+
+// ##4 ** Display the result ** Виведення результату ** Вывод результата **
 </script>
 	</body>
 </html>

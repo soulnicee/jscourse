@@ -9,61 +9,40 @@
 	</head>
 	<body>
 		<script>
-function generateRandomArray(arrLength, minNumber, maxNumber) {
-  const arr = []
-  for (let i = 0; i < arrLength; i++) {
-    let randNum = getRandomNumber(minNumber, maxNumber)
-    arr.push(randNum)
-  }
-  return arr
-}
-function getRandomNumber(minNumber, maxNumber) {
-  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
-}
-
-const arrayWithRandomNumbers = generateRandomArray(30, 1, 50)
-const arrayWithRandomNumbers2 = Array.from(arrayWithRandomNumbers)
-const arrayWithRandomNumbers3 = Array.from(arrayWithRandomNumbers)
-
 // ** 1 **
-// Дано масив 30 випадкових цілих чисел.
-// Підрахувати скільки було обмінів під час сортування змішуванням.
+// Нехай x_0=x_1=1,x_i=x_(i-1)+2x_(i-2), де i=2,3,.... Визначити x_n.
+// Розв’язати з використанням рекурсивних і нерекурсивних алгоритмів
 
 // ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
-
+// Спочатку вивожу формулу, за якою буду обчислювати X_i = X_i-1 + 2X_i-2
+// Х_0, X_1  рівне 1
+// i нам приходить в функцію від користувача ( за умовою задачі це 10)
+// Послідовність починається від 2 до i з кроком +1 на кожній ітерації(або -1)
 // ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
-// Алгоритм сортування змішуванням
-function coctailSort(array) {
-  let leftIndex = 0
-  let rightIndex = array.length - 1
-  let countLeft = 0
-  let countRight = 0
-  while (leftIndex < rightIndex) {
-    for (let i = leftIndex; i < rightIndex; i++) {
-      if (array[i] > array[i + 1]) {
-        ;[array[i], array[i + 1]] = [array[i + 1], array[i]]
-        //   console.log(array)
-        countLeft++
-      }
-    }
 
-    rightIndex--
-
-    for (let i = rightIndex; i > leftIndex; i--) {
-      if (array[i] < array[i - 1]) {
-        ;[array[i], array[i - 1]] = [array[i - 1], array[i]]
-        //   console.log('reverse', array)
-        countRight++
-      }
-    }
-    leftIndex++
-  }
-  return countLeft + countRight
-}
-const changesCoctailQuantity = coctailSort(arrayWithRandomNumbers2)
-console.log(changesCoctailQuantity)
 // ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
+const userNumber = 10
+function something(i) {
+  if (i < 2) return 1
+  else return something(i - 1) + 2 * something(i - 2)
+}
+let recursionVariant = something(userNumber)
+console.log(recursionVariant)
 
+
+
+function something2(i) {
+  let X = 0
+  let X_0 = X_1 = 1
+  for (let k = 2; k <= i; k++) {
+    X = X_0 + 2 * X_1
+	 X_1 = X_0
+	 X_0 = X
+  }
+  return X
+}
+let loopVariant = something2(userNumber)
+console.log(loopVariant)
 // ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
 
 // ##4 ** Display the result ** Виведення результату ** Вывод результата **

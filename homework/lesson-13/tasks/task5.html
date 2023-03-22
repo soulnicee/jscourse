@@ -9,71 +9,18 @@
 	</head>
 	<body>
 		<script>
-			const userNames = ["Adam", "Bob", "David", "Emily", "Frank", "Gina", "Henry", "Isabelle", "Jack", "Katie", "Liam", "Mia", "Nancy", "Oliver", "Penny", "Quincy", "Rachel", "Samantha", "Thomas", "Uma", "Victoria", "Wyatt", "Xavier", "Yara", "Zoe", "Olga", "Charlie"]
-const userNames2 = Array.from(userNames)
-// ** 5 **
-// Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук визначити,
-// чи є у масиві ім’я довжиною 5 символів і під яким індексом.
-// ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
-// Створити масив імен
-// Написати алгоритм сортування(використав тут бульбашкове, не вийшло в сортування вставкою зробити сортування по довжині стрінги)
-// Написати функцію бінарного пошуку
-// Відсортувати масив з іменами за кількість символів в імені
-// За допомогою бінарного пошуку визначити, чи є імена в яких 5 символів та їх індекси
-// дописати бінарний пощук так, щоб знаходив більше 1 входження
-
-// ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
-
-// ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
-function bubbleSort2(array) {
-  let changed
-  do {
-    changed = false
-    for (let i = 1; i < array.length; i++) {
-      if (array[i - 1].length > array[i].length) {
-        ;[array[i - 1], array[i]] = [array[i], array[i - 1]]
-        changed = true
-      }
-    }
-  } while (changed)
-  return array
+		// ** 5 **
+// Через 20 секунд перейти на сайт ukr.net. Для цього через
+// 20 секунд після відкриття треба виконати команду
+let redirectURL = "https://www.ukr.net/"
+function userRedirect(link, delay) {
+  setTimeout(() => window.location.href = link, delay)
 }
+const someRedirect1 = userRedirect(redirectURL, 20000)
 
-const sortedUserNames3 = bubbleSort2(userNames2)
-console.log(sortedUserNames3)
-
-function binarySearch2(array, searchLength) {
-  let start = 0
-  let end = array.length - 1
-  let arr = []
-  while (start <= end) {
-    let middle = Math.floor((start + end) / 2)
-    if (array[middle].length === searchLength) {
-      arr.push([true, middle])
-      // Задача ускладнилася тим, що в моєму масиві більше 1 імені з 5 символами.
-      let left = middle - 1
-      let right = middle + 1
-      while (array[left] && array[left].length === searchLength) {
-        arr.push([true, left])
-        left--
-      }
-      while (array[right] && array[right].length === searchLength) {
-        arr.push([true, right])
-        right++
-      }
-      return arr
-    }
-    if (array[middle].length < searchLength) start = middle + 1
-    if (array[middle].length > searchLength) end = middle - 1
-  }
-  return false
-}
-
-// ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
-
-// ##4 ** Display the result ** Виведення результату ** Вывод результата **
-const isNameGreaterFiveLetter = binarySearch2(sortedUserNames3, 5)
-console.log(isNameGreaterFiveLetter)
+// const someRedirect = setTimeout(() => {
+//   window.location.href = "https://www.ukr.net/"
+// }, 2000)
 </script>
 	</body>
 </html>

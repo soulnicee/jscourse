@@ -10,55 +10,46 @@
 	<body>
 		<script>
 // ** 4 **
-// Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук визначити,
-// чи є у масиві ім’я «Olga» і під яким індексом.
+// Тренажер додавання. Кожні 10 секунд користувачу задають
+// випадковий приклад з додавання двох цифр і робиться перевірка.
+
 // ##0 ** Decomposition ** Декомпозиція ** Декомпозиция **
 
 // ##1 ** Designation of values ** Позначення величин ** Обозначение значений **
-const userNames = ["Adam", "Bob", "David", "Emily", "Frank", "Gina", "Henry", "Isabelle", "Jack", "Katie", "Liam", "Mia", "Nancy", "Oliver", "Penny", "Quincy", "Rachel", "Samantha", "Thomas", "Uma", "Victoria", "Wyatt", "Xavier", "Yara", "Zoe", "Olga", "Charlie"]
-const userNames2 = Array.from(userNames)
+
 // ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
-// сортування
-
-function insertionSort2(array) {
-  let key, i
-  for (let k = 1; k < array.length; k++) {
-    key = array[k]
-    i = k - 1
-    while (i >= 0 && array[i] > key) {
-      array[i + 1] = array[i]
-      i = i - 1
-    }
-    array[i + 1] = key
-  }
-  return array
+function getRandomNumber(minNumber, maxNumber) {
+  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
 }
+function mathSumGame(minNum, maxNum, gamesQuantity) {
+  let timeOut = 10000
+  let gameCounter = 0
 
-const sortedUserNames = insertionSort2(userNames)
-console.log(sortedUserNames)
-// лгоритм бінарного пошуку
-function binarySearch(array, searchElement) {
-  let start = 0
-  let end = array.length - 1
-  let arr = []
-  while (start <= end) {
-    let middle = Math.floor((start + end) / 2)
-    if (array[middle] === searchElement) {
-      arr.push(true)
-      arr.push(middle)
-      return arr
-    }
-    if (array[middle] < searchElement) start = middle + 1
-    if (array[middle] > searchElement) end = middle - 1
+  function game() {
+    const firstNumber = getRandomNumber(minNum, maxNum)
+    const secondNumber = getRandomNumber(minNum, maxNum)
+    setTimeout(() => {
+      let userAnswer = parseInt(prompt(`Скільки буде ${firstNumber} + ${secondNumber}?`))
+      if (userAnswer === firstNumber + secondNumber) {
+        alert("Правильно!")
+      } else {
+        alert("Не правильно!")
+      }
+      gameCounter++
+      if (gamesQuantity > gameCounter) {
+        game()
+      } else {
+			alert('Game Over')
+		}
+    }, timeOut)
+    return gameCounter
   }
-  return false
+  return game
 }
-
+const newUserGame = mathSumGame(1, 100, 3)
 // ##3 ** Calculate the result ** Обчислення результату ** Вычисление результата **
 
 // ##4 ** Display the result ** Виведення результату ** Вывод результата **
-const isNameInArray = binarySearch(sortedUserNames, "Olga")
-console.log(isNameInArray)
 </script>
 	</body>
 </html>
