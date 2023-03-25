@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<script>
-		// ** 2 **
+// ** 2 **
 let dataList = [
   { id: 344277463, old_price: 1395, old_usd_price: "37.70", price: 1099, min_month_price: 0, sell_status: "available", status: "active", usd_price: "29.70", pl_charge_pcs: 0, pl_use_instant_bonus: false, pl_premium_bonus_charge_pcs: 0, rests: -1, min_price: 0, max_price: 0, has_shops: false, info: null, show_in_site: null },
   { id: 363766641, old_price: 0, old_usd_price: "0.00", price: 90, min_month_price: 0, sell_status: "unavailable", status: "active", usd_price: "2.43", pl_charge_pcs: 0, pl_use_instant_bonus: false, pl_premium_bonus_charge_pcs: 0, rests: -1, min_price: 0, max_price: 0, has_shops: false, info: null, show_in_site: null },
@@ -37,21 +37,21 @@ let dataList = [
   { id: 363614439, old_price: 5199, old_usd_price: "140.51", price: 4890, min_month_price: 0, sell_status: "available", status: "active", usd_price: "132.16", pl_charge_pcs: 0, pl_use_instant_bonus: false, pl_premium_bonus_charge_pcs: 0, rests: -1, min_price: 0, max_price: 0, has_shops: false, info: null, show_in_site: null },
 ]
 //Загальну вартість (нові ціни - price)
-const summaryPrice = dataList.reduce((prevSum, product) => (product.price > 0 ? prevSum + product.price : prevSum), 0)
+const summaryPrice = dataList.reduce((prevSum, { price }) => (price > 0 ? prevSum + price : prevSum), 0)
 console.log(summaryPrice)
 
 //Знайти кількість товарів, у яких ціна зменшилась (price < old_price).
-const quantityProductsWithDiscount = dataList.reduce((prevQuantity, product) => (product.price < product.old_price ? prevQuantity + 1 : prevQuantity), 0)
+const quantityProductsWithDiscount = dataList.reduce((prevQuantity, { price, old_price }) => (price < old_price ? prevQuantity + 1 : prevQuantity), 0)
 console.log(quantityProductsWithDiscount)
 
 //Товари, які доступні (sell_status:"available")
-const availableProducts = dataList.filter((productStatus) => productStatus.sell_status === "available")
+const availableProducts = dataList.filter(({ sell_status }) => sell_status === "available")
 console.log(availableProducts)
 
 //сформувати новий список об”єктів тільки доступних  для продажу товарів,
 //які міститимуть тільки ідентифікатор товару (id), нову ціну (price),
 //стару ціну (old_price), та ціну у доларах (usd_price)
-const newDataList = dataList.filter((productStatus) => productStatus.sell_status === "available").map(({ id, price, old_price, usd_price }) => ({ id, price, old_price, usd_price }))
+const newDataList = dataList.filter(({ sell_status }) => sell_status === "available").map(({ id, price, old_price, usd_price }) => ({ id, price, old_price, usd_price }))
 console.log(newDataList)
 </script>
 	</body>
