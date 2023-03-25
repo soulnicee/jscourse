@@ -176,7 +176,8 @@ function getYears({ month, year }, N) {
 }
 console.log(getYears(date, N))
 */
-
+/*
+// ** 2 **
 let dataList = [
   { id: 344277463, old_price: 1395, old_usd_price: "37.70", price: 1099, min_month_price: 0, sell_status: "available", status: "active", usd_price: "29.70", pl_charge_pcs: 0, pl_use_instant_bonus: false, pl_premium_bonus_charge_pcs: 0, rests: -1, min_price: 0, max_price: 0, has_shops: false, info: null, show_in_site: null },
   { id: 363766641, old_price: 0, old_usd_price: "0.00", price: 90, min_month_price: 0, sell_status: "unavailable", status: "active", usd_price: "2.43", pl_charge_pcs: 0, pl_use_instant_bonus: false, pl_premium_bonus_charge_pcs: 0, rests: -1, min_price: 0, max_price: 0, has_shops: false, info: null, show_in_site: null },
@@ -221,4 +222,4 @@ console.log(availableProducts)
 const newDataList = dataList.filter((productStatus) => productStatus.sell_status === "available").map(({ id, price, old_price, usd_price }) => ({ id, price, old_price, usd_price }))
 console.log(newDataList)
 
-
+*/
