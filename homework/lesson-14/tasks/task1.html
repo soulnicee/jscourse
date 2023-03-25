@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<title>Task 1</title>
+	</head>
+	<body>
+		<script>
+			// ** 1 **
+			function getRandomNumber(minNumber, maxNumber) {
+  return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
+}
+//Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N місяців.
+let date = {
+  day: 10,
+  month: 5,
+  year: 2023,
+}
+let N = getRandomNumber(1, 500)
+function getYears({ month, year }, N) {
+  let monthSummary = month + N
+  let newMonth = monthSummary % 12
+  let newYear = year + Math.floor((month + N) / 12)
+  if (newMonth === 0) {
+    newMonth = 12
+    newYear -= 1
+  }
+  return newYear
+}
+console.log(getYears(date, N))
+      </script>
+	</body>
+</html>
