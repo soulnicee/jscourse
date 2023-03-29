@@ -100,9 +100,7 @@ const sitesBetween2000And2009 = finishedSites.reduce((prevSum, site) => (site.fi
 console.log(sitesBetween2000And2009)
 
 //кількість сайтів, де сума спонсорських вкладень була більшою за 100000
-const sponsorsMoneyMore10000 = finishedSites.reduce((prevSum, site) => {
-  return prevSum + site.sponsors.reduce((siteQuant, money) => (money.contribution > 100000 ? siteQuant + 1 : siteQuant), 0)
-}, 0)
+const sponsorsMoneyMore10000 = finishedSites.map((site) => site.sponsors.reduce((prev, sponsor) => prev + sponsor.contribution, 0)).reduce((prev, el) => (el > 100000 ? ++prev : prev), 0)
 console.log(sponsorsMoneyMore10000)
 
 //створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
@@ -154,7 +152,6 @@ finishedSites.forEach((site) => {
 console.log(sitesLess10000)
 console.log(sitesMore10000)
 */
-
 /*
 // ** 1 **
 //Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N місяців.
@@ -176,7 +173,7 @@ function getYears({ month, year }, N) {
 }
 console.log(getYears(date, N))
 */
-
+/*
 // ** 2 **
 let dataList = [
   { id: 344277463, old_price: 1395, old_usd_price: "37.70", price: 1099, min_month_price: 0, sell_status: "available", status: "active", usd_price: "29.70", pl_charge_pcs: 0, pl_use_instant_bonus: false, pl_premium_bonus_charge_pcs: 0, rests: -1, min_price: 0, max_price: 0, has_shops: false, info: null, show_in_site: null },
@@ -221,3 +218,4 @@ console.log(availableProducts)
 //стару ціну (old_price), та ціну у доларах (usd_price)
 const newDataList = dataList.filter(({ sell_status }) => sell_status === "available").map(({ id, price, old_price, usd_price }) => ({ id, price, old_price, usd_price }))
 console.log(newDataList)
+*/

@@ -70,6 +70,7 @@ console.log(recursionVariant)
 function something2(i) {
   let X = 0
   let X_0 = X_1 = 1
+  if (i < 2) return 1
   for (let k = 2; k <= i; k++) {
     X = X_0 + 2 * X_1
 	 X_1 = X_0
@@ -96,18 +97,17 @@ console.log(loopVariant)
 
 // ##2 ** Enter the necessary arguments ** Введення необхідних аргументів ** Ввод необходимых аргументов **
 function monthLoop(minNum, maxNum) {
-  let startCountMonth = 0
-  let minMonthNum = minNum - 1
+  let startCountMonth = minNum-1
   function month() {
     if (startCountMonth === maxNum) {
-      startCountMonth = minMonthNum
+      startCountMonth = minNum-1
     }
     startCountMonth++
     return startCountMonth
   }
   return month
 }
-const monthIterator = monthLoop(1, 12)
+const monthIterator = monthLoop(3, 12)
 // console.log(monthIterator())
 for (let i = 0; i < 12; i++) {
   console.log(monthIterator())
