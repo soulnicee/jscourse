@@ -5,11 +5,57 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="../../css/style.css">
-		<title>Task 2</title>
+		<title>Task 5</title>
 	</head>
 	<body>
 		<script>
+// ** 5 **
+//// Розробити клас «Керівник танців»
+//// Поля	Масив імен хлопців
+//// Масив імен дівчат
+//// Методи	Метод випадкового вибору імені хлопця
+//// Метод випадкового вибору імені дівчини
+//// Метод виведення пари для танців
+//// Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців
 
+class DancingManager {
+  constructor() {
+    this.boyNames = ["Zeus", "Odin", "Ra", "Anubis", "Baal", "Shiva", "Cronus", "Poseidon", "Thor", "Mars", "Apollo", "Horus", "Odin", "Krishna", "Loki", "Hades", "Indra", "Ares", "Osiris", "Vishnu", "Eros", "Amun", "Dionysus", "Enlil", "Anansi", "Mithras", "Hephaestus", "Hermes", "Pan", "Janus", "Heracles", "Thoth", "Set", "Chaac", "Njord", "Norse", "Kukulkan", "Ahura Mazda", "Svarog", "Tezcatlipoca", "Kroni", "Izanagi", "Mictlantecuhtli", "Pangu", "Ah Puch", "Agni", "Inti", "Jupiter"]
+    this.girlNames = ["Aphrodite", "Isis", "Demeter", "Freya", "Hathor", "Persephone", "Hera", "Artemis", "Inanna", "Kali", "Lakshmi", "Morrigan", "Vesta", "Athena", "Durga", "Saraswati", "Freyja", "Nemesis", "Eris", "Brigid", "Ereshkigal", "Ishtar", "Gaea", "Hecate", "Lilith", "Morgan Le Fay", "Pele", "Sekhmet", "Tiamat", "Yemaya", "Bastet", "Cerridwen", "Cybele", "Fortuna", "Gaia", "Hel", "Idunn", "Junon", "Kali", "Lakshmi", "Morrigan", "Nyx", "Pandora", "Rhiannon", "Selene", "Tara", "Urd", "Venus", "Xochiquetzal"]
+  }
+  getRandomIndex(array) {
+    let startNum = 0
+    let endNum = array.length - 1
+    let randName = Math.floor(Math.random() * (endNum - startNum + 1)) - startNum
+    return randName
+  }
+  getRandomBoyName() {
+    let boyIndex = this.getRandomIndex(this.boyNames)
+    return this.boyNames[boyIndex]
+  }
+  getRandomGirlName() {
+    let girlIndex = this.getRandomIndex(this.girlNames)
+    return this.girlNames[girlIndex]
+  }
+  getDancingPair() {
+    let boy = this.getRandomBoyName()
+    let girl = this.getRandomGirlName()
+    return document.write(`Пара для танцю: ${boy} і ${girl} <br>`)
+  }
+  dancingWithGods(sec) {
+    let interval = sec * 1000
+    setInterval(() => {
+      this.getDancingPair()
+    }, interval)
+  }
+}
+
+let dance = new DancingManager()
+
+console.log(dance.getRandomBoyName())
+console.log(dance.getRandomGirlName())
+dance.getDancingPair()
+dance.dancingWithGods(5)
 </script>
 	</body>
 </html>

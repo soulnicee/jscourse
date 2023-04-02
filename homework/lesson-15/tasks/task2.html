@@ -9,7 +9,53 @@
 	</head>
 	<body>
 		<script>
+// ** 2 **
+//// Створити об’єкт «Авто».
+//// Авто
+//// Поля(властивості)	Марка
+//// Розмір бака
+//// Кількість наявних літрів
+//// Кількість місць
+//// Кількість пасажирів
+//// Методи (дії)	Заправка на вказану кількість літрів
+//// Виведення кількості пасажирів
+//// Додавання пасажирів
+//// Висадка пасажирів
 
+class Auto {
+  constructor(brand, tankSize, availableFuel, seatsQuantity, passengersQuantity) {
+    this.brand = brand
+    this.tankSize = tankSize
+    this.availableFuel = availableFuel
+    this.seatsQuantity = seatsQuantity
+    this.passengersQuantity = passengersQuantity
+  }
+  refueling(liters) {
+    let emptyTankSize = this.tankSize - this.availableFuel
+    if (liters > emptyTankSize) throw new Error(`В бак стільки не поміститься. Можете залити ${emptyTankSize} літрів`)
+    this.availableFuel += liters
+  }
+  getPassengersQuantity() {
+    console.log(`Зараз у вас ${this.passengersQuantity} пасажирів`)
+  }
+  addPassengers(passengQuant) {
+    let seatsFree = this.seatsQuantity - this.passengersQuantity
+    if (passengQuant > seatsFree) throw new Error(`Є ${seatsFree} вільних місць`)
+    this.passengersQuantity += passengQuant
+  }
+  dropPassengers(passengQuant) {
+    if (passengQuant > this.passengersQuantity) throw new Error(`У вас немає стільки пасажирів. Можете висадити тільки ${this.passengersQuantity}`)
+    this.passengersQuantity -= passengQuant
+  }
+}
+
+let newCar = new Auto("Mersedes", 100, 30, 25, 10)
+console.log(newCar)
+newCar.refueling(10)
+newCar.getPassengersQuantity()
+newCar.addPassengers(5)
+newCar.dropPassengers(10)
+console.log(newCar)
 </script>
 	</body>
 </html>

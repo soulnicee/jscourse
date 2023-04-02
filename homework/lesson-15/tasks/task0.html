@@ -10,6 +10,52 @@
 	<body>
 		<script>
 
+function getRandomNumber(minNum, maxNum) {
+  return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum
+}
+function getArrayWithRandomNum(numQuantity) {
+  let arr = []
+  for (let i = 0; i < numQuantity; i++) {
+    arr.push(getRandomNumber(1, 10))
+  }
+  return arr
+}
+// ** 0 **
+//// Дано два об’єкта. Обидва містять масив цілих чисел.
+//// При цьому у одному з них є функція знаходження суми,
+//// а у іншому – функція для знаходження добутку тих,
+//// які знаходяться між заданими мінімальним і максимальних значенням.
+//// Використати обидва методи стосовно обидвох об’єктів (використати call, apply)
+
+let objectOne = {
+  numbers: getArrayWithRandomNum(20),
+  getSum: function () {
+    return this.numbers.reduce((prevSum, el) => prevSum + el)
+  },
+}
+
+let objectTwo = {
+  numbers: getArrayWithRandomNum(20),
+  getMult: function (min, max) {
+    return this.numbers.reduce((prevMult, el) => (el >= min && el <= max ? prevMult * el : prevMult), 1)
+  },
+}
+
+let objectOneSum = objectOne.getSum()
+let objectOneMult = objectTwo.getMult.call(objectOne, 1, 3)
+let objectOneMult2 = objectTwo.getMult.apply(objectOne, [1, 3])
+console.log(objectOne.numbers)
+console.log(objectOneSum)
+console.log(objectOneMult)
+console.log(objectOneMult2)
+
+let objectTwoSum = objectOne.getSum.call(objectTwo)
+let objectTwoSum2 = objectOne.getSum.apply(objectTwo)
+let objectTwoMult = objectTwo.getMult(1, 3)
+console.log(objectTwo.numbers)
+console.log(objectTwoSum)
+console.log(objectTwoSum2)
+console.log(objectTwoMult)
 </script>
 	</body>
 </html>

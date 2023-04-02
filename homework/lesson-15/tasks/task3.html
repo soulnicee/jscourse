@@ -5,11 +5,51 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="../../css/style.css">
-		<title>Task 0</title>
+		<title>Task 3</title>
 	</head>
 	<body>
 		<script>
+// ** 3 **
+//// Розробити клас MultChecker для перевірки таблиці множення
+//// Поля	Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7)
+//// Кількість правильних відповідей
+//// Кількість неправильних відповідей
+//// Методи	Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)
+//// Перевірка правильності вказаної відповіді
+//// render - виведення інформації про тестування на екран
 
+class MultChecker {
+  constructor(number) {
+    this.number = number
+    this.correctAnswerCount = 0
+    this.wrongAnswerCount = 0
+  }
+
+  getRandomNumber() {
+    let minNum = 1
+    let maxNum = 10
+    let secondNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum
+    return secondNum
+  }
+  answerChecker() {
+    let secondNum = this.getRandomNumber()
+    let userAnswer = parseInt(prompt(`Скільки буде ${this.number} на ${secondNum} ?`))
+    let result = this.number * secondNum
+    if (userAnswer === result) {
+      this.correctAnswerCount += 1
+    } else {
+      this.wrongAnswerCount += 1
+    }
+  }
+  getResult() {
+    return document.write(`Ви дали правильніх ${this.correctAnswerCount} відповідей і ${this.wrongAnswerCount} неправильних!`)
+  }
+}
+
+let test = new MultChecker(5)
+console.log(test)
+test.answerChecker()
+test.getResult()
 </script>
 	</body>
 </html>

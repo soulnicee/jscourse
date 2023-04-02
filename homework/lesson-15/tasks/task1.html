@@ -9,7 +9,39 @@
 	</head>
 	<body>
 		<script>
-			
+			// ** 1 **
+//// Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому випадку.
+//// Тир
+//// Поля(властивості)	Масив, у якому зберігається поле з зайцями
+//// Методи (дії)	Метод пострілу (задається позиція пострілу)
+//// Виведення ігрового поля
+
+function ShootingGallery() {
+  this.gameField = []
+}
+
+ShootingGallery.prototype.getField = function (lengthX, lengthY, hareQuantity) {
+  for (let i = 0; i < lengthY; i++) {
+    this.gameField[i] = new Array(lengthX).fill(0)
+  }
+  let harePositionX
+  let harePositionY
+  for (let hare = 0; hare < hareQuantity; hare++) {
+    harePositionX = Math.floor(Math.random() * (lengthX))
+    harePositionY = Math.floor(Math.random() * (lengthY))
+    this.gameField[harePositionX][harePositionY] = 1
+  }
+}
+ShootingGallery.prototype.shoot = function (x, y) {
+	if (this.gameField[x][y] === 1) {
+		this.gameField[x][y] = 0
+		return true
+  } else return false
+}
+let game = new ShootingGallery()
+
+let field = game.getField(10, 10, 30)
+console.log(game.gameField)
       </script>
 	</body>
 </html>

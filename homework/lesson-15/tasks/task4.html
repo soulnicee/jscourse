@@ -5,11 +5,80 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="../../css/style.css">
-		<title>Task 1</title>
+		<title>Task 4</title>
 	</head>
 	<body>
 		<script>
-		
+		// ** 4 **
+//// Розробити клас Baner
+//// Поля	Масив об’єктів ( графічних зображень та посилань на сайти)
+//// методи	Метод випадкового вибору об’єкта (графічного зображення та посилання)
+//// Метод виведення випадкового банера
+
+class Baner {
+  constructor() {
+    this.banners = [
+      {
+        imagePath: "https://picsum.photos/500",
+        link: "https://www.example1.com",
+      },
+      {
+        imagePath: "https://picsum.photos/500",
+        link: "https://www.example2.com",
+      },
+      {
+        imagePath: "https://picsum.photos/500",
+        link: "https://www.example3.com",
+      },
+      {
+        imagePath: "https://picsum.photos/500",
+        link: "https://www.example4.com",
+      },
+      {
+        imagePath: "https://picsum.photos/500",
+        link: "https://www.example5.com",
+      },
+      {
+        imagePath: "https://picsum.photos/500",
+        link: "https://www.example6.com",
+      },
+      {
+        imagePath: "https://picsum.photos/500",
+        link: "https://www.example7.com",
+      },
+      {
+        imagePath: "https://picsum.photos/500",
+        link: "https://www.example8.com",
+      },
+      {
+        imagePath: "https://picsum.photos/500",
+        link: "https://www.example9.com",
+      },
+      {
+        imagePath: "https://picsum.photos/500",
+        link: "https://www.example10.com",
+      },
+    ]
+  }
+  getRandomObject() {
+    let minNum = 0
+    let maxNum = this.banners.length - 1
+    let randObjectNumber = Math.floor(Math.random() * (maxNum - minNum + 1)) - minNum
+    return this.banners[randObjectNumber]
+  }
+  getRandomBanner() {
+    let { imagePath, link } = this.getRandomObject()
+	 return document.write(`
+	 <a href="${link}">
+			<img src="${imagePath}" alt="">
+		</a>
+	 `)
+  }
+}
+let aaa = new Baner()
+console.log(aaa)
+console.log(aaa.getRandomObject())
+aaa.getRandomBanner()
       </script>
 	</body>
 </html>
