@@ -263,7 +263,7 @@ class DancingManager {
   getRandomIndex(array) {
     let startNum = 0
     let endNum = array.length - 1
-    let randName = Math.floor(Math.random() * (endNum - startNum + 1)) - startNum
+    let randName = Math.floor(Math.random() * (endNum - startNum + 1)) + startNum
     return randName
   }
   getRandomBoyName() {
