@@ -34,6 +34,7 @@ class MultChecker {
   answerChecker() {
     let secondNum = this.getRandomNumber()
     let userAnswer = parseInt(prompt(`Скільки буде ${this.number} на ${secondNum} ?`))
+	 if (isNaN(userAnswer)) throw new Error('Введено не число')
     let result = this.number * secondNum
     if (userAnswer === result) {
       this.correctAnswerCount += 1

@@ -9,6 +9,7 @@
 	</head>
 	<body>
 		<script>
+
 // ** 2 **
 //// Створити об’єкт «Авто».
 //// Авто
@@ -36,7 +37,7 @@ class Auto {
     this.availableFuel += liters
   }
   getPassengersQuantity() {
-    console.log(`Зараз у вас ${this.passengersQuantity} пасажирів`)
+    document.write(`Зараз у вас ${this.passengersQuantity} пасажирів`)
   }
   addPassengers(passengQuant) {
     let seatsFree = this.seatsQuantity - this.passengersQuantity
@@ -44,6 +45,7 @@ class Auto {
     this.passengersQuantity += passengQuant
   }
   dropPassengers(passengQuant) {
+    if (passengQuant === 0) throw new Error(`Потрібно добавити хоча би 1 пасажира`)
     if (passengQuant > this.passengersQuantity) throw new Error(`У вас немає стільки пасажирів. Можете висадити тільки ${this.passengersQuantity}`)
     this.passengersQuantity -= passengQuant
   }

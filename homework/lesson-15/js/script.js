@@ -58,19 +58,25 @@ function ShootingGallery() {
   this.gameField = []
 }
 
-ShootingGallery.prototype.getField = function (lengthX, lengthY, hareQuantity) {
-  for (let i = 0; i < lengthY; i++) {
-    this.gameField[i] = new Array(lengthX).fill(0)
+ShootingGallery.prototype.getField = function (width, height, hareQuantity) {
+	 if (typeof width !== "number" || typeof height !== "number" || typeof hareQuantity !== "number") {
+     throw new Error("Введені не цифрові дані")
+   }
+  for (let i = 0; i < height; i++) {
+    this.gameField[i] = new Array(width).fill(0)
   }
   let harePositionX
   let harePositionY
   for (let hare = 0; hare < hareQuantity; hare++) {
-    harePositionX = Math.floor(Math.random() * (lengthX))
-    harePositionY = Math.floor(Math.random() * (lengthY))
+    harePositionX = Math.floor(Math.random() * width)
+    harePositionY = Math.floor(Math.random() * height)
     this.gameField[harePositionX][harePositionY] = 1
   }
 }
 ShootingGallery.prototype.shoot = function (x, y) {
+	  if (typeof x !== "number" || typeof y !== "number" || x < 0 || y < 0 || x >= this.gameField[0].length || y >= this.gameField.length) {
+      throw new Error("Введені валідні дані")
+    }
 	if (this.gameField[x][y] === 1) {
 		this.gameField[x][y] = 0
 		return true
@@ -78,8 +84,8 @@ ShootingGallery.prototype.shoot = function (x, y) {
 }
 let game = new ShootingGallery()
 
-let field = game.getField(10, 10, 30)
-console.log(game.gameField)
+game.getField(10, 10, 30)
+console.table(game.gameField)
 */
 /*
 // ** 2 **
@@ -109,7 +115,7 @@ class Auto {
     this.availableFuel += liters
   }
   getPassengersQuantity() {
-    console.log(`Зараз у вас ${this.passengersQuantity} пасажирів`)
+    document.write(`Зараз у вас ${this.passengersQuantity} пасажирів`)
   }
   addPassengers(passengQuant) {
     let seatsFree = this.seatsQuantity - this.passengersQuantity
@@ -117,6 +123,7 @@ class Auto {
     this.passengersQuantity += passengQuant
   }
   dropPassengers(passengQuant) {
+    if (passengQuant === 0) throw new Error(`Потрібно добавити хоча би 1 пасажира`)
     if (passengQuant > this.passengersQuantity) throw new Error(`У вас немає стільки пасажирів. Можете висадити тільки ${this.passengersQuantity}`)
     this.passengersQuantity -= passengQuant
   }
@@ -156,6 +163,7 @@ class MultChecker {
   answerChecker() {
     let secondNum = this.getRandomNumber()
     let userAnswer = parseInt(prompt(`Скільки буде ${this.number} на ${secondNum} ?`))
+	 if (isNaN(userAnswer)) throw new Error('Введено не число')
     let result = this.number * secondNum
     if (userAnswer === result) {
       this.correctAnswerCount += 1
@@ -226,9 +234,8 @@ class Baner {
     ]
   }
   getRandomObject() {
-    let minNum = 0
-    let maxNum = this.banners.length - 1
-    let randObjectNumber = Math.floor(Math.random() * (maxNum - minNum + 1)) - minNum
+    let maxNum = this.banners.length
+    let randObjectNumber = Math.floor(Math.random() * maxNum)
     return this.banners[randObjectNumber]
   }
   getRandomBanner() {
@@ -261,10 +268,8 @@ class DancingManager {
     this.girlNames = ["Aphrodite", "Isis", "Demeter", "Freya", "Hathor", "Persephone", "Hera", "Artemis", "Inanna", "Kali", "Lakshmi", "Morrigan", "Vesta", "Athena", "Durga", "Saraswati", "Freyja", "Nemesis", "Eris", "Brigid", "Ereshkigal", "Ishtar", "Gaea", "Hecate", "Lilith", "Morgan Le Fay", "Pele", "Sekhmet", "Tiamat", "Yemaya", "Bastet", "Cerridwen", "Cybele", "Fortuna", "Gaia", "Hel", "Idunn", "Junon", "Kali", "Lakshmi", "Morrigan", "Nyx", "Pandora", "Rhiannon", "Selene", "Tara", "Urd", "Venus", "Xochiquetzal"]
   }
   getRandomIndex(array) {
-    let startNum = 0
-    let endNum = array.length - 1
-    let randName = Math.floor(Math.random() * (endNum - startNum + 1)) + startNum
-    return randName
+    let endIndex = array.length
+    return Math.floor(Math.random() * endIndex)
   }
   getRandomBoyName() {
     let boyIndex = this.getRandomIndex(this.boyNames)
@@ -275,15 +280,18 @@ class DancingManager {
     return this.girlNames[girlIndex]
   }
   getDancingPair() {
-    let boy = this.getRandomBoyName()
-    let girl = this.getRandomGirlName()
-    return document.write(`Пара для танцю: ${boy} і ${girl} <br>`)
+    let boyName = this.getRandomBoyName()
+    let girlName = this.getRandomGirlName()
+    document.write(`Пара для танцю: ${boyName} і ${girlName} <br>`)
   }
-  dancingWithGods(sec) {
-    let interval = sec * 1000
-    setInterval(() => {
+  dancingWithGods(intervalInSeconds, quantity) {
+    let intervalInMiliseconds = intervalInSeconds * 1000
+    let i = 0
+    this.timer = setInterval(() => {
+      i++
+      if (i >= quantity) clearInterval(this.timer)
       this.getDancingPair()
-    }, interval)
+    }, intervalInMiliseconds)
   }
 }
 
@@ -292,5 +300,5 @@ let dance = new DancingManager()
 console.log(dance.getRandomBoyName())
 console.log(dance.getRandomGirlName())
 dance.getDancingPair()
-dance.dancingWithGods(5)
+dance.dancingWithGods(5, 3)
 */

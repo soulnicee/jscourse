@@ -18,16 +18,15 @@
 //// Метод виведення пари для танців
 //// Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців
 
+
 class DancingManager {
   constructor() {
     this.boyNames = ["Zeus", "Odin", "Ra", "Anubis", "Baal", "Shiva", "Cronus", "Poseidon", "Thor", "Mars", "Apollo", "Horus", "Odin", "Krishna", "Loki", "Hades", "Indra", "Ares", "Osiris", "Vishnu", "Eros", "Amun", "Dionysus", "Enlil", "Anansi", "Mithras", "Hephaestus", "Hermes", "Pan", "Janus", "Heracles", "Thoth", "Set", "Chaac", "Njord", "Norse", "Kukulkan", "Ahura Mazda", "Svarog", "Tezcatlipoca", "Kroni", "Izanagi", "Mictlantecuhtli", "Pangu", "Ah Puch", "Agni", "Inti", "Jupiter"]
     this.girlNames = ["Aphrodite", "Isis", "Demeter", "Freya", "Hathor", "Persephone", "Hera", "Artemis", "Inanna", "Kali", "Lakshmi", "Morrigan", "Vesta", "Athena", "Durga", "Saraswati", "Freyja", "Nemesis", "Eris", "Brigid", "Ereshkigal", "Ishtar", "Gaea", "Hecate", "Lilith", "Morgan Le Fay", "Pele", "Sekhmet", "Tiamat", "Yemaya", "Bastet", "Cerridwen", "Cybele", "Fortuna", "Gaia", "Hel", "Idunn", "Junon", "Kali", "Lakshmi", "Morrigan", "Nyx", "Pandora", "Rhiannon", "Selene", "Tara", "Urd", "Venus", "Xochiquetzal"]
   }
   getRandomIndex(array) {
-    let startNum = 0
-    let endNum = array.length - 1
-    let randName = Math.floor(Math.random() * (endNum - startNum + 1)) - startNum
-    return randName
+    let endIndex = array.length
+    return Math.floor(Math.random() * endIndex)
   }
   getRandomBoyName() {
     let boyIndex = this.getRandomIndex(this.boyNames)
@@ -38,15 +37,18 @@ class DancingManager {
     return this.girlNames[girlIndex]
   }
   getDancingPair() {
-    let boy = this.getRandomBoyName()
-    let girl = this.getRandomGirlName()
-    return document.write(`Пара для танцю: ${boy} і ${girl} <br>`)
+    let boyName = this.getRandomBoyName()
+    let girlName = this.getRandomGirlName()
+    document.write(`Пара для танцю: ${boyName} і ${girlName} <br>`)
   }
-  dancingWithGods(sec) {
-    let interval = sec * 1000
-    setInterval(() => {
+  dancingWithGods(intervalInSeconds, quantity) {
+    let intervalInMiliseconds = intervalInSeconds * 1000
+    let i = 0
+    this.timer = setInterval(() => {
+      i++
+      if (i >= quantity) clearInterval(this.timer)
       this.getDancingPair()
-    }, interval)
+    }, intervalInMiliseconds)
   }
 }
 
@@ -55,7 +57,8 @@ let dance = new DancingManager()
 console.log(dance.getRandomBoyName())
 console.log(dance.getRandomGirlName())
 dance.getDancingPair()
-dance.dancingWithGods(5)
+dance.dancingWithGods(5, 3)
+
 </script>
 	</body>
 </html>

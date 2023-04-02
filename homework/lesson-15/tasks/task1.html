@@ -9,7 +9,8 @@
 	</head>
 	<body>
 		<script>
-			// ** 1 **
+		
+// ** 1 **
 //// Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому випадку.
 //// Тир
 //// Поля(властивості)	Масив, у якому зберігається поле з зайцями
@@ -20,19 +21,25 @@ function ShootingGallery() {
   this.gameField = []
 }
 
-ShootingGallery.prototype.getField = function (lengthX, lengthY, hareQuantity) {
-  for (let i = 0; i < lengthY; i++) {
-    this.gameField[i] = new Array(lengthX).fill(0)
+ShootingGallery.prototype.getField = function (width, height, hareQuantity) {
+	 if (typeof width !== "number" || typeof height !== "number" || typeof hareQuantity !== "number") {
+     throw new Error("Введені не цифрові дані")
+   }
+  for (let i = 0; i < height; i++) {
+    this.gameField[i] = new Array(width).fill(0)
   }
   let harePositionX
   let harePositionY
   for (let hare = 0; hare < hareQuantity; hare++) {
-    harePositionX = Math.floor(Math.random() * (lengthX))
-    harePositionY = Math.floor(Math.random() * (lengthY))
+    harePositionX = Math.floor(Math.random() * width)
+    harePositionY = Math.floor(Math.random() * height)
     this.gameField[harePositionX][harePositionY] = 1
   }
 }
 ShootingGallery.prototype.shoot = function (x, y) {
+	  if (typeof x !== "number" || typeof y !== "number" || x < 0 || y < 0 || x >= this.gameField[0].length || y >= this.gameField.length) {
+      throw new Error("Введені валідні дані")
+    }
 	if (this.gameField[x][y] === 1) {
 		this.gameField[x][y] = 0
 		return true
@@ -40,8 +47,8 @@ ShootingGallery.prototype.shoot = function (x, y) {
 }
 let game = new ShootingGallery()
 
-let field = game.getField(10, 10, 30)
-console.log(game.gameField)
+game.getField(10, 10, 30)
+console.table(game.gameField)
       </script>
 	</body>
 </html>

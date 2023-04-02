@@ -61,9 +61,8 @@ class Baner {
     ]
   }
   getRandomObject() {
-    let minNum = 0
-    let maxNum = this.banners.length - 1
-    let randObjectNumber = Math.floor(Math.random() * (maxNum - minNum + 1)) - minNum
+    let maxNum = this.banners.length
+    let randObjectNumber = Math.floor(Math.random() * maxNum)
     return this.banners[randObjectNumber]
   }
   getRandomBanner() {
