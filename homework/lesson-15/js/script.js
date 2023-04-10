@@ -172,7 +172,7 @@ class MultChecker {
     }
   }
   getResult() {
-    return document.write(`Ви дали правильніх ${this.correctAnswerCount} відповідей і ${this.wrongAnswerCount} неправильних!`)
+    document.write(`Ви дали правильніх ${this.correctAnswerCount} відповідей і ${this.wrongAnswerCount} неправильних!`)
   }
 }
 
@@ -188,9 +188,7 @@ test.getResult()
 //// методи	Метод випадкового вибору об’єкта (графічного зображення та посилання)
 //// Метод виведення випадкового банера
 
-class Baner {
-  constructor() {
-    this.banners = [
+const myBanners = [
       {
         imagePath: "https://picsum.photos/500",
         link: "https://www.example1.com",
@@ -232,6 +230,11 @@ class Baner {
         link: "https://www.example10.com",
       },
     ]
+
+
+class Baner {
+  constructor(banners) {
+    this.banners = banners
   }
   getRandomObject() {
     let maxNum = this.banners.length
@@ -247,7 +250,7 @@ class Baner {
 	 `)
   }
 }
-let aaa = new Baner()
+let aaa = new Baner(myBanners)
 console.log(aaa)
 console.log(aaa.getRandomObject())
 aaa.getRandomBanner()
@@ -261,11 +264,12 @@ aaa.getRandomBanner()
 //// Метод випадкового вибору імені дівчини
 //// Метод виведення пари для танців
 //// Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців
-
+const boyNames = ["Zeus", "Odin", "Ra", "Anubis", "Baal", "Shiva", "Cronus", "Poseidon", "Thor", "Mars", "Apollo", "Horus", "Odin", "Krishna", "Loki", "Hades", "Indra", "Ares", "Osiris", "Vishnu", "Eros", "Amun", "Dionysus", "Enlil", "Anansi", "Mithras", "Hephaestus", "Hermes", "Pan", "Janus", "Heracles", "Thoth", "Set", "Chaac", "Njord", "Norse", "Kukulkan", "Ahura Mazda", "Svarog", "Tezcatlipoca", "Kroni", "Izanagi", "Mictlantecuhtli", "Pangu", "Ah Puch", "Agni", "Inti", "Jupiter"]
+const girlNames = ["Aphrodite", "Isis", "Demeter", "Freya", "Hathor", "Persephone", "Hera", "Artemis", "Inanna", "Kali", "Lakshmi", "Morrigan", "Vesta", "Athena", "Durga", "Saraswati", "Freyja", "Nemesis", "Eris", "Brigid", "Ereshkigal", "Ishtar", "Gaea", "Hecate", "Lilith", "Morgan Le Fay", "Pele", "Sekhmet", "Tiamat", "Yemaya", "Bastet", "Cerridwen", "Cybele", "Fortuna", "Gaia", "Hel", "Idunn", "Junon", "Kali", "Lakshmi", "Morrigan", "Nyx", "Pandora", "Rhiannon", "Selene", "Tara", "Urd", "Venus", "Xochiquetzal"]
 class DancingManager {
-  constructor() {
-    this.boyNames = ["Zeus", "Odin", "Ra", "Anubis", "Baal", "Shiva", "Cronus", "Poseidon", "Thor", "Mars", "Apollo", "Horus", "Odin", "Krishna", "Loki", "Hades", "Indra", "Ares", "Osiris", "Vishnu", "Eros", "Amun", "Dionysus", "Enlil", "Anansi", "Mithras", "Hephaestus", "Hermes", "Pan", "Janus", "Heracles", "Thoth", "Set", "Chaac", "Njord", "Norse", "Kukulkan", "Ahura Mazda", "Svarog", "Tezcatlipoca", "Kroni", "Izanagi", "Mictlantecuhtli", "Pangu", "Ah Puch", "Agni", "Inti", "Jupiter"]
-    this.girlNames = ["Aphrodite", "Isis", "Demeter", "Freya", "Hathor", "Persephone", "Hera", "Artemis", "Inanna", "Kali", "Lakshmi", "Morrigan", "Vesta", "Athena", "Durga", "Saraswati", "Freyja", "Nemesis", "Eris", "Brigid", "Ereshkigal", "Ishtar", "Gaea", "Hecate", "Lilith", "Morgan Le Fay", "Pele", "Sekhmet", "Tiamat", "Yemaya", "Bastet", "Cerridwen", "Cybele", "Fortuna", "Gaia", "Hel", "Idunn", "Junon", "Kali", "Lakshmi", "Morrigan", "Nyx", "Pandora", "Rhiannon", "Selene", "Tara", "Urd", "Venus", "Xochiquetzal"]
+  constructor(boyNames, girlNames) {
+    this.boyNames = boyNames
+    this.girlNames = girlNames
   }
   getRandomIndex(array) {
     let endIndex = array.length
@@ -295,7 +299,7 @@ class DancingManager {
   }
 }
 
-let dance = new DancingManager()
+let dance = new DancingManager(boyNames, girlNames)
 
 console.log(dance.getRandomBoyName())
 console.log(dance.getRandomGirlName())

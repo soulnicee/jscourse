@@ -17,12 +17,12 @@
 //// Метод випадкового вибору імені дівчини
 //// Метод виведення пари для танців
 //// Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців
-
-
+const boyNames = ["Zeus", "Odin", "Ra", "Anubis", "Baal", "Shiva", "Cronus", "Poseidon", "Thor", "Mars", "Apollo", "Horus", "Odin", "Krishna", "Loki", "Hades", "Indra", "Ares", "Osiris", "Vishnu", "Eros", "Amun", "Dionysus", "Enlil", "Anansi", "Mithras", "Hephaestus", "Hermes", "Pan", "Janus", "Heracles", "Thoth", "Set", "Chaac", "Njord", "Norse", "Kukulkan", "Ahura Mazda", "Svarog", "Tezcatlipoca", "Kroni", "Izanagi", "Mictlantecuhtli", "Pangu", "Ah Puch", "Agni", "Inti", "Jupiter"]
+const girlNames = ["Aphrodite", "Isis", "Demeter", "Freya", "Hathor", "Persephone", "Hera", "Artemis", "Inanna", "Kali", "Lakshmi", "Morrigan", "Vesta", "Athena", "Durga", "Saraswati", "Freyja", "Nemesis", "Eris", "Brigid", "Ereshkigal", "Ishtar", "Gaea", "Hecate", "Lilith", "Morgan Le Fay", "Pele", "Sekhmet", "Tiamat", "Yemaya", "Bastet", "Cerridwen", "Cybele", "Fortuna", "Gaia", "Hel", "Idunn", "Junon", "Kali", "Lakshmi", "Morrigan", "Nyx", "Pandora", "Rhiannon", "Selene", "Tara", "Urd", "Venus", "Xochiquetzal"]
 class DancingManager {
-  constructor() {
-    this.boyNames = ["Zeus", "Odin", "Ra", "Anubis", "Baal", "Shiva", "Cronus", "Poseidon", "Thor", "Mars", "Apollo", "Horus", "Odin", "Krishna", "Loki", "Hades", "Indra", "Ares", "Osiris", "Vishnu", "Eros", "Amun", "Dionysus", "Enlil", "Anansi", "Mithras", "Hephaestus", "Hermes", "Pan", "Janus", "Heracles", "Thoth", "Set", "Chaac", "Njord", "Norse", "Kukulkan", "Ahura Mazda", "Svarog", "Tezcatlipoca", "Kroni", "Izanagi", "Mictlantecuhtli", "Pangu", "Ah Puch", "Agni", "Inti", "Jupiter"]
-    this.girlNames = ["Aphrodite", "Isis", "Demeter", "Freya", "Hathor", "Persephone", "Hera", "Artemis", "Inanna", "Kali", "Lakshmi", "Morrigan", "Vesta", "Athena", "Durga", "Saraswati", "Freyja", "Nemesis", "Eris", "Brigid", "Ereshkigal", "Ishtar", "Gaea", "Hecate", "Lilith", "Morgan Le Fay", "Pele", "Sekhmet", "Tiamat", "Yemaya", "Bastet", "Cerridwen", "Cybele", "Fortuna", "Gaia", "Hel", "Idunn", "Junon", "Kali", "Lakshmi", "Morrigan", "Nyx", "Pandora", "Rhiannon", "Selene", "Tara", "Urd", "Venus", "Xochiquetzal"]
+  constructor(boyNames, girlNames) {
+    this.boyNames = boyNames
+    this.girlNames = girlNames
   }
   getRandomIndex(array) {
     let endIndex = array.length
@@ -52,13 +52,12 @@ class DancingManager {
   }
 }
 
-let dance = new DancingManager()
+let dance = new DancingManager(boyNames, girlNames)
 
 console.log(dance.getRandomBoyName())
 console.log(dance.getRandomGirlName())
 dance.getDancingPair()
 dance.dancingWithGods(5, 3)
-
 </script>
 	</body>
 </html>

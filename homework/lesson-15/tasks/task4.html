@@ -9,15 +9,14 @@
 	</head>
 	<body>
 		<script>
-		// ** 4 **
+		
+// ** 4 **
 //// Розробити клас Baner
 //// Поля	Масив об’єктів ( графічних зображень та посилань на сайти)
 //// методи	Метод випадкового вибору об’єкта (графічного зображення та посилання)
 //// Метод виведення випадкового банера
 
-class Baner {
-  constructor() {
-    this.banners = [
+const myBanners = [
       {
         imagePath: "https://picsum.photos/500",
         link: "https://www.example1.com",
@@ -59,6 +58,11 @@ class Baner {
         link: "https://www.example10.com",
       },
     ]
+
+
+class Baner {
+  constructor(banners) {
+    this.banners = banners
   }
   getRandomObject() {
     let maxNum = this.banners.length
@@ -74,10 +78,11 @@ class Baner {
 	 `)
   }
 }
-let aaa = new Baner()
+let aaa = new Baner(myBanners)
 console.log(aaa)
 console.log(aaa.getRandomObject())
 aaa.getRandomBanner()
+
       </script>
 	</body>
 </html>
