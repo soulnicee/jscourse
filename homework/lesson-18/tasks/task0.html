@@ -5,11 +5,38 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="/css/calculator.css">
 		<title>Task 0</title>
 	</head>
 	<body>
-		<script>
-
-</script>
+		<main class="task-calculator">
+			<section class="calculator">
+				<div class="calculator__item">
+					<label class="calculator__label">
+						<span>First Number</span>
+						<input type="number" id="firstNumber" placeholder="0" class="calculator__input" value="0">
+					</label>
+				</div>
+				<div class="calculator__item">
+					<label class="calculator__label">
+						<span>Second Number</span>
+						<input type="number" id="secondNumber" placeholder="0" class="calculator__input" value="0">
+					</label>
+				</div>
+				<div class="calculator__buttons">
+					<button type="button" id="button-summ" class="button">Додати</button>
+					<button type="button" id="button-subtract" class="button">Відняти</button>
+					<button type="button" id="button-multiply" class="button">Помножити</button>
+					<button type="button" id="button-divide" class="button">Поділити</button>
+				</div>
+				<div class="calculator__item">
+					<label class="calculator__label">Result
+						<input readonly placeholder="0" id="calc-result" class="calculator__input" value="0">
+					</label>
+				</div>
+			</section>
+		</main>
+		<script src="../js/calculator.js"></script>
 	</body>
 </html>

@@ -1,0 +1,54 @@
+.task-exchange {
+	background-color: rgb(30, 109, 43);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 50px;
+}
+.exchange {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	// .exchange__item
+	&__item {
+		font-size: 22px;
+	}
+	// .exchange__label
+	&__label {
+	}
+	// .exchange__input
+	&__input {
+		height: 30px;
+		outline: 0;
+		border: 3px solid transparent;
+		border-radius: 5px;
+		padding-left: 10px;
+		transition: all 0.3s ease 0s;
+		font-size: 22px;
+		&:focus {
+			border: 3px solid rgb(202, 26, 173);
+		}
+	}
+	// .exchange__buttons
+	&__buttons {
+	}
+}
+.button {
+	padding: 15px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	cursor: pointer;
+	color: #fff;
+	text-transform: capitalize;
+	font-size: 22px;
+	font-weight: 600;
+	background-color: #ff5959;
+	border-radius: 15px;
+	transition: all 0.3s ease 0s;
+	width: 100%;
+	&:hover {
+		background-color: rgb(28, 221, 205);
+	}
+}

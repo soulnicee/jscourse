@@ -5,11 +5,26 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="/css/marks.css">
 		<title>Task 5</title>
 	</head>
 	<body>
-		<script>
-
-</script>
+		<div class="marks">
+			<label class="marks__label">
+				Кількість оцінок
+				<input type="number" placeholder="Введіть кількість оцінок" value="0" class="marks__input">
+			</label>
+			<button type="button" class="marks__button">Get Table</button>
+		</div>
+		<div class="table">
+			
+		</div>
+		<div class="result">
+			<button type="button" class="result__button">Get Sum</button>
+			<div class="result__show">
+				sum = <span class="result__span"></span>
+			</div>
+		</div>
+		<script src="../js/marks.js"></script>
 	</body>
 </html>

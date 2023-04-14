@@ -1,0 +1,41 @@
+.age {
+	background-color: rgb(4, 245, 245);
+	padding: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 25px;
+	font-size: 25px;
+	color: rgb(241, 8, 8);
+	// .age__item
+	&__item {
+	}
+	// .age__label
+	&__label {
+	}
+	// .age__text
+	&__text {
+	}
+	// .age__input
+	&__input {
+		height: 30px;
+		outline: 0;
+		border: 3px solid transparent;
+		border-radius: 5px;
+		padding-left: 10px;
+		transition: all 0.3s ease 0s;
+		font-size: 22px;
+		&:focus {
+			border: 3px solid rgb(202, 26, 173);
+		}
+	}
+	// .age__user
+	&__user {
+	}
+	// .age__quantity
+	&__quantity {
+		font-size: 30px;
+		font-weight: 700;
+	}
+}

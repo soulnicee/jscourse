@@ -1,0 +1,22 @@
+.wishes {
+	background-color: rgb(228, 135, 223);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.wish {
+	// .wish__list
+	&__list {
+		font-size: 22px;
+	}
+	// .wish__item
+	&__item {
+		&:not(:last-child) {
+			margin-bottom: 15px;
+		}
+	}
+	// .wish__text
+	&__text {
+	}
+}

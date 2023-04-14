@@ -1,0 +1,68 @@
+.task-exchange {
+  background-color: rgb(30, 109, 43);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 50px;
+}
+
+.exchange {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 15px;
+}
+.exchange__item {
+  font-size: 22px;
+}
+.exchange__input {
+  height: 30px;
+  outline: 0;
+  border: 3px solid transparent;
+  border-radius: 5px;
+  padding-left: 10px;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  font-size: 22px;
+}
+.exchange__input:focus {
+  border: 3px solid rgb(202, 26, 173);
+}
+.button {
+  padding: 15px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 22px;
+  font-weight: 600;
+  background-color: #ff5959;
+  border-radius: 15px;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  width: 100%;
+}
+.button:hover {
+  background-color: rgb(28, 221, 205);
+}

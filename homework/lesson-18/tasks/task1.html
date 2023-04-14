@@ -5,11 +5,35 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="/css/exchange.css">
 		<title>Task 1</title>
 	</head>
 	<body>
-		<script>
-		
-      </script>
+		<main class="task-exchange">
+			<section class="exchange">
+				<div class="exchange__item">
+					<label class="exchange__label">
+						<span>Сума в гривнях</span>
+						<input type="number" id="grivna" placeholder="0" class="exchange__input" value="0">
+					</label>
+				</div>
+				<div class="exchange__buttons">
+					<button type="button" id="convert" class="button">Конвертувати</button>
+				</div>
+				<div class="exchange__item">
+					<label class="exchange__label">
+						<span>Сума в євро</span>
+						<input readonly id="euro" placeholder="0" class="exchange__input" value="0">
+					</label>
+				</div>
+				<div class="exchange__item">
+					<label class="exchange__label">
+						<span>Сума в доларах</span>
+						<input readonly id="dollar" placeholder="0" class="exchange__input" value="0">
+					</label>
+				</div>
+			</section>
+		</main>
+		<script src="../js/exchange.js"></script>
 	</body>
 </html>

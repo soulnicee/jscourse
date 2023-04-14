@@ -1,0 +1,65 @@
+.task-calculator {
+	background-color: rgb(109, 30, 30);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 50px;
+}
+.calculator {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	// .calculator__item
+	&__item {
+	}
+	// .calculator__label
+	&__label {
+		font-size: 22px;
+	}
+	// .calculator__input
+	&__input {
+		height: 30px;
+		outline: 0;
+		border: 2px solid transparent;
+		border-radius: 5px;
+		padding-left: 10px;
+		transition: all 0.3s ease 0s;
+		font-size: 22px;
+		&:focus {
+			border: 2px solid blue;
+		}
+	}
+	// .calculator__buttons
+	&__buttons {
+		display: flex;
+		column-gap: 15px;
+	}
+}
+
+.button {
+	padding: 15px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	cursor: pointer;
+	color: #fff;
+	text-transform: capitalize;
+	font-size: 14px;
+	font-weight: 600;
+	background-color: #a259ff;
+	border-radius: 15px;
+	transition: all 0.3s ease 0s;
+	&:hover {
+		background-color: rgb(178, 180, 25);
+	}
+}
+
+.button-summ {
+}
+.button-subtract {
+}
+.button-multiply {
+}
+.button-divide {
+}

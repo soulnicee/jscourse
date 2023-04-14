@@ -1,0 +1,23 @@
+.wishes {
+  background-color: rgb(228, 135, 223);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wish__list {
+  font-size: 22px;
+}
+.wish__item:not(:last-child) {
+  margin-bottom: 15px;
+}
