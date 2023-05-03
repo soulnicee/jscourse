@@ -9,7 +9,80 @@
 	</head>
 	<body>
 		<script>
+class Company {
+  constructor(companyName, creatingInfo, servicesList, branchesList) {
+    this.companyName = companyName
+    this.createdDate = new CreatedDate(creatingInfo)
+    this.services = new Services(servicesList)
+    this.branches = new Branches(branchesList)
+  }
+  toString() {
+	return `Фірма ${this.companyName} створена ${this.createdDate.companyYearsOld} роки тому в ${this.createdDate.createYear} році.</br>`
+  }
+}
 
+class Services {
+  constructor(servicesList) {
+    this.servicesList = servicesList
+  }
+  getAvailableServices(money, time) {
+    for (const service of this.servicesList) {
+      let serviceTime = service.serviceTime
+      if (service.servicePrice <= money && serviceTime <= time) {
+        document.write(`${service.serviceName} </br>`)
+      }
+    }
+  }
+}
+
+class CreatedDate {
+  constructor({ createMonth, createYear }) {
+    this.createMonth = createMonth
+    this.createYear = createYear
+  }
+  get companyYearsOld() {
+    const monthNow = new Date().getMonth() + 1
+    const yearNow = new Date().getFullYear()
+    let yearsOld = yearNow - this.createYear
+    let monthsOld = monthNow - this.createMonth
+    if (monthsOld < 0) {
+      yearsOld -= 1
+      monthsOld += 12
+    }
+    return yearsOld
+  }
+}
+
+class Branches {
+  constructor(branchesList) {
+    this.branchesList = branchesList
+  }
+  getBrancesInCity(userCity) {
+    for (const branch of this.branchesList) {
+      if (branch.branchCity === userCity) document.write(`Можете сходити за адресою: вулиця ${branch.branchStreet} будинок ${branch.branchBuildingNumber} </br>`)
+    }
+  }
+}
+
+let firstCompany = new Company(
+  "LOL",
+  { createMonth: "January", createYear: 2020 },
+  [
+    { serviceName: "Cleaning", servicePrice: 1000, serviceTime: 120 },
+    { serviceName: "Washing", servicePrice: 500, serviceTime: 60 },
+    { serviceName: "Drying", servicePrice: 250, serviceTime: 40 },
+  ],
+  [
+    { branchCountry: "England", branchCity: "London", branchStreet: "Good", branchBuildingNumber: "10" },
+    { branchCountry: "England", branchCity: "London", branchStreet: "Black", branchBuildingNumber: "14" },
+    { branchCountry: "Germany", branchCity: "Berlin", branchStreet: "Bad", branchBuildingNumber: "15" },
+    { branchCountry: "Spain", branchCity: "Madrid", branchStreet: "So-So", branchBuildingNumber: "8" },
+  ]
+)
+console.log(firstCompany)
+document.write(firstCompany)
+firstCompany.services.getAvailableServices(2000, 120)
+firstCompany.branches.getBrancesInCity("London")
 </script>
 	</body>
 </html>

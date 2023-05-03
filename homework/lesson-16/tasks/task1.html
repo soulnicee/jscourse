@@ -9,7 +9,45 @@
 	</head>
 	<body>
 		<script>
-		
+// ** 1 **
+
+class TMoney {
+  #userMoneyInDollar = 0
+  static dollarRate = 64
+  constructor(grivna) {
+	this.AddMoney = grivna
+  }
+
+ 
+  set AddMoney(grivna) {
+	if (isNaN(grivna) || grivna <= 0) throw new Error('Не коректна сума')
+    this.#userMoneyInDollar += grivna / TMoney.dollarRate
+  }
+  withdrawMoney(grivna) {
+    let grivnas = this.#userMoneyInDollar * TMoney.dollarRate
+    if (grivna > grivnas || grivna === 0 || isNaN(grivna)) throw new Error("Недостатньо коштів або некоректна сума")
+    grivnas -= grivna
+    this.#userMoneyInDollar = grivnas / TMoney.dollarRate
+  }
+  calcNewDollarRate(grivna, wantedProfit) {
+    return ((grivna + wantedProfit) / (grivna / TMoney.dollarRate)).toFixed(2)
+  }
+  get Dollars() {
+    return this.#userMoneyInDollar.toFixed(2)
+  }
+  toString() {
+	return `Ви маєете ${this.Dollars}$`
+  }
+}
+
+let myMoney = new TMoney(1000)
+console.log(myMoney.Dollars)
+myMoney.AddMoney = 1000
+console.log(myMoney.Dollars)
+console.log(myMoney.withdrawMoney(1000))
+console.log(myMoney.Dollars)
+console.log(myMoney.calcNewDollarRate(1000, 100))
+document.write(myMoney)
       </script>
 	</body>
 </html>

@@ -9,7 +9,83 @@
 	</head>
 	<body>
 		<script>
+class TDate {
+  #day
+  #month
+  #year
 
+  constructor(day, month, year) {
+    this.Day = day
+    this.Month = month
+    this.Year = year
+  }
+
+  get Day() {
+    return this.#day
+  }
+  set Day(newDay) {
+    if (newDay < 1 || newDay > 31) {
+      throw new Error("Incorrect day")
+    }
+    this.#day = newDay
+  }
+
+  get Month() {
+    return this.#month
+  }
+  set Month(newMonth) {
+    if (newMonth < 1 || newMonth > 12) {
+      throw new Error("Incorrect month")
+    }
+    this.#month = newMonth
+  }
+
+  get Year() {
+    return this.#year
+  }
+  set Year(newYear) {
+    if (newYear < 0) {
+      throw new Error("Incorrect year")
+    }
+    this.#year = newYear
+  }
+
+  addDays(days) {
+    const date = new Date(this.Year, this.Month - 1, this.Day)
+    date.setDate(date.getDate() + days)
+    this.Year = date.getFullYear()
+    this.Month = date.getMonth() + 1
+    this.Day = date.getDate()
+  }
+
+  addMonths(months) {
+    const date = new Date(this.Year, this.Month - 1, this.Day)
+    date.setMonth(date.getMonth() + months)
+    this.Year = date.getFullYear()
+    this.Month = date.getMonth() + 1
+    this.Day = date.getDate()
+  }
+
+  addYears(years) {
+    const date = new Date(this.Year, this.Month - 1, this.Day)
+    date.setFullYear(date.getFullYear() + years)
+    this.Year = date.getFullYear()
+    this.Month = date.getMonth() + 1
+    this.Day = date.getDate()
+  }
+
+  toString() {
+    return `${this.Day}.${this.Month}.${this.Year}`
+  }
+}
+
+let myDay = new TDate(22, 6, 1992)
+document.write(myDay)
+console.log(myDay)
+myDay.addDays(50)
+console.log(myDay)
+myDay.addMonths(750)
+console.log(myDay)
 </script>
 	</body>
 </html>

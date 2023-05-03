@@ -9,7 +9,68 @@
 	</head>
 	<body>
 		<script>
+class TBankomat {
+  constructor(banknoteList) {
+    this.banknoteList = banknoteList
+  }
 
+  getMinSum() {
+    let minSum = Infinity
+    for (const banknote in this.banknoteList) {
+      let item = this.banknoteList[banknote]
+      if (item.quantity > 0 && item.value < minSum) {
+        minSum = item.value
+      }
+    }
+    return `Мінімально можете зняти ${minSum} гривень!`
+  }
+
+  getMaxSum() {
+    let maxSum = 0
+    for (const banknote in this.banknoteList) {
+      let item = this.banknoteList[banknote]
+      let sum = item.value * item.quantity
+      maxSum += sum
+    }
+    return `Банкомат може видати ${maxSum} гривень!`
+  }
+
+  withdraw(amount) {
+    const withdrawBanknotes = []
+    let remainingAmount = amount
+    const availableBanknotes = this.banknoteList.filter((banknote) => banknote.quantity > 0)
+    for (const banknote of availableBanknotes.sort((a, b) => b.value - a.value)) {
+      const banknoteToWithdraw = Math.floor(remainingAmount / banknote.value)
+      if (banknoteToWithdraw > 0) {
+        const actualBanknoteToWithdraw = Math.min(banknoteToWithdraw, banknote.quantity)
+        withdrawBanknotes.push(new Banknote(banknote.value, actualBanknoteToWithdraw))
+        banknote.quantity -= actualBanknoteToWithdraw
+        remainingAmount -= actualBanknoteToWithdraw * banknote.value
+        if (remainingAmount === 0) {
+          break
+        }
+      }
+    }
+    if (remainingAmount < 0) {
+      throw new Error("Error. Try again")
+    }
+    return withdrawBanknotes
+  }
+}
+
+class Banknote {
+  constructor(value, quantity) {
+    this.value = value
+    this.quantity = quantity
+  }
+}
+
+const banknoteList = [new Banknote(5, 20), new Banknote(10, 20), new Banknote(20, 20), new Banknote(50, 20), new Banknote(100, 20), new Banknote(200, 20)]
+
+let myBankomat = new TBankomat(banknoteList)
+console.log(myBankomat.getMaxSum())
+console.log(myBankomat.getMinSum())
+console.log(myBankomat.withdraw(5000))
 </script>
 	</body>
 </html>
