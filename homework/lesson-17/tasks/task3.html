@@ -9,7 +9,69 @@
 	</head>
 	<body>
 		<script>
+// ** 3 **
 
+class Product {
+  constructor(productName, productUnit, productQuantity, manufacturerCompany) {
+    this.productName = productName
+    this.productUnit = productUnit
+    this.productQuantity = productQuantity
+    this.manufacturerCompany = manufacturerCompany
+  }
+}
+
+class ManufacturerCompany {
+  constructor(companyName, companyID) {
+    this.CompanyName = companyName
+    this.CompanyID = companyID
+  }
+  get CompanyName() {
+    return this.companyName
+  }
+  get CompanyID() {
+    return this.companyID
+  }
+  set CompanyName(newName) {
+    if (newName === "" || newName === "undefined" || typeof newName === "number") throw new Error("Введіть корректну назву компанії")
+    this.companyName = newName
+  }
+  set CompanyID(newID) {
+    if (newID < 0 || typeof newID !== "number") throw new Error("Введіть корректний реєстраційний номер")
+    this.companyID = newID
+  }
+}
+
+class WareHouse {
+  constructor() {
+    this.allGoodsList = []
+  }
+  registerProduct(productName, productUnit, productQuantity, companyName, companyID) {
+    let company = new ManufacturerCompany(companyName, companyID)
+    let product = new Product(productName, productUnit, productQuantity, company)
+    this.allGoodsList.push(product)
+  }
+  sellProduct(productName, productQuantity) {
+    let product = this.allGoodsList.findIndex((prodInd) => prodInd.productName === productName)
+    if (product < 0) throw new Error("Такого товару немає")
+    let productQnt = this.allGoodsList[product].productQuantity
+    if (productQnt < productQuantity) throw new Error("Товару не достатньо")
+    this.allGoodsList[product].productQuantity -= productQuantity
+  }
+  productNameFilter(productName) {
+    return this.allGoodsList.filter((item) => item.productName === productName)
+  }
+  companyNameFilter(compName) {
+    return this.allGoodsList.filter((item) => item.manufacturerCompany.companyName === compName)
+  }
+}
+
+let myWH = new WareHouse()
+myWH.registerProduct("Quail Meet", "Kilograms", 50, "GB", 14253)
+myWH.registerProduct("Quail Eggs", "Pcs", 8500, "GB", 14253)
+myWH.registerProduct("Quail Poop", "Kilograms", 1550, "GB", 14253)
+console.log(myWH)
+console.log(myWH.productNameFilter("Quail Poop"))
+console.log(myWH.companyNameFilter("GB"))
 </script>
 	</body>
 </html>

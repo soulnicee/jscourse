@@ -9,7 +9,25 @@
 	</head>
 	<body>
 		<script>
-		
+		class ServiceCar {
+  static serviceCar
+  constructor(driverName, carModel, carNumber) {
+    if (ServiceCar.serviceCar) return ServiceCar.serviceCar
+    this.driver = driverName
+    this.carModel = carModel
+    this.carNumber = carNumber
+    ServiceCar.serviceCar = this
+  }
+  toString() {
+    return `Водій ${this.driver} на автомобілі ${this.carModel} з номером ${this.carNumber}`
+  }
+}
+const myServiceCar = new ServiceCar("Freya", "AudiTT", "AA1010AA")
+document.write(myServiceCar)
+console.log(myServiceCar)
+const myServiceCar2 = new ServiceCar("Thor", "Boing", "TH3754OR")
+document.write(myServiceCar2)
+console.log(myServiceCar2)
       </script>
 	</body>
 </html>

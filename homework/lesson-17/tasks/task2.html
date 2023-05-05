@@ -9,7 +9,39 @@
 	</head>
 	<body>
 		<script>
+class Reminder {
+  static remindMe
+  constructor(second, message) {
+    if (Reminder.remindMe) return Reminder.remindMe
+    this.second = second
+    this.message = message
+    this.someInterval = 0
+    this.counter = 1
+    Reminder.remindMe = this
+  }
+  startRemind() {
+    if (this.someInterval !== 0) throw new Error("only one timer u can use")
+    this.someInterval = setInterval(() => {
+      console.log(`${this.counter}: ${this.message}`)
+      this.counter++
+    }, this.second * 1000)
+  }
+  stopInterval() {
+    clearInterval(this.someInterval)
+    this.someInterval = 0
+  }
+  changeMessage(newMessage) {
+    this.message = newMessage
+	 if (this.someInterval !== 0) {
+		this.stopInterval()
+		this.startRemind()
+   }
+  }
+}
 
+let reminder = new Reminder(2, "Hi")
+reminder.startRemind()
+reminder.changeMessage('lol')
 </script>
 	</body>
 </html>

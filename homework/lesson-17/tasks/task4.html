@@ -10,6 +10,74 @@
 	<body>
 		<script>
 		
+// ** 4 **
+
+class Author {
+  constructor({ authorName, authorBirthDay, authorDescription }) {
+    this.authorName = authorName
+    this.authorBirthDay = authorBirthDay
+    this.authorDescription = authorDescription
+  }
+  toString() {
+    return `Автор: ${this.authorName}, рік народження автора: ${this.authorBirthDay}, короткий опис: ${this.authorDescription}`
+  }
+}
+class Publisher {
+  constructor({ publisherName, publisherID, publisherFoundationYear }) {
+    this.publisherName = publisherName
+    this.publisherID = publisherID
+    this.publisherFoundationYear = publisherFoundationYear
+  }
+  toString() {
+    return `Видавництво: ${this.publisherName} засноване в ${this.publisherFoundationYear} році, реєстраційний номер ${this.publisherID}`
+  }
+}
+
+class Book {
+  constructor(initBook) {
+    this.bookName = initBook.bookName
+    this.bookGenre = initBook.bookGenre
+    this.bookAuthor = new Author(initBook)
+    this.bookPublisher = new Publisher(initBook)
+  }
+  toString() {
+    return `Книга ${this.bookName}, автор - ${this.bookAuthor}, жанр - ${this.bookGenre}, видавництво - ${this.bookPublisher}.`
+  }
+}
+
+const bookList = [new Book({ authorName: "author1", authorBirthDay: 1700, authorDescription: "description", publisherName: "publisher1", publisherID: 22364, publisherFoundationYear: 1754, bookName: "book1", bookGenre: "genre1" }), new Book({ authorName: "author2", authorBirthDay: 1701, authorDescription: "description1", publisherName: "publisher2", publisherID: 25225, publisherFoundationYear: 1854, bookName: "book2", bookGenre: "genre2" }), new Book({ authorName: "author3", authorBirthDay: 1702, authorDescription: "description2", publisherName: "publisher3", publisherID: 58554, publisherFoundationYear: 1954, bookName: "book3", bookGenre: "genre3" }), new Book({ authorName: "author4", authorBirthDay: 1703, authorDescription: "description3", publisherName: "publisher4", publisherID: 85443, publisherFoundationYear: 2054, bookName: "book4", bookGenre: "genre4" }), new Book({ authorName: "author5", authorBirthDay: 1704, authorDescription: "description4", publisherName: "publisher5", publisherID: 77856, publisherFoundationYear: 2154, bookName: "book5", bookGenre: "genre5" })]
+console.log(bookList)
+
+class Library {
+  constructor(bookList) {
+    this.bookList = bookList
+  }
+  addBook() {
+    this.bookList.push(initBook)
+  }
+  removeBook(bookName) {
+    this.bookList = this.bookList.filter((book) => book.bookName !== bookName)
+  }
+  filterBookByGenre(bookGenre) {
+    return this.bookList.filter((book) => book.bookGenre === bookGenre)
+  }
+  filterBookByName(bookName) {
+    return this.bookList.filter((book) => book.bookName === bookName)
+  }
+  filterBookByAuthor(authorName) {
+    return this.bookList.filter((book) => book.bookAuthor.authorName === authorName)
+  }
+  filterBookByPublisherName(publisherName) {
+    return this.bookList.filter((book) => book.bookPublisher.publisherName === publisherName)
+  }
+  toString() {
+	return `Моя бібліотека: ${this.bookList}`
+  }
+}
+
+const myLibrary = new Library(bookList)
+console.log(myLibrary.filterBookByPublisherName("publisher3"))
+
       </script>
 	</body>
 </html>

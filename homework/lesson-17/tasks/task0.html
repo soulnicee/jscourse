@@ -9,7 +9,31 @@
 	</head>
 	<body>
 		<script>
+class SomeActions {
+  static validate(array, num) {
+    if (!array.length) return 0
+    if (!Array.isArray(array)) throw new Error("waiting for array")
+    if (typeof num !== "undefined" && isNaN(num)) throw new Error("waiting for number")
+  }
+  static positiveNumbersQuantity(array) {
+    SomeActions.validate(array)
+    return array.reduce((prevVal, element) => (element > 0 ? ++prevVal : prevVal), 0)
+  }
+  static negativeNumbersQuantity(array) {
+    SomeActions.validate(array)
+    return array.reduce((prevVal, element) => (element < 0 ? ++prevVal : prevVal), 0)
+  }
+  static userNumberQuantity(array, userNum) {
+    SomeActions.validate(array, userNum)
+    return array.reduce((prevVal, element) => (element === userNum ? ++prevVal : prevVal), 0)
+  }
+}
 
+let someNum = [10, 15, 0, 3, -4, -8, 11, 152, 102, -35, 7, 10, 37, 87, 10]
+
+console.log(SomeActions.positiveNumbersQuantity(someNum))
+console.log(SomeActions.negativeNumbersQuantity(someNum))
+console.log(SomeActions.userNumberQuantity(someNum, 10))
 </script>
 	</body>
 </html>
