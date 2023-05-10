@@ -1,0 +1,56 @@
+.sportsmen-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+@media (width > 599.98px) {
+  .sportsmen-list__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+.sportsmen-list__item {
+  border: 2px solid #fff;
+  padding: 10px;
+}
+.sportsmen-list__title {
+  text-align: center;
+}
+
+.sportsman {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #fff;
+  padding: 5px 10px;
+  font-size: 18px;
+}
+.sportsman:not(:last-child) {
+  margin-bottom: 10px;
+}
+.sportsman__picture {
+  cursor: pointer;
+}
+.sportsman__picture svg {
+  width: 30px;
+  height: 30px;
+  fill: green;
+}
+.sportsman__picture_on {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.sportsman__picture_on svg {
+  fill: red;
+}
+
+.icon-on {
+  fill: red;
+}
