@@ -1,0 +1,24 @@
+body {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	padding: 0px;
+	background-color: rgb(6, 0, 61);
+}
+
+.star {
+	// .snow__container
+	&__container {
+		
+		
+	}
+	// .snow__item
+	&__item {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		font-size: 30px;
+		color: #0ec2da;
+		animation: animationSnow 20s infinite;
+	}
+}

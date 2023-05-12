@@ -1,0 +1,17 @@
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 0px;
+  background-color: rgb(6, 0, 61);
+}
+
+.star__item {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 30px;
+  color: #0ec2da;
+  -webkit-animation: animationSnow 20s infinite;
+          animation: animationSnow 20s infinite;
+}

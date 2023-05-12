@@ -54,7 +54,7 @@ class Snow {
     this.targetContainer.append(this.snowContainer)
     this.generateSnow(snowQuantity)
     this.getRandomSnowPosition()
-    this.snowMowing(50, 100)
+    this.snowMowing()
   }
 }
 
