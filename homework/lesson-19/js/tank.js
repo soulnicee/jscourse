@@ -34,7 +34,7 @@ class Tank {
     let windowHeight = window.innerHeight
     for (let i = 0; i < this.funnyTanks.length; i++) {
       setInterval(() => {
-        let top = parseInt(this.funnyTanks[i].style.top) + 2 + "px"
+        let top = parseInt(this.funnyTanks[i].style.top) + 3 + "px"
         this.funnyTanks[i].style.top = top
         if (parseInt(this.funnyTanks[i].style.top) > windowHeight - 70) {
           this.funnyTanks[i].style.top = this.getRandomNumber(-1000, -55) + "px"
@@ -54,7 +54,7 @@ class Tank {
           counter--
           console.log(counter)
           if (counter == 0) {
-            alert("Захуярені всі танки")
+            alert("Танки закінчились!")
           }
           allTanks[allTanks.length - 1].remove()
         }, 500)
@@ -70,8 +70,8 @@ class Tank {
     this.generateTank(tankQuantity)
     this.getRandomTankPosition()
     this.tankMoving()
-	 this.killTank()
+    this.killTank()
   }
 }
 let myTank = new Tank(imagePath)
-myTank.render(".main-container", 10)
+myTank.render(".main-container", 40)
