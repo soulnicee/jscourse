@@ -1,7 +1,4 @@
 body {
-	width: 100%;
-	height: 100%;
-	position: relative;
 	padding: 0px;
 }
 
@@ -16,7 +13,7 @@ body {
 .snow {
 	// .snow__container
 	&__container {
-		background: url("/homework/lesson-19/img/snow/background.jpg") 100% 100% / cover no-repeat;
+		background: url("../homework/lesson-19/img/snow/background.jpg") 100% 100% / cover no-repeat;
 		position: relative;
 		width: 100vw;
 		height: 100vh;

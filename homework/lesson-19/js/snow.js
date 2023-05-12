@@ -21,7 +21,7 @@ class Snow {
     let screenWidth = window.innerWidth
     this.snowFlakes = document.querySelectorAll(".snow__item")
     for (let i = 0; i < this.snowFlakes.length; i++) {
-      this.snowFlakes[i].style.left = Math.floor(Math.random() * (screenWidth + 1)) + "px"
+      this.snowFlakes[i].style.left = Math.floor(Math.random() * (screenWidth - 65 + 1)) + "px"
       this.snowFlakes[i].style.top = this.getRandomNumber(-1000, -35) + "px"
     }
   }
@@ -40,7 +40,7 @@ class Snow {
       setInterval(() => {
         let top = parseInt(this.snowFlakes[i].style.top) + 1 + "px"
         this.snowFlakes[i].style.top = top
-        if (parseInt(this.snowFlakes[i].style.top) == windowHeight) {
+        if (parseInt(this.snowFlakes[i].style.top) == windowHeight - 40) {
           this.snowFlakes[i].style.top = -30 + "px"
         }
       }, this.getRandomNumber(35, 85))
