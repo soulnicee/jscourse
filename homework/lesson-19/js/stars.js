@@ -27,7 +27,7 @@ class Star {
     this.screenHeight = window.innerHeight
     this.stars = document.querySelectorAll(".star__item")
     for (let i = 0; i < this.stars.length; i++) {
-      this.stars[i].style.left = Math.floor(Math.random() * (this.screenWidth + 1)) + "px"
+      this.stars[i].style.left = Math.floor(Math.random() * ((this.screenWidth - 60) + 1)) + "px"
       this.stars[i].style.top = Math.floor(Math.random() * (this.screenHeight + 1)) + "px"
     }
   }
@@ -48,7 +48,7 @@ class Star {
         this.stars[i].style.fontSize = size
         if (parseInt(this.stars[i].style.fontSize) == this.maxStarSize) {
           this.stars[i].style.fontSize = this.minStarSize + "px"
-          this.stars[i].style.left = Math.floor(Math.random() * (this.screenWidth + 1)) + "px"
+          this.stars[i].style.left = Math.floor(Math.random() * ((this.screenWidth - 60) + 1)) + "px"
           this.stars[i].style.top = Math.floor(Math.random() * (this.screenHeight + 1)) + "px"
         }
       }, this.getRandomNumber(500, 800))

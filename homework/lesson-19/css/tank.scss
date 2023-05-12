@@ -1,13 +1,6 @@
-body {
-	padding: 0px;
-	background-color: rgb(6, 0, 61);
-}
-
-.star {
+.tank {
 	// .snow__container
 	&__container {
-		width: 100%;
-		height: 100%;
 		position: relative;
 	}
 	// .snow__item
@@ -16,7 +9,10 @@ body {
 		top: 0px;
 		left: 0px;
 		font-size: 30px;
-		color: #0ec2da;
-		animation: animationSnow 20s infinite;
+	}
+	&__image {
+		width: 50px;
+		height: 50px;
+		transform: rotate(180deg);
 	}
 }

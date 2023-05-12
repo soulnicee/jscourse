@@ -1,11 +1,13 @@
 body {
-  width: 100%;
-  height: 100%;
-  position: relative;
   padding: 0px;
   background-color: rgb(6, 0, 61);
 }
 
+.star__container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
 .star__item {
   position: absolute;
   top: 0px;
