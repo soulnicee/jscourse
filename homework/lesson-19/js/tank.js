@@ -34,12 +34,12 @@ class Tank {
     let windowHeight = window.innerHeight
     for (let i = 0; i < this.funnyTanks.length; i++) {
       setInterval(() => {
-        let top = parseInt(this.funnyTanks[i].style.top) + 3 + "px"
+        let top = parseInt(this.funnyTanks[i].style.top) +1 + "px"
         this.funnyTanks[i].style.top = top
         if (parseInt(this.funnyTanks[i].style.top) > windowHeight - 70) {
           this.funnyTanks[i].style.top = this.getRandomNumber(-1000, -55) + "px"
         }
-      }, this.getRandomNumber(35, 85))
+      }, this.getRandomNumber(15, 60))
     }
   }
   killTank() {
