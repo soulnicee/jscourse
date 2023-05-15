@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../css/style.css">
+		<title>Task 0</title>
+	</head>
+	<body>
+		<main>
+			<section class="one">
+				<div class="one__container">
+					<div class="one__block">Hello!</div>
+					<div class="one__block">Hello!</div>
+					<div class="one__block">Hello!</div>
+					<div class="one__block">Hello!</div>
+					<div class="one__block">Hello!</div>
+					<div class="one__block">Hello!</div>
+					<div class="one__block">Hello!</div>
+					<div class="one__block">Hello!</div>
+					<div class="one__block">Hello!</div>
+					<div class="one__block">Hello!</div>
+				</div>
+			</section>
+		</main>
+		<script>
+			// ** 0 **
+const divs = document.querySelector('.one__container')
+console.log(divs);
+function onDivClick() {
+	let div = this
+	while (div.nextElementSibling) {
+		div = div.nextElementSibling
+		div.style.color ='red'
+	}
+
+}
+for (const div of divs.children) {
+	div.onclick = onDivClick
+}
+		</script>
+	</body>
+</html>

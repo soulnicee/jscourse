@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../css/style.css">
+		<title>Task 3</title>
+	</head>
+	<body>
+		<main class="tables">
+			<table class="table">
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+			</table>
+			<table class="table">
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+			</table>
+			<table class="table">
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+			</table>
+		</main>
+		<script>
+			function getRandomNumber(minNum, maxNum) {
+  return minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
+}
+
+const tdList = document.getElementsByTagName("td")
+const tables = document.querySelectorAll(".table")
+for (const item of tdList) {
+  item.innerText = `${getRandomNumber(1, 10)}`
+}
+console.log(tables)
+
+for (const table of tables) {
+  table.addEventListener("click", (e) => {
+    if (e.target.tagName === "TD") {
+      table.style.borderColor = "red"
+    }
+  })
+}
+		</script>
+	</body>
+</html>

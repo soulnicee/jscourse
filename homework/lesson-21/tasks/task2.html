@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../css/style.css">
+		<title>Task 2</title>
+	</head>
+	<body>
+		<section class="lists">
+
+		</section>
+
+		<script>
+			// ** 2 **
+class NumeratedList {
+  constructor(listQuantity) {
+    this.listQuantity = listQuantity
+  }
+  getRandomNumber(minNum, maxNum) {
+    return minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
+  }
+  render(containerSelector) {
+    const container = document.querySelector(containerSelector)
+    let list
+    for (let i = 0; i < this.listQuantity; i++) {
+      list = document.createElement("ol")
+      list.className = "list"
+      const randomItemCount = this.getRandomNumber(1, 10)
+      for (let j = 0; j < randomItemCount; j++) {
+        const li = document.createElement("li")
+        li.className = "list__item"
+        li.innerText = `${this.getRandomNumber(1, 100)}`
+        list.append(li)
+      }
+      container.append(list)
+    }
+    const btn = document.createElement("button")
+    btn.className = "color"
+    btn.innerText = "Color"
+    container.append(btn)
+  }
+}
+
+const myLists = new NumeratedList(5)
+myLists.render(".lists")
+
+const button = document.querySelector(".color")
+function coloredOnClick() {
+  const items = document.querySelectorAll(".list")
+  for (const element of items) {
+    if (element.childNodes.length % 2 === 0) {
+      element.style.color = "green"
+    } else element.style.color = "red"
+  }
+}
+button.onclick = coloredOnClick
+		</script>
+	</body>
+</html>

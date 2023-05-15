@@ -1,0 +1,96 @@
+.one {
+}
+.one__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.one__block {
+  font-size: 24px;
+  letter-spacing: 2px;
+  border: 1px solid #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.two {
+}
+.two__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.two__label {
+  font-size: 24px;
+  letter-spacing: 2px;
+  border: 1px solid #fff;
+  padding: 10px;
+}
+.two__input {
+  font-size: 18px;
+  letter-spacing: 2px;
+  border: 1px solid #fff;
+  height: 20px;
+  padding: 5px;
+}
+
+.lists {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.list {
+}
+.list__item {
+  font-size: 24px;
+  letter-spacing: 2px;
+  border: 1px solid #fff;
+  padding: 2px;
+  text-align: center;
+}
+
+.tables {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.table {
+  border: 1px solid #fff;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.table td {
+  padding: 15px;
+  border: 1px solid #fff;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.form__label {
+  font-size: 24px;
+  letter-spacing: 2px;
+  padding: 2px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.form__input {
+	height: 24px;
+}
