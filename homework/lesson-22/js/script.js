@@ -161,3 +161,55 @@ myBird.fly()
 */
 
 // ** 2 **
+class IsNotANum extends Error {
+  constructor() {
+    super()
+    this.message = "Введені дані не є числом"
+    this.name = "IsNotANum"
+  }
+}
+class IsInRange12 extends Error {
+  constructor() {
+    super()
+    this.message = "Введені дані не в діапазоні 1-12"
+    this.name = "IsInRange12"
+  }
+}
+class IsInRange100 extends Error {
+  constructor() {
+    super()
+    this.message = "Введені дані не в діапазоні 1-100"
+    this.name = "IsInRange100"
+  }
+}
+class IsAVacation extends Error {
+  constructor() {
+    super()
+    this.message = "Введені дані - канікули"
+    this.name = "IsAVacation"
+  }
+}
+
+function cheking() {
+  const firstMonth = 1
+  const lastMonth = 12
+  const startVacation = 6
+  const finishVacation = 8
+  const minMarkValue = 1
+  const maxMarkValue = 100
+  const inputMonth = parseInt(document.querySelector(".input-month").value)
+  const inputMark = parseInt(document.querySelector(".input-mark").value)
+
+  try {
+    if ((inputMonth === 5 || inputMonth === 12) && inputMark <= 20) alert("Учень не може виправити оцінку")
+	 if ((inputMonth === 5 || inputMonth === 12) && inputMark > 20) alert("Учню не потрібно виправляти оцінку")
+	 if ((inputMonth !== 5 && inputMonth !== 12) && inputMark <= 20) alert("Учень може виправити оцінку")
+    
+  } catch (error) {}
+}
+
+const btn = document.querySelector(".button")
+btn.addEventListener("click", () => {
+  cheking()
+})
+console.log(btn)
