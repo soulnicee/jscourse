@@ -159,7 +159,7 @@ let myBird = new Bird(1100, 100, "../img/bird.png", 1)
 myBird.render(".task-2-cnt", "bird")
 myBird.fly()
 */
-
+/*
 // ** 2 **
 class IsNotANum extends Error {
   constructor() {
@@ -201,15 +201,24 @@ function cheking() {
   const inputMark = parseInt(document.querySelector(".input-mark").value)
 
   try {
+    if (isNaN(inputMonth) || isNaN(inputMark)) throw new IsNotANum()
+    if (inputMonth < firstMonth || inputMonth > lastMonth) throw new IsInRange12()
+    if (inputMonth >= startVacation && inputMonth <= finishVacation) throw new IsAVacation()
+    if (inputMark < minMarkValue || inputMark > maxMarkValue) throw new IsInRange100()
     if ((inputMonth === 5 || inputMonth === 12) && inputMark <= 20) alert("Учень не може виправити оцінку")
-	 if ((inputMonth === 5 || inputMonth === 12) && inputMark > 20) alert("Учню не потрібно виправляти оцінку")
-	 if ((inputMonth !== 5 && inputMonth !== 12) && inputMark <= 20) alert("Учень може виправити оцінку")
-    
-  } catch (error) {}
+    if ((inputMonth === 5 || inputMonth === 12) && inputMark > 20) alert("Учню не потрібно виправляти оцінку")
+    if (inputMonth !== 5 && inputMonth !== 12 && inputMark <= 20) alert("Учень може виправити оцінку")
+	 if ((inputMonth !== 5 && inputMonth !== 12) && inputMark > 20) alert("Учню не потрібно виправляти оцінку")
+  } catch (error) {
+    if (error instanceof IsNotANum) alert("Потрібно вводити тільки числа")
+    if (error instanceof IsInRange12) alert("Введіть місяць від 1 до 12")
+    if (error instanceof IsAVacation) alert("Введені місяці - канікули")
+    if (error instanceof IsInRange100) alert("Введіть оцінку від 1 до 100")
+  }
 }
 
 const btn = document.querySelector(".button")
 btn.addEventListener("click", () => {
   cheking()
 })
-console.log(btn)
+*/
