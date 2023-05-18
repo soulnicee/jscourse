@@ -1,0 +1,29 @@
+body {
+  background-color: #fff;
+  height: 100vh;
+}
+.task-2-cnt {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.house {
+  width: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.dog {
+  width: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.bird {
+  width: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

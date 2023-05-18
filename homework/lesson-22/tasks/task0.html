@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../css/style.css">
+		<title>Task 0</title>
+	</head>
+	<body>
+
+		<script src="../js/script.js">
+			// ** 0 **
+class Client {
+  constructor(clientID, clientName, clientMoney) {
+    this.clientID = clientID
+    this.clientName = clientName
+    this.clientMoney = clientMoney
+  }
+  addMoney(money) {
+    this.clientMoney += money
+  }
+  withdrawMoney(money) {
+    this.clientMoney -= money
+  }
+  toString() {
+    return `${this.clientName}, у вас на рахунку ${this.clientMoney}$`
+  }
+}
+
+class GoldenClient extends Client {
+  constructor(clientID, clientName, clientMoney, creditLimit, creditCost) {
+    super(clientID, clientName, clientMoney)
+    this.creditLimit = creditLimit
+    this.creditCost = creditCost
+  }
+  creditMoneyPeny(money) {
+    return (money * this.creditCost) / 100
+  }
+  toString() {
+    return `${this.clientName}, у вас на рахунку ${this.clientMoney}$, ваш кредитний ліміт ${this.creditLimit}$`
+  }
+}
+
+let bankClients = [new GoldenClient(777221356, "Cleopatra", 5000, 15000, 2), new GoldenClient(777221355, "Gomunkul", 5000, 15000, 2), new GoldenClient(777221350, "Odin", 5000, 15000, 2), new GoldenClient(777221359, "Freya", 5000, 15000, 2), new GoldenClient(777221358, "Thor", 5000, 15000, 2), new Client(33524221356, "Eivor", 5000), new Client(33524221356, "Sigurd", 5000), new Client(33524221356, "Zevs", 5000)]
+
+class Bank {
+  constructor(clientsList) {
+    this.clientsList = clientsList
+  }
+  getStandartClient() {
+    let users = this.clientsList.filter((client) => client instanceof GoldenClient === false)
+    return users
+  }
+  getGoldenUser() {
+    let G_users = this.clientsList.filter((client) => client instanceof GoldenClient)
+    return G_users
+  }
+  getSummaryClientsMoney() {
+    return this.clientsList.reduce((prevSum, client) => prevSum + client.clientMoney, 0)
+  }
+}
+
+//-----------------------------------
+let cl1 = new Client(554123558, "Ramzes 13", 1000)
+console.log(cl1.clientMoney)
+
+let cl2 = new GoldenClient(777221356, "Cleopatra", 5000, 15000, 2)
+console.log(cl2.clientID)
+document.write(cl2)
+
+console.log(bankClients)
+
+let myBank = new Bank(bankClients)
+console.log(myBank)
+
+
+console.log(myBank.getGoldenUser())
+console.log(myBank.getStandartClient())
+console.log(myBank.getSummaryClientsMoney())
+
+		</script>
+	</body>
+</html>

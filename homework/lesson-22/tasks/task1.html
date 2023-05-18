@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../css/style.css">
+		<title>Task 1</title>
+	</head>
+	<body>
+		<div class="task-2-cnt">
+
+		</div>
+		<script>
+			// ** 1 **
+
+class Decor {
+  constructor(x, y, imagePath, reloadInterval) {
+    this.x = x
+    this.y = y
+    this.imagePath = imagePath
+    this.reloadInterval = reloadInterval
+  }
+  getRandomNumber(minNum, maxNum) {
+    return minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
+  }
+  render(containerSelector, imageClass) {
+    const container = document.querySelector(containerSelector)
+    this.image = document.createElement("img")
+    this.image.src = `${this.imagePath}`
+    this.image.className = imageClass
+    this.image.style.left = `${this.x}px`
+    this.image.style.top = `${this.y}px`
+    container.append(this.image)
+  }
+}
+
+class House extends Decor {
+  constructor(x, y, imagePath, reloadInterval) {
+    super(x, y, imagePath, reloadInterval)
+  }
+  scale() {
+    setInterval(() => {
+      this.image.style.transform = "scale(1.3)"
+    }, this.reloadInterval * 1000)
+    this.default()
+  }
+  default() {
+    setInterval(() => {
+      this.image.style.transform = "scale(1.01)"
+    }, (this.reloadInterval + 1) * 1000)
+  }
+}
+let myHouse = new House(450, 150, "../img/house.png", 3)
+myHouse.render(".task-2-cnt", "house")
+myHouse.scale()
+
+class Dog extends Decor {
+  constructor(x, y, imagePath, reloadInterval) {
+    super(x, y, imagePath, reloadInterval)
+  }
+  move() {
+    let startPosition = this.x
+    let newPosition = startPosition
+    let width = window.screenLeft
+    setInterval(() => {
+      this.image.style.left = `${newPosition}px`
+      newPosition += this.getRandomNumber(5, 15)
+      if (newPosition >= width - 120) newPosition = startPosition
+    }, this.reloadInterval * 1000)
+  }
+}
+let myDog = new Dog(500, 600, "../img/dog.png", 1)
+myDog.render(".task-2-cnt", "dog")
+myDog.move()
+
+class Bird extends Decor {
+  constructor(x, y, imagePath, reloadInterval) {
+    super(x, y, imagePath, reloadInterval)
+  }
+  fly() {
+    let startPositionX = this.x
+	 let startPositionY = this.y
+    let newPositionX = startPositionX
+	 let newPositionY = startPositionY
+    let width = window.innerWidth
+	 let height = window.innerHeight
+	 console.log(width)
+	 console.log(height)
+    setInterval(() => {
+      this.image.style.left = `${newPositionX}px`
+		this.image.style.top = `${newPositionY}px`
+      newPositionX += this.getRandomNumber(-10, 10)
+		newPositionY += this.getRandomNumber(-10, 10)
+      if (newPositionX < 100 || newPositionX >= width - 100) newPositionX = startPositionX
+		if (newPositionY < height || newPositionY > height) newPositionY = startPositionY
+    }, this.reloadInterval * 1000)
+  }
+}
+
+let myBird = new Bird(1100, 100, "../img/bird.png", 1)
+myBird.render(".task-2-cnt", "bird")
+myBird.fly()
+		</script>
+	</body>
+</html>
