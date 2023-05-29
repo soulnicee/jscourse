@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../css/style.css">
+		<link rel="stylesheet" href="../css/style.css">
+		<title>Task 0</title>
+	</head>
+	<body>
+		<div class="user-color">
+			<input type="color" id="color-change" class="user-color-change">
+		</div>
+
+		<script>
+function changeAndSaveColorData(item, color) {
+	item.style.backgroundColor = color
+	localStorage.setItem("backgroundColor", color)
+}
+window.onload = function () {
+  let savedBgColor = localStorage.getItem("backgroundColor")
+  let container = document.querySelector(".user-color")
+  if (savedBgColor) {
+    container.style.backgroundColor = savedBgColor
+  }
+
+  let colorChanger = document.getElementById("color-change")
+  let changeColorCounter = 0
+  colorChanger.addEventListener("change", () => {
+    savedBgColor = colorChanger.value
+	 changeAndSaveColorData(container, savedBgColor)
+    changeColorCounter++
+    sessionStorage.setItem("changes", changeColorCounter)
+  })
+}
+		</script>
+	</body>
+</html>

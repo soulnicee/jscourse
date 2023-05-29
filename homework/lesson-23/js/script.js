@@ -208,3 +208,4 @@ let expr = /sun|sat|0|6/i
 if (expr.test(userDay)) console.log("Вихідний")
 else console.log("Йди працюй")
 */
+
